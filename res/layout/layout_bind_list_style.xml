@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:gravity="center_vertical"
+    android:minHeight="60dip"
+    android:layout_marginBottom="10dip"
+    android:layout_marginTop="10dip" 
+    android:background="@drawable/input_textedit">
+
+    <ImageView
+        android:id="@+id/shebeitupian"
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="2dip"
+        android:background="@drawable/belt"/>
+    <View
+        android:layout_width="1dip"
+        android:layout_height="80dip"
+        android:background="#DCDCDC" 
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="10dip"
+        android:layout_toRightOf="@id/shebeitupian"
+        />
+	<Button
+        android:id="@+id/delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/delete"
+        />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/shebeitupian"
+        android:layout_toLeftOf="@id/delete_button"
+        android:orientation="vertical"
+        android:paddingTop="10dip"
+        android:paddingBottom="10dip">
+
+        <TextView
+            android:id="@+id/binddevicename_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:text="智能手环"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            android:layout_marginBottom="3dip" />
+		<ImageView 
+		    android:id="@+id/dianliang_imageview"
+		    android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fullelectricity"
+            android:layout_marginLeft="10dip"
+		    />
+        <TextView	
+            android:id="@+id/devicenumber_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:text="设备编号:123456"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            android:layout_marginTop="3dip" />
+    </LinearLayout>
+    
+</RelativeLayout>

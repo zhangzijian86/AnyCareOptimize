@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#F0F0F0">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="11"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        >
+        <ImageView
+            android:id="@+id/gerenxinxitu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6dip"
+            android:background="@drawable/zuo" />
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="添加个人信息"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="#FD7A5C"
+            />
+        <ImageView
+            android:id="@+id/gerenxinxiduigou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6dip"
+            android:background="@drawable/duigou" />
+    </RelativeLayout>
+	<LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+	        android:id="@+id/gerenxinxilan"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="24dip"
+	        android:layout_marginRight="24dip"
+	        android:layout_marginTop="30dip"
+	        android:background="#ffffff" 
+	        android:gravity="center"
+	        >
+	
+	        <ImageView
+	            android:id="@+id/gerenxinxitouxiang"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginBottom="8dip"
+	            android:layout_marginTop="8dip"
+	            android:background="@drawable/touxiang"/>
+	    </LinearLayout>
+	    <LinearLayout
+	        android:id="@+id/gerenxinxilan1"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_marginLeft="24dip"
+	        android:layout_marginRight="24dip"
+	        android:layout_marginTop="20dip"
+	        android:background="#ffffff"
+	        android:orientation="vertical"
+	        android:layout_weight="7" >
+	        <LinearLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:layout_weight="1" >
+	
+	            <TextView
+	                android:id="@+id/xingming"
+	                android:layout_width="fill_parent"
+	                android:layout_height="fill_parent"
+	                android:layout_weight="1"
+	                android:text="姓名：那什"
+	                android:textSize="15sp"
+	                android:gravity="bottom" />
+	
+	            <TextView
+	                android:id="@+id/nicheng"
+	                android:layout_width="fill_parent"
+	                android:layout_height="fill_parent"
+	                android:layout_weight="1"
+	                android:text="昵称：领携主演"
+	                android:textSize="15sp"
+	                android:gravity="bottom" />
+	        </LinearLayout>
+	        <View
+	            android:layout_width="match_parent"
+	            android:layout_height="1dip"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:background="#DCDCDC" />
+	
+	        <LinearLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:layout_weight="1" >
+	
+	            <TextView
+	                android:id="@+id/xingbie"
+	                android:layout_width="fill_parent"
+	                android:layout_height="fill_parent"
+	                android:layout_weight="1"
+	                android:text="性别：男"
+	                android:textSize="15sp"
+	                android:gravity="bottom" />
+	
+	            <TextView
+	                android:id="@+id/shengri"
+	                android:layout_width="fill_parent"
+	                android:layout_height="fill_parent"
+	                android:layout_weight="1"
+	                android:text="生日：1988.3.15"
+	                android:textSize="15sp"
+	                android:gravity="bottom" />
+	        </LinearLayout>
+	
+	        <View
+	            android:layout_width="match_parent"
+	            android:layout_height="1dip"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:background="#DCDCDC" />
+	
+	        <LinearLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:layout_weight="1" >
+	
+	            <TextView
+	                android:id="@+id/shengao"
+	                android:layout_width="fill_parent"
+	                android:layout_height="fill_parent"
+	                android:layout_weight="1"
+	                android:text="身高：173cm"
+	                android:textSize="15sp"
+	                android:gravity="bottom" />
+	
+	            <TextView
+	                android:id="@+id/tizhong"
+	                android:layout_width="fill_parent"
+	                android:layout_height="fill_parent"
+	                android:layout_weight="1"
+	                android:text="体重：90KG"
+	                android:textSize="15sp"
+	                android:gravity="bottom" />
+	        </LinearLayout>
+	
+	        <View
+	            android:layout_width="match_parent"
+	            android:layout_height="1dip"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:background="#DCDCDC" />
+	
+	        <TextView
+	            android:id="@+id/fanxiang"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:layout_weight="1"
+	            android:text="定位反向查询：开启"
+	            android:textSize="15sp"
+	            android:gravity="bottom" />
+	        <View
+	            android:layout_width="match_parent"
+	            android:layout_height="1dip"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:background="#DCDCDC"
+	            android:layout_marginBottom="2dip" />
+	    </LinearLayout>
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_marginLeft="24dip"
+	        android:layout_marginRight="24dip"
+	        android:layout_marginTop="10dip"
+	        android:layout_marginBottom="20dip"
+	        android:background="#FFFFFF"
+	        android:layout_weight="6"
+	        android:orientation="vertical" >
+			<LinearLayout 
+			    android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:orientation="horizontal"
+	            android:paddingLeft="10dip"
+	            android:paddingRight="10dip"
+	            android:layout_weight="1"
+	            android:gravity="bottom"
+			    >
+				<TextView
+		            android:id="@+id/medicalhistory1"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:textSize="16sp" />
+				<TextView
+		            android:id="@+id/medicalhistory2"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:textSize="16sp" />
+				<TextView
+		            android:id="@+id/medicalhistory3"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:textSize="16sp" />
+			</LinearLayout>
+	        <View
+	            android:layout_width="match_parent"
+	            android:layout_height="1dip"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:background="#DCDCDC" />
+			<LinearLayout 
+			    android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:orientation="horizontal"
+	            android:paddingLeft="10dip"
+	            android:paddingRight="10dip"
+	            android:layout_weight="1"
+	            android:gravity="bottom"
+			    >
+				<TextView
+		            android:id="@+id/medicalhistory4"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:textSize="16sp" />
+				<TextView
+		            android:id="@+id/medicalhistory5"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:textSize="16sp" />
+				<TextView
+		            android:id="@+id/medicalhistory6"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:textSize="16sp" />
+			</LinearLayout>
+	        <View
+	            android:layout_width="match_parent"
+	            android:layout_height="1dip"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:background="#DCDCDC" />
+			<LinearLayout 
+			    android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:orientation="horizontal"
+	            android:paddingLeft="10dip"
+	            android:paddingRight="10dip"
+	            android:layout_weight="1"
+	            android:gravity="bottom"
+			    >
+				<TextView
+		            android:id="@+id/medicalhistory7"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:textSize="16sp" />
+				<TextView
+		            android:id="@+id/medicalhistory8"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:textSize="16sp" />
+				<TextView
+		            android:id="@+id/medicalhistory9"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:textSize="16sp" />
+			</LinearLayout>
+	        <View
+	            android:layout_width="match_parent"
+	            android:layout_height="1dip"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:background="#DCDCDC" />
+	        <LinearLayout 
+			    android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:orientation="horizontal"
+	            android:paddingLeft="10dip"
+	            android:paddingRight="10dip"
+	            android:layout_weight="1"
+	            android:gravity="bottom"
+			    >
+				<TextView
+		            android:id="@+id/medicalhistory10"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:textSize="16sp" />
+				<TextView
+		            android:id="@+id/medicalhistory11"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:textSize="16sp" />
+				<TextView
+		            android:id="@+id/medicalhistory12"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:textSize="16sp" />
+			</LinearLayout>
+			<View
+	            android:layout_width="match_parent"
+	            android:layout_height="1dip"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:background="#DCDCDC" />
+			<LinearLayout 
+			    android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:orientation="horizontal"
+	            android:paddingLeft="10dip"
+	            android:paddingRight="10dip"
+	            android:layout_weight="1"
+	            android:gravity="bottom"
+			    >
+				<TextView
+		            android:id="@+id/medicalhistory13"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:textSize="16sp" />
+				<TextView
+		            android:id="@+id/medicalhistory14"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:textSize="16sp" />
+				<TextView
+		            android:id="@+id/medicalhistory15"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:gravity="center_vertical"
+		            android:layout_weight="1"
+		            android:textSize="16sp"
+		            />
+			</LinearLayout>
+			<View
+	            android:layout_width="match_parent"
+	            android:layout_height="1dip"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginRight="10dip"
+	            android:background="#DCDCDC" 
+	            android:layout_marginBottom="2dip"/>
+	    </LinearLayout>
+    </LinearLayout>    
+    
+
+</LinearLayout>

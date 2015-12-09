@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:gravity="center_vertical"
+    android:minHeight="60dip"
+    android:paddingBottom="5dip"
+    android:paddingLeft="0dip"
+    android:paddingRight="0dip" >
+
+    <ImageView
+        android:id="@+id/yonghutouxiang_yuan"
+        android:layout_width="55dip"
+        android:layout_height="55dip"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="0dip"
+        android:background="@drawable/touxiang" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/yonghutouxiang_yuan"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/bindnickname_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24dip"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/devicenumber_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24dip"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+	<Button
+        android:id="@+id/delete_button"
+        android:layout_width="25dip"
+        android:layout_height="25dip"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="0dip"
+        android:background="@drawable/delete2"
+        android:paddingLeft="10dip"
+        android:paddingRight="15dip"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+	<Button
+        android:id="@+id/maintain_button"
+        android:layout_width="25dip"
+        android:layout_height="25dip"
+        android:layout_toLeftOf="@id/delete_button"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/bianji"
+        android:paddingLeft="10dip"
+        android:paddingRight="15dip"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+</RelativeLayout>

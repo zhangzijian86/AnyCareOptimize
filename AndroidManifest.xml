@@ -1,0 +1,212 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.fuer.main.anycare"
+    android:versionCode="1"
+    android:versionName="1.1_4" >
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="10" />
+	<!--使用网络功能所需权限  start-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--使用网络功能所需权限  end-->
+    <!-- 在SDCard中创建与删除文件权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />  
+    <!-- 往SDCard写入数据权限 -->  
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
+    
+	<uses-feature android:name="android.hardware.camera" />
+	<uses-feature android:name="android.hardware.camera.autofocus" />
+	
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+	<supports-screens
+	    android:anyDensity="true"  
+		android:largeScreens="true" 
+		android:normalScreens="true"  
+		android:smallScreens="true"
+		android:resizeable="true"/>
+    <application
+        android:name="com.fuer.anycare.common.application.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar" >
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="WZS7ptisvsn8Apjd60CxmaBA"/>
+        <!-- GuideViewActivity -->
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.initial.activity.GuideViewActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+        <!-- AnyCareSplashActivity-->
+        <activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.splash.activity.AnyCareSplashActivity">
+			<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+		</activity>
+		<!-- LoginActivity -->
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.login.activity.AnyCareLoginActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+		<!-- AnyCareMainActivity -->
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.main.activity.AnyCareMainActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+        <!-- AnyCareRegister1Activity -->
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.register.activity.AnyCareRegister1Activity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+        <activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.register.activity.AnyCareRegister2Activity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+    	<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.forget.activity.AnyCareForgetActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+        
+    	<!-- AddArchByIdActivity -->
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.archives.activity.AddArchByIdActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+        <!-- AddArchivesFirstActivity -->
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.archives.activity.AddArchivesFirstActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+		<!-- AddArchivesSecondActivity -->
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.archives.activity.AddArchivesSecondActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+        <!-- ArchivesShowActivity -->
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.archives.activity.ArchivesShowActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+		
+		
+    	<!-- AnyCareSetActivity -->
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.set.activity.AnyCareSetActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+        <!-- AnyCareAddActivity -->
+		<activity  android:name="com.fuer.anycare.bind.activity.AnyCareAddActivity" android:screenOrientation="portrait" android:configChanges="orientation|keyboardHidden" android:windowSoftInputMode="stateAlwaysHidden"></activity>
+		<!-- CaptureActivity -->
+		<activity  android:name="com.zbar.lib.CaptureActivity" android:screenOrientation="portrait" android:configChanges="orientation|keyboardHidden" android:windowSoftInputMode="stateAlwaysHidden"></activity>
+		
+		<!-- AnyCareBindActivity -->
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.bind.activity.AnyCareBindActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+   		<!-- AnyCareMapActivity -->
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.map.activity.AnyCareMapActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+		<!-- AnyCareJpushMapActivity -->
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.map.activity.AnyCareJpushMapActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+		
+		<!-- AnyCareAlterPasswordActivity -->
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.set.activity.AnyCareAlterPasswordActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+		
+		<!-- AnyCareAboutUsActivity -->
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.set.activity.AnyCareAboutUsActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+		
+		<!-- AnyCareAdviceActivity -->
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.set.activity.AnyCareAdviceActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+		
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.huodongliang.activity.HuoDongLiangActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+		
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.fuer.anycare.warning.activity.WarningActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+		
+		<!-- add by ma_yming 极光 **********************************************************************-->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true" >
+          <intent-filter android:priority="1000"> <!--since 1.3.5 -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" /> <!--since 1.3.5 -->
+                <category android:name="com.fuer.main.anycare" /> <!--since 1.3.5 -->
+            </intent-filter> <!--since 1.3.5 -->
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" /><!-- 接收网络信号改变的广播 -->
+                <action android:name="android.intent.action.BOOT_COMPLETED" /><!-- 接收开机启动广播 -->
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <!-- Required SDK核心功能-->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.fuer.main.anycare" />
+            </intent-filter>
+        </activity>
+        <!-- Required SDK核心功能-->
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+        <!-- Required SDK核心功能-->
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
+        <!-- Required. For publish channel feature -->
+        <!-- JPUSH_CHANNEL 是为了方便开发者统计APK分发渠道。-->
+        <!-- 例如: -->
+        <!-- 发到 Google Play 的APK可以设置为 google-play; -->
+        <!-- 发到其他市场的 APK 可以设置为 xxx-market。 -->
+        <!-- 目前这个渠道统计功能的报表还未开放。-->
+        <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
+        <!-- Required. AppKey copied from Portal -->
+        <meta-data android:name="JPUSH_APPKEY" android:value="031220aa0c60f72f48bc1236"/> 
+        <receiver
+            android:name="com.fuer.anycare.jpush.myreceiver.MyJPushReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!--Required  用户注册SDK的intent-->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!--Required  用户接收SDK消息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!--Required  用户接收SDK通知栏信息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!--Required  用户打开自定义通知栏的intent-->
+                <action android:name="cn.jpush.android.intent.CONNECTION" /><!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="com.fuer.main.anycare" />
+            </intent-filter>
+        </receiver>
+    	<!-- add by ma_yming 极光 end***************************************************************-->
+    </application>
+	<!-- 百度地图权限start -->
+    <permission android:name="android.permission.BAIDU_LOCATION_SERVICE" ></permission>
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" ></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" ></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" ></uses-permission>
+    <!-- <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"></uses-permission> -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" ></uses-permission>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" ></uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- SDK1.5需要android.permission.GET_TASKS权限判断本程序是否为当前运行的应用? -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CAMERA" ></uses-permission>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" ></uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!-- 来电消音 -->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" ></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- 百度地图权限end -->
+    
+     <!-- add by ma_yming 极光 *********************************************************************************-->
+    <!-- Required -->
+    <permission android:name="com.fuer.main.anycare.permission.JPUSH_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="com.fuer.main.anycare.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>  
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!-- add by ma_yming 极光 end*****************************************************************************-->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />  
+	<uses-permission android:name="android.permission.USE_CREDENTIALS" />  
+	<uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />  
+	<uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />  
+</manifest>

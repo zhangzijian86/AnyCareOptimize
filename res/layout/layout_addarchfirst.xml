@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#F0F0F0">
+	<RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="11"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        >
+        <ImageView
+            android:id="@+id/gerenxinxiitu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6dip"
+            android:background="@drawable/zuo" />
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="添加个人信息"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="#FD7A5C"
+            />
+        <ImageView
+            android:id="@+id/gerenduigou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6dip"
+            android:background="@drawable/duigou" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+	        android:id="@+id/line0"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="25dip"
+	        android:layout_marginRight="25dip"
+	        android:layout_marginTop="40dip"
+	        android:orientation="horizontal" >
+	        <TextView
+	            android:id="@+id/xingmingtext"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:gravity="center_vertical"
+	            android:text="姓名"
+	            android:textColor="#333333"
+	            android:textSize="18sp" />
+	
+	        <EditText
+	            android:id="@+id/xingming"
+	            android:layout_width="0dip"
+	            android:layout_height="match_parent"
+	            android:layout_marginLeft="15dip"
+	            android:layout_weight="1"
+	            android:background="@drawable/input_textedit"
+	            android:paddingBottom="7dip"
+	            android:paddingLeft="10dip"
+	            android:paddingRight="10dip"
+	            android:paddingTop="7dip" />
+	    </LinearLayout>
+	
+	    <LinearLayout
+	        android:id="@+id/line1"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="25dip"
+	        android:layout_marginRight="25dip"
+	        android:layout_marginTop="10dip"
+	        android:orientation="horizontal" >
+	
+	        <TextView
+	            android:id="@+id/nichengtext"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:gravity="center_vertical"
+	            android:text="昵称"
+	            android:textColor="#333333"
+	            android:textSize="18sp" />
+	
+	        <EditText
+	            android:id="@+id/nicheng"
+	            android:layout_width="0dip"
+	            android:layout_height="match_parent"
+	            android:layout_marginLeft="15dip"
+	            android:layout_weight="1"
+	            android:background="@drawable/input_textedit"
+	            android:paddingBottom="7dip"
+	            android:paddingLeft="10dip"
+	            android:paddingRight="10dip"
+	            android:paddingTop="7dip" />
+	    </LinearLayout>
+	
+	    <LinearLayout
+	        android:id="@+id/line2"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="25dip"
+	        android:layout_marginRight="25dip"
+	        android:layout_marginTop="10dip"
+	        android:orientation="horizontal" >
+	
+	        <TextView
+	            android:id="@+id/xingbietext"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:gravity="center_vertical"
+	            android:text="性别"
+	            android:textColor="#333333"
+	            android:textSize="18sp" />
+	
+	        <Button
+	            android:id="@+id/nan"
+	            android:layout_width="0dp"
+	            android:layout_height="match_parent"
+	            android:layout_marginLeft="15dip"
+	            android:layout_weight="1"
+	            android:background="@drawable/zuoselectbutton"
+	            android:gravity="center"
+	            android:text="男"
+	            android:textColor="#d3d3d3"
+	            android:textSize="18sp"
+	            android:paddingTop="7dip"
+	            android:paddingBottom="7dip" />
+	
+	        <Button
+	            android:id="@+id/nv"
+	            android:layout_width="0dp"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:background="@drawable/youunselectbutton"
+	            android:gravity="center"
+	            android:text="女"
+	            android:textColor="#d3d3d3"
+	            android:textSize="18sp"
+	            android:paddingTop="7dip"
+	            android:paddingBottom="7dip" />
+	    </LinearLayout>
+	
+	    <LinearLayout
+	        android:id="@+id/line3"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="25dip"
+	        android:layout_marginRight="25dip"
+	        android:layout_marginTop="10dip"
+	        android:orientation="horizontal" >
+	
+	        <TextView
+	            android:id="@+id/shengritext"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:gravity="center_vertical"
+	            android:text="生日"
+	            android:textColor="#333333"
+	            android:textSize="18sp" />
+	
+	        <EditText
+	            android:id="@+id/shengri"
+	            android:layout_width="0dip"
+	            android:layout_height="match_parent"
+	            android:layout_marginLeft="15dip"
+	            android:layout_weight="15"
+	            android:background="@drawable/zuounselectbutton"
+	            android:paddingBottom="7dip"
+	            android:paddingLeft="10dip"
+	            android:paddingRight="10dip"
+	            android:paddingTop="7dip"
+	            android:clickable="false" />
+	        <Button
+	            android:id="@+id/shengriselect"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:background="@drawable/youselectbutton"
+	            android:gravity="center"
+	            android:paddingLeft="10dip"
+	            android:paddingRight="10dip"
+	            android:text="选择"
+	            android:textColor="#d3d3d3"
+	            android:textSize="18sp"
+	            android:layout_weight="1" />
+	    </LinearLayout>
+	
+	    <LinearLayout
+	        android:id="@+id/line4"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="25dip"
+	        android:layout_marginRight="25dip"
+	        android:layout_marginTop="10dip"
+	        android:orientation="horizontal" >
+	
+	        <TextView
+	            android:id="@+id/shengaotext"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:gravity="center_vertical"
+	            android:text="身高"
+	            android:textColor="#333333"
+	            android:textSize="18sp" />
+	
+	        <EditText
+	            android:id="@+id/shengao"
+	            android:layout_width="0dip"
+	            android:layout_height="match_parent"
+	            android:layout_marginLeft="15dip"
+	            android:layout_weight="15"
+	            android:background="@drawable/zuounselectbutton"
+	            android:paddingBottom="7dip"
+	            android:paddingLeft="10dip"
+	            android:paddingRight="10dip"
+	            android:paddingTop="7dip"
+	            android:inputType="number" />
+	
+	        <Button
+	            android:id="@+id/cm"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:background="@drawable/youselectbutton"
+	            android:gravity="center"
+	            android:paddingLeft="10dip"
+	            android:paddingRight="10dip"
+	            android:text="厘米"
+	            android:textColor="#d3d3d3"
+	            android:textSize="18sp"
+	            android:layout_weight="1"
+	            android:clickable="false" />
+	        	
+	    </LinearLayout>
+	
+	    <LinearLayout
+	        android:id="@+id/line5"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="25dip"
+	        android:layout_marginRight="25dip"
+	        android:layout_marginTop="10dip"
+	        android:orientation="horizontal" >
+	
+	        <TextView
+	            android:id="@+id/tizhongtext"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:gravity="center_vertical"
+	            android:text="体重"
+	            android:textColor="#333333"
+	            android:textSize="18sp"/>
+	
+	        <EditText
+	            android:id="@+id/tizhong"
+	            android:layout_width="0dip"
+	            android:layout_height="match_parent"
+	            android:layout_marginLeft="15dip"
+	            android:layout_weight="15"
+	            android:background="@drawable/zuounselectbutton"
+	            android:paddingBottom="7dip"
+	            android:paddingLeft="10dip"
+	            android:paddingRight="10dip"
+	            android:paddingTop="7dip"
+	            android:inputType="number" />
+	
+	        <Button
+	            android:id="@+id/kg"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:background="@drawable/youselectbutton"
+	            android:gravity="center"
+	            android:paddingLeft="10dip"
+	            android:paddingRight="10dip"
+	            android:text="千克"
+	            android:layout_weight="1"
+	            android:textColor="#d3d3d3"
+	            android:textSize="18sp" />
+	    </LinearLayout>
+	
+	    <TextView
+	        android:id="@+id/dingweifanxiangtext"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="15dip"
+	        android:gravity="center_vertical"
+	        android:text="定位反向查询"
+	        android:textColor="#333333"
+	        android:textSize="18sp"
+	        android:layout_gravity="center" />
+	
+	    <LinearLayout
+	        android:id="@+id/dingweiline"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="25dip"
+	        android:layout_marginRight="25dip"
+	        android:layout_marginTop="10dip"
+	        android:orientation="horizontal" >
+	
+	        <Button
+	            android:id="@+id/kaiqi"
+	            android:layout_width="0dp"
+	            android:layout_height="fill_parent"
+	            android:layout_weight="1"
+	            android:background="@drawable/zuoselectbutton"
+	            android:gravity="center"
+	            android:text="开启"
+	            android:textColor="#d3d3d3"
+	            android:textSize="18sp"
+	            android:paddingBottom="7dip"
+	            android:paddingTop="7dip" />
+	
+	        <Button
+	            android:id="@+id/guanbi"
+	            android:layout_width="0dp"
+	            android:layout_height="fill_parent"
+	            android:layout_weight="1"
+	            android:background="@drawable/youunselectbutton"
+	            android:gravity="center"
+	            android:text="关闭"
+	            android:textColor="#d3d3d3"
+	            android:textSize="18sp"
+	            android:paddingBottom="7dip"
+	            android:paddingTop="7dip" />
+	    </LinearLayout>
+    </LinearLayout>    
+</LinearLayout>
