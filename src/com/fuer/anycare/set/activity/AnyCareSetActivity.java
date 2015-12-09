@@ -40,7 +40,7 @@ public class AnyCareSetActivity extends Activity {
 	private Button yijianfankuiBtn;
 	private Button guanyuwomenBtn;
 	/**
-     * ¼ì²â·şÎñÆ÷°æ±¾¸üĞÂËùÓÃ²ÎÊı
+     * æ£€æµ‹æœåŠ¡å™¨ç‰ˆæœ¬æ›´æ–°æ‰€ç”¨å‚æ•°
      * */
     private final String TAG = this.getClass().getName();
 	private final int UPDATA_NONEED = 0;
@@ -85,7 +85,7 @@ public class AnyCareSetActivity extends Activity {
 					startActivity(new Intent(AnyCareSetActivity.this,AnyCareAlterPasswordActivity.class));
 					break;
 				case R.id.jianchagengxin:
-					//×Ô¶¯¼ì²â°æ±¾Óï¾ä¿ªÊ¼
+					//è‡ªåŠ¨æ£€æµ‹ç‰ˆæœ¬è¯­å¥å¼€å§‹
 					try{
 						localVersion = getVersionName();
 						CheckVersionTask cv = new CheckVersionTask();
@@ -93,7 +93,7 @@ public class AnyCareSetActivity extends Activity {
 					}catch(Exception e){
 						e.printStackTrace();
 					}
-					//×Ô¶¯¼ì²â°æ±¾Óï¾ä½áÊø
+					//è‡ªåŠ¨æ£€æµ‹ç‰ˆæœ¬è¯­å¥ç»“æŸ
 					break;
 				case R.id.yijianfankui:
 					startActivity(new Intent(AnyCareSetActivity.this,AnyCareAdviceActivity.class));
@@ -107,26 +107,26 @@ public class AnyCareSetActivity extends Activity {
 	}
 	
 	/*
-	 * »ñÈ¡µ±Ç°³ÌĞòµÄ°æ±¾ºÅ
+	 * è·å–å½“å‰ç¨‹åºçš„ç‰ˆæœ¬å·
 	 */
 	private String getVersionName() throws Exception {
-		// »ñÈ¡packagemanagerµÄÊµÀı
+		// è·å–packagemanagerçš„å®ä¾‹
 		PackageManager packageManager = getPackageManager();
-		// getPackageName()ÊÇÄãµ±Ç°ÀàµÄ°üÃû£¬0´ú±íÊÇ»ñÈ¡°æ±¾ĞÅÏ¢
+		// getPackageName()æ˜¯ä½ å½“å‰ç±»çš„åŒ…åï¼Œ0ä»£è¡¨æ˜¯è·å–ç‰ˆæœ¬ä¿¡æ¯
 		PackageInfo packInfo = packageManager.getPackageInfo(getPackageName(),0);
 		return packInfo.versionName;
 	}
 	
 	/*
-	 * ´Ó·şÎñÆ÷»ñÈ¡xml½âÎö²¢½øĞĞ±È¶Ô°æ±¾ºÅ
+	 * ä»æœåŠ¡å™¨è·å–xmlè§£æå¹¶è¿›è¡Œæ¯”å¯¹ç‰ˆæœ¬å·
 	 */
 	public class CheckVersionTask implements Runnable {
 
 		public void run() {
 			try {
-				// ´Ó×ÊÔ´ÎÄ¼ş»ñÈ¡·şÎñÆ÷ µØÖ·
+				// ä»èµ„æºæ–‡ä»¶è·å–æœåŠ¡å™¨ åœ°å€
 				String path = getResources().getString(R.string.url_server);
-				// °ü×°³ÉurlµÄ¶ÔÏó
+				// åŒ…è£…æˆurlçš„å¯¹è±¡
 				URL url = new URL(path);
 				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 				conn.setConnectTimeout(5000);
@@ -142,7 +142,7 @@ public class AnyCareSetActivity extends Activity {
 					handler.sendMessage(msg);
 				}
 			} catch (Exception e) {
-				// ´ı´¦Àí
+				// å¾…å¤„ç†
 				Message msg = new Message();
 				msg.what = GET_UNDATAINFO_ERROR;
 				handler.sendMessage(msg);
@@ -160,25 +160,25 @@ public class AnyCareSetActivity extends Activity {
 			super.handleMessage(msg);
 			switch (msg.what) {
 			case UPDATA_NONEED:
-				Toast.makeText(getApplicationContext(), "×îĞÂ°æ±¾ÎŞĞèÉı¼¶",Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "æœ€æ–°ç‰ˆæœ¬æ— éœ€å‡çº§",Toast.LENGTH_SHORT).show();
 				break;
 			case UPDATA_CLIENT:
-				// ¶Ô»°¿òÍ¨ÖªÓÃ»§Éı¼¶³ÌĞò
-				// Toast.makeText(getApplicationContext(), "¿ÉÒÔÉı¼¶³ÌĞòÀ²~",1).show();
+				// å¯¹è¯æ¡†é€šçŸ¥ç”¨æˆ·å‡çº§ç¨‹åº
+				// Toast.makeText(getApplicationContext(), "å¯ä»¥å‡çº§ç¨‹åºå•¦~",1).show();
 				showUpdataDialog();
 				break;
 			case GET_UNDATAINFO_ERROR:
-				// ·şÎñÆ÷³¬Ê±
-				Toast.makeText(getApplicationContext(), "»ñÈ¡·şÎñÆ÷¸üĞÂĞÅÏ¢Ê§°Ü", 1).show();
+				// æœåŠ¡å™¨è¶…æ—¶
+				Toast.makeText(getApplicationContext(), "è·å–æœåŠ¡å™¨æ›´æ–°ä¿¡æ¯å¤±è´¥", 1).show();
 				// LoginMain();
 				break;
 			case SDCARD_NOMOUNTED:
-				// sdcard²»¿ÉÓÃ
-				Toast.makeText(getApplicationContext(), "SD¿¨²»¿ÉÓÃ",1).show();
+				// sdcardä¸å¯ç”¨
+				Toast.makeText(getApplicationContext(), "SDå¡ä¸å¯ç”¨",1).show();
 				break;
 			case DOWN_ERROR:
-				// ÏÂÔØapkÊ§°Ü
-				Toast.makeText(getApplicationContext(), "ÏÂÔØĞÂ°æ±¾Ê§°Ü", 1).show();
+				// ä¸‹è½½apkå¤±è´¥
+				Toast.makeText(getApplicationContext(), "ä¸‹è½½æ–°ç‰ˆæœ¬å¤±è´¥", 1).show();
 				// LoginMain();
 				break;
 			}
@@ -188,24 +188,24 @@ public class AnyCareSetActivity extends Activity {
 	
 	/*
 	 * 
-	 * µ¯³ö¶Ô»°¿òÍ¨ÖªÓÃ»§¸üĞÂ³ÌĞò
+	 * å¼¹å‡ºå¯¹è¯æ¡†é€šçŸ¥ç”¨æˆ·æ›´æ–°ç¨‹åº
 	 * 
-	 * µ¯³ö¶Ô»°¿òµÄ²½Öè£º 1.´´½¨alertDialogµÄbuilder. 2.Òª¸øbuilderÉèÖÃÊôĞÔ, ¶Ô»°¿òµÄÄÚÈİ,ÑùÊ½,°´Å¥
-	 * 3.Í¨¹ıbuilder ´´½¨Ò»¸ö¶Ô»°¿ò 4.¶Ô»°¿òshow()³öÀ´
+	 * å¼¹å‡ºå¯¹è¯æ¡†çš„æ­¥éª¤ï¼š 1.åˆ›å»ºalertDialogçš„builder. 2.è¦ç»™builderè®¾ç½®å±æ€§, å¯¹è¯æ¡†çš„å†…å®¹,æ ·å¼,æŒ‰é’®
+	 * 3.é€šè¿‡builder åˆ›å»ºä¸€ä¸ªå¯¹è¯æ¡† 4.å¯¹è¯æ¡†show()å‡ºæ¥
 	 */
 	protected void showUpdataDialog() {
 		AlertDialog.Builder builer = new Builder(this);
-		builer.setTitle("°æ±¾Éı¼¶");
+		builer.setTitle("ç‰ˆæœ¬å‡çº§");
 		builer.setMessage(info.getDescription());
-		// µ±µãÈ·¶¨°´Å¥Ê±´Ó·şÎñÆ÷ÉÏÏÂÔØ ĞÂµÄapk È»ºó°²×°
-		builer.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+		// å½“ç‚¹ç¡®å®šæŒ‰é’®æ—¶ä»æœåŠ¡å™¨ä¸Šä¸‹è½½ æ–°çš„apk ç„¶åå®‰è£…
+		builer.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
-				Log.i(TAG, "ÏÂÔØapk,¸üĞÂ");
+				Log.i(TAG, "ä¸‹è½½apk,æ›´æ–°");
 				downLoadApk();
 			}
 		});
-		// µ±µãÈ¡Ïû°´Å¥Ê±½øĞĞµÇÂ¼
-		builer.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+		// å½“ç‚¹å–æ¶ˆæŒ‰é’®æ—¶è¿›è¡Œç™»å½•
+		builer.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
 				// LoginMain();
@@ -216,13 +216,13 @@ public class AnyCareSetActivity extends Activity {
 	}
 	
 	/*
-	 * ´Ó·şÎñÆ÷ÖĞÏÂÔØAPK
+	 * ä»æœåŠ¡å™¨ä¸­ä¸‹è½½APK
 	 */
 	protected void downLoadApk() {
-		final ProgressDialog pd; // ½ø¶ÈÌõ¶Ô»°¿ò
+		final ProgressDialog pd; // è¿›åº¦æ¡å¯¹è¯æ¡†
 		pd = new ProgressDialog(AnyCareSetActivity.this);
 		pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-		pd.setMessage("ÕıÔÚÏÂÔØ¸üĞÂ");
+		pd.setMessage("æ­£åœ¨ä¸‹è½½æ›´æ–°");
 		if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
 			Message msg = new Message();
 			msg.what = SDCARD_NOMOUNTED;
@@ -236,7 +236,7 @@ public class AnyCareSetActivity extends Activity {
 						File file = DownLoadManager.getFileFromServer(info.getUrl(), pd);
 						sleep(1000);
 						installApk(file);
-						pd.dismiss(); // ½áÊøµô½ø¶ÈÌõ¶Ô»°¿ò
+						pd.dismiss(); // ç»“æŸæ‰è¿›åº¦æ¡å¯¹è¯æ¡†
 
 					} catch (Exception e) {
 						Message msg = new Message();
@@ -249,15 +249,16 @@ public class AnyCareSetActivity extends Activity {
 		}
 	}
 	
-	// °²×°apk
+	// å®‰è£…apk
 	protected void installApk(File file) {
 		Intent intent = new Intent();
-		// Ö´ĞĞ¶¯×÷
+		// æ‰§è¡ŒåŠ¨ä½œ
 		intent.setAction(Intent.ACTION_VIEW);
-		// Ö´ĞĞµÄÊı¾İÀàĞÍ
+		// æ‰§è¡Œçš„æ•°æ®ç±»å‹
 		intent.setDataAndType(Uri.fromFile(file),"application/vnd.android.package-archive");
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
 		startActivity(intent);
 	}
 
 }
+

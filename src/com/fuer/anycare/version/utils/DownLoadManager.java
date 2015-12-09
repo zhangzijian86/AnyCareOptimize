@@ -13,19 +13,19 @@ import android.os.Environment;
 public class DownLoadManager {
 
 	/**
-	 * ´Ó·şÎñÆ÷ÏÂÔØapk
+	 * ä»æœåŠ¡å™¨ä¸‹è½½apk
 	 * @param path
 	 * @param pd
 	 * @return
 	 * @throws Exception
 	 */
 	public static File getFileFromServer(String path, ProgressDialog pd) throws Exception{
-		//Èç¹ûÏàµÈµÄ»°±íÊ¾µ±Ç°µÄsdcard¹ÒÔØÔÚÊÖ»úÉÏ²¢ÇÒÊÇ¿ÉÓÃµÄ
+		//å¦‚æœç›¸ç­‰çš„è¯è¡¨ç¤ºå½“å‰çš„sdcardæŒ‚è½½åœ¨æ‰‹æœºä¸Šå¹¶ä¸”æ˜¯å¯ç”¨çš„
 		if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
 			URL url = new URL(path);
 			HttpURLConnection conn =  (HttpURLConnection) url.openConnection();
 			conn.setConnectTimeout(5000);
-			//»ñÈ¡µ½ÎÄ¼şµÄ´óĞ¡ 
+			//è·å–åˆ°æ–‡ä»¶çš„å¤§å° 
 			pd.setMax(conn.getContentLength());
 			InputStream is = conn.getInputStream();
 			File file = new File(Environment.getExternalStorageDirectory(), "updata.apk");
@@ -37,7 +37,7 @@ public class DownLoadManager {
 			while((len =bis.read(buffer))!=-1){
 				fos.write(buffer, 0, len);
 				total+= len;
-				//»ñÈ¡µ±Ç°ÏÂÔØÁ¿
+				//è·å–å½“å‰ä¸‹è½½é‡
 				pd.setProgress(total);
 			}
 			fos.close();
@@ -51,3 +51,4 @@ public class DownLoadManager {
 	}
 
 }
+

@@ -2,7 +2,7 @@ package com.fuer.anycare.warning.activity;
 
 
 public class WarnCollectEntity {
-	private String biaozhi;//1:¹Õ¹÷sos 2£ºÑü´ø
+	private String biaozhi;//1:æ‹æ£sos 2ï¼šè…°å¸¦
 	private String address;
 	private String servicetime;
 	public String getBiaozhi() {
@@ -26,3 +26,4 @@ public class WarnCollectEntity {
 	
 	
 }
+

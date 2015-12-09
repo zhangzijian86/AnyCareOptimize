@@ -48,12 +48,12 @@ public class AnyCareJpushMapActivity extends Activity {
 	private BaiduMap mBaiduMap = null;
 	private Marker mMarkerA;
 	private InfoWindow mInfoWindow;
-	// ³õÊ¼»¯È«¾Ö bitmap ĞÅÏ¢£¬²»ÓÃÊ±¼°Ê± recycle
+	// åˆå§‹åŒ–å…¨å±€ bitmap ä¿¡æ¯ï¼Œä¸ç”¨æ—¶åŠæ—¶ recycle
 	BitmapDescriptor bdA = null;
 	private String uuId;
 	private ImageView return_textview;
 	private Button mylocation_button;
-	private LatLng llA;//¶¨Î»×ø±êÎ»ÖÃ
+	private LatLng llA;//å®šä½åæ ‡ä½ç½®
 	private LoadingProgressDialog dialog;
 	private String deviceNumber;
 	private String longitude;
@@ -65,8 +65,8 @@ public class AnyCareJpushMapActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		//ÔÚÊ¹ÓÃSDK¸÷×é¼şÖ®Ç°³õÊ¼»¯contextĞÅÏ¢£¬´«ÈëApplicationContext  
-        //×¢Òâ¸Ã·½·¨ÒªÔÙsetContentView·½·¨Ö®Ç°ÊµÏÖ  
+		//åœ¨ä½¿ç”¨SDKå„ç»„ä»¶ä¹‹å‰åˆå§‹åŒ–contextä¿¡æ¯ï¼Œä¼ å…¥ApplicationContext  
+        //æ³¨æ„è¯¥æ–¹æ³•è¦å†setContentViewæ–¹æ³•ä¹‹å‰å®ç°  
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.layout_jpushmap);
         Bundle bundle = this.getIntent().getExtras();
@@ -77,14 +77,14 @@ public class AnyCareJpushMapActivity extends Activity {
 		mylocation_button = (Button) findViewById(R.id.mylocation_button);
 		mylocation_button.setOnClickListener(new MyOnClickListener());
 		
-		//»ñÈ¡µØÍ¼¿Ø¼şÒıÓÃ 
+		//è·å–åœ°å›¾æ§ä»¶å¼•ç”¨ 
         bdA = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);	
         mMapView = (MapView) findViewById(R.id.bmapView);  
         mBaiduMap = mMapView.getMap();
-        //ÉèÖÃËõ·Å
+        //è®¾ç½®ç¼©æ”¾
         MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(14.0f);
         mBaiduMap.setMapStatus(msu);
-        //Ìí¼ÓÍ¼±ê
+        //æ·»åŠ å›¾æ ‡
         llA = new LatLng(39.963175, 116.400244);
         OverlayOptions ooA = new MarkerOptions().position(llA).icon(bdA).zIndex(9).draggable(true);
 		mMarkerA = (Marker) (mBaiduMap.addOverlay(ooA));
@@ -97,7 +97,7 @@ public class AnyCareJpushMapActivity extends Activity {
 				button.setBackgroundResource(R.drawable.popup);
 				OnInfoWindowClickListener listener = null;
 				if (marker == mMarkerA ) {
-					button.setText("×î½üÒ»´ÎµÄÎ»ÖÃĞÅÏ¢");
+					button.setText("æœ€è¿‘ä¸€æ¬¡çš„ä½ç½®ä¿¡æ¯");
 					listener = new OnInfoWindowClickListener() {
 						public void onInfoWindowClick() {
 							mBaiduMap.hideInfoWindow();
@@ -111,13 +111,13 @@ public class AnyCareJpushMapActivity extends Activity {
 			}
 		});
 //      loveobject_button.setOnClickListener(new MyOnClickListener());
-		//³õÊ¼»¯dialog
-  		dialog=new LoadingProgressDialog(this,"ÕıÔÚ¼ÓÔØ...");
-  		//³õÊ¼»¯dialog end
+		//åˆå§‹åŒ–dialog
+  		dialog=new LoadingProgressDialog(this,"æ­£åœ¨åŠ è½½...");
+  		//åˆå§‹åŒ–dialog end
 		new loadingLastLocationAsyncTask().execute(uuId,deviceType);
 	}
 	/**
-	 * ÉèÖÃÊÇ·ñÏÔÊ¾½»Í¨Í¼
+	 * è®¾ç½®æ˜¯å¦æ˜¾ç¤ºäº¤é€šå›¾
 	 */
 	public void setTraffic(View view) {
 		mBaiduMap.setTrafficEnabled(true);
@@ -125,7 +125,7 @@ public class AnyCareJpushMapActivity extends Activity {
 	
 	@Override  
     protected void onDestroy() {
-        //ÔÚactivityÖ´ĞĞonDestroyÊ±Ö´ĞĞmMapView.onDestroy()£¬ÊµÏÖµØÍ¼ÉúÃüÖÜÆÚ¹ÜÀí  
+        //åœ¨activityæ‰§è¡ŒonDestroyæ—¶æ‰§è¡ŒmMapView.onDestroy()ï¼Œå®ç°åœ°å›¾ç”Ÿå‘½å‘¨æœŸç®¡ç†  
         mMapView.onDestroy();  
         
         super.onDestroy(); 
@@ -136,14 +136,14 @@ public class AnyCareJpushMapActivity extends Activity {
     @Override  
     protected void onResume() {
         super.onResume();  
-        //ÔÚactivityÖ´ĞĞonResumeÊ±Ö´ĞĞmMapView. onResume ()£¬ÊµÏÖµØÍ¼ÉúÃüÖÜÆÚ¹ÜÀí  
+        //åœ¨activityæ‰§è¡ŒonResumeæ—¶æ‰§è¡ŒmMapView. onResume ()ï¼Œå®ç°åœ°å›¾ç”Ÿå‘½å‘¨æœŸç®¡ç†  
         mMapView.onResume();  
     }
     
     @Override  
     protected void onPause() {  
         super.onPause();  
-        //ÔÚactivityÖ´ĞĞonPauseÊ±Ö´ĞĞmMapView. onPause ()£¬ÊµÏÖµØÍ¼ÉúÃüÖÜÆÚ¹ÜÀí  
+        //åœ¨activityæ‰§è¡ŒonPauseæ—¶æ‰§è¡ŒmMapView. onPause ()ï¼Œå®ç°åœ°å›¾ç”Ÿå‘½å‘¨æœŸç®¡ç†  
         mMapView.onPause();  
     } 
     
@@ -169,7 +169,7 @@ public class AnyCareJpushMapActivity extends Activity {
 					llA = new LatLng(lat,lon);
 					CoordinateConverter converter  = new CoordinateConverter();  
 					converter.from(CoordType.GPS);
-					// sourceLatLng´ı×ª»»×ø±ê  
+					// sourceLatLngå¾…è½¬æ¢åæ ‡  
 					converter.coord(llA);
 					LatLng desLatLng = converter.convert();
 					mMarkerA.setPosition(desLatLng);
@@ -182,26 +182,26 @@ public class AnyCareJpushMapActivity extends Activity {
     
     private String readOpenParam(){
 		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
 		String openParam=sp.getString("openParam", "");
 		return openParam;
 	}
     
     /**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class loadingLastLocationAsyncTask extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+			dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -223,7 +223,7 @@ public class AnyCareJpushMapActivity extends Activity {
 			super.onProgressUpdate(values);
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
@@ -243,7 +243,7 @@ public class AnyCareJpushMapActivity extends Activity {
 						llA = new LatLng(lat,lon);
 						CoordinateConverter converter  = new CoordinateConverter();  
 						converter.from(CoordType.GPS);
-						// sourceLatLng´ı×ª»»×ø±ê  
+						// sourceLatLngå¾…è½¬æ¢åæ ‡  
 						converter.coord(llA);  
 						LatLng desLatLng = converter.convert();
 						mMarkerA.setPosition(desLatLng);
@@ -257,26 +257,26 @@ public class AnyCareJpushMapActivity extends Activity {
 					e.printStackTrace();
 				}
 			}else {
-				Toast.makeText(getApplicationContext(), "Í¨Ñ¶Òì³£", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "é€šè®¯å¼‚å¸¸", Toast.LENGTH_SHORT).show();
 			}
-			dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+			dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 		}
 	}
 	
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class SeeCrutchAsyncTask extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -297,7 +297,7 @@ public class AnyCareJpushMapActivity extends Activity {
 			super.onProgressUpdate(values);
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
@@ -322,3 +322,4 @@ public class AnyCareJpushMapActivity extends Activity {
 	
 	
 }
+

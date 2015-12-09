@@ -47,7 +47,7 @@ public class AnyCareRegister1Activity extends Activity {
 				if(!TextUtils.isEmpty(phoneNumber)&&!TextUtils.isEmpty(yanZhengMa)){
 					new UserRegisterAsyncTask().execute(new String[]{phoneNumber,yanZhengMa});
 				}else{
-					Toast.makeText(getApplicationContext(), "ÊÖ»úºÅ»òÕßÑéÖ¤Âë²»ÄÜÎª¿Õ£¡", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "æ‰‹æœºå·æˆ–è€…éªŒè¯ç ä¸èƒ½ä¸ºç©ºï¼", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
@@ -68,26 +68,26 @@ public class AnyCareRegister1Activity extends Activity {
 				finish();
 			}
 		});
-		//³õÊ¼»¯dialog
-		dialog=new LoadingProgressDialog(this,"ÕıÔÚ¼ÓÔØ...");
-		//³õÊ¼»¯dialog end
+		//åˆå§‹åŒ–dialog
+		dialog=new LoadingProgressDialog(this,"æ­£åœ¨åŠ è½½...");
+		//åˆå§‹åŒ–dialog end
 	}
 	
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class UserRegisterAsyncTask extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+			dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -114,65 +114,65 @@ public class AnyCareRegister1Activity extends Activity {
 			
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
 			if(result.length()==32){
-				Toast.makeText(getApplicationContext(), "×¢²á³É¹¦£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "æ³¨å†ŒæˆåŠŸï¼", Toast.LENGTH_SHORT).show();
 				saveUserInfor(result);
 				startActivity(new Intent(getApplication(), AnyCareRegister2Activity.class));
 				overridePendingTransition(R.anim.zoom_enter, R.anim.zoom_exit);
 			}else if("0".equals(result)){
-				Toast.makeText(getApplicationContext(), "ÊÖ»úºÅÒÑ×¢²á£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "æ‰‹æœºå·å·²æ³¨å†Œï¼", Toast.LENGTH_SHORT).show();
 			}else if("".equals(result)){
-				Toast.makeText(getApplicationContext(), "×¢²áÊ§°Ü£¬ÇëÖØĞÂ×¢²á£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "æ³¨å†Œå¤±è´¥ï¼Œè¯·é‡æ–°æ³¨å†Œï¼", Toast.LENGTH_SHORT).show();
 			}
-			dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+			dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 		}
 	}
 	
 	private void saveUserInfor(String userId){
-		//»ñÈ¡SharedPreferences¶ÔÏó£¬Â·¾¶ÔÚ/data/data/cn.itcast.preferences/shared_pref/paramater.xml
+		//è·å–SharedPreferenceså¯¹è±¡ï¼Œè·¯å¾„åœ¨/data/data/cn.itcast.preferences/shared_pref/paramater.xml
 		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-		//»ñÈ¡±à¼­Æ÷
+		//è·å–ç¼–è¾‘å™¨
 		Editor editor=sp.edit();
-		//Í¨¹ıeditor½øĞĞÉèÖÃ
+		//é€šè¿‡editorè¿›è¡Œè®¾ç½®
 		editor.putString("userId", userId);
-		//Ìá½»ĞŞ¸Ä£¬½«Êı¾İĞ´µ½ÎÄ¼ş
+		//æäº¤ä¿®æ”¹ï¼Œå°†æ•°æ®å†™åˆ°æ–‡ä»¶
 		editor.commit();
 	}
 	
 	private String readUserId(){
 		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
 		String userId=sp.getString("userId", "");
 		return userId;
 	}
 	
 	private String readUserPhone(){
 		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
 		String phoneNumber=sp.getString("phoneNumber", "");
 		return phoneNumber;
 	}
 	
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class UserRegisterYanZhengMaAsyncTask extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+			dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -198,19 +198,20 @@ public class AnyCareRegister1Activity extends Activity {
 			
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
 			if("true".equals(result)){
-				Toast.makeText(getApplicationContext(), "ÇëÇó³É¹¦£¬µÈ´ı¶ÌĞÅÑéÖ¤Âë·¢ËÍ£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "è¯·æ±‚æˆåŠŸï¼Œç­‰å¾…çŸ­ä¿¡éªŒè¯ç å‘é€ï¼", Toast.LENGTH_SHORT).show();
 			}else if("repeatcommit".equals(result)){
-				Toast.makeText(getApplicationContext(), "5·ÖÖÓÖ®ÄÚ²»¿ÉÖØ¸´»ñÈ¡ÑéÖ¤Âë£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "5åˆ†é’Ÿä¹‹å†…ä¸å¯é‡å¤è·å–éªŒè¯ç ï¼", Toast.LENGTH_SHORT).show();
 			}else if("false".equals(result)){
-				Toast.makeText(getApplicationContext(), "ÑéÖ¤ÂëÇëÇóÊ§°Ü£¬ÇëÖØĞÂÇëÇó£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "éªŒè¯ç è¯·æ±‚å¤±è´¥ï¼Œè¯·é‡æ–°è¯·æ±‚ï¼", Toast.LENGTH_SHORT).show();
 			}
-			dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+			dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 		}
 	}
 }
+

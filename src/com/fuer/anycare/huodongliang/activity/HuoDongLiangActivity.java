@@ -67,16 +67,16 @@ public class HuoDongLiangActivity extends Activity{
         preButton.setOnClickListener(new MyOnClickListener());
         nextButton.setOnClickListener(new MyOnClickListener());
         nowButton.setOnClickListener(new MyOnClickListener());
-        //³õÊ¼»¯ÈÕÆÚ start
+        //åˆå§‹åŒ–æ—¥æœŸ start
   		year=DateTool.getDateYear();
   		month=DateTool.getDateMonth();
-  		//³õÊ¼»¯end
-  		nowButton.setText(year + "Äê" + month + "ÔÂ");
+  		//åˆå§‹åŒ–end
+  		nowButton.setText(year + "å¹´" + month + "æœˆ");
   		date = DateTool.yearMonth(year, month);
-  		//³õÊ¼»¯dialog
-  		dialog=new LoadingProgressDialog(this,"ÕıÔÚ¼ÓÔØ...");
-  		//³õÊ¼»¯dialog end
-  		//¼ÓÔØ×îĞÂÔÂ·İ»î¶¯Á¿Êı¾İ
+  		//åˆå§‹åŒ–dialog
+  		dialog=new LoadingProgressDialog(this,"æ­£åœ¨åŠ è½½...");
+  		//åˆå§‹åŒ–dialog end
+  		//åŠ è½½æœ€æ–°æœˆä»½æ´»åŠ¨é‡æ•°æ®
   		Bundle bundle = this.getIntent().getExtras();
   		deviceNumber = bundle.getString("beltDeviceNumber");
   		dataBaseManager = new DataBaseManager(this);
@@ -114,7 +114,7 @@ public class HuoDongLiangActivity extends Activity{
 				String []yearSplitMonth1 = date.split("-");
 				year = Integer.parseInt(yearSplitMonth1[0]);
 				month =Integer.parseInt(yearSplitMonth1[1]);
-				nowButton.setText(year + "Äê" + month + "ÔÂ");
+				nowButton.setText(year + "å¹´" + month + "æœˆ");
 				if("H".equals(sign)){
 					new loadHuoDongLiangAsyncTask().execute(new String[]{deviceNumber,date});
 				}else if("J".equals(sign)){
@@ -126,7 +126,7 @@ public class HuoDongLiangActivity extends Activity{
 				String []yearSplitMonth2 = date.split("-");
 				year = Integer.parseInt(yearSplitMonth2[0]);
 				month =Integer.parseInt(yearSplitMonth2[1]);
-				nowButton.setText(year + "Äê" + month + "ÔÂ");
+				nowButton.setText(year + "å¹´" + month + "æœˆ");
 				if("H".equals(sign)){
 					new loadHuoDongLiangAsyncTask().execute(new String[]{deviceNumber,date});
 				}else if("J".equals(sign)){
@@ -135,20 +135,20 @@ public class HuoDongLiangActivity extends Activity{
 				break;
 			case R.id.now_button:
 				showDialog(R.id.now_button);
-				int SDKVersion = HuoDongLiangActivity.this.getSDKVersionNumber();// »ñÈ¡ÏµÍ³°æ±¾
+				int SDKVersion = HuoDongLiangActivity.this.getSDKVersionNumber();// è·å–ç³»ç»Ÿç‰ˆæœ¬
 				System.out.println("SDKVersion = " + SDKVersion);
-				DatePicker dp = findDatePicker((ViewGroup) mdialog.getWindow().getDecorView());// ÉèÖÃµ¯³öÄêÔÂÈÕ
+				DatePicker dp = findDatePicker((ViewGroup) mdialog.getWindow().getDecorView());// è®¾ç½®å¼¹å‡ºå¹´æœˆæ—¥
 				if (dp != null) {
 					if (SDKVersion < 11) {
 						((ViewGroup) dp.getChildAt(0)).getChildAt(1).setVisibility(View.GONE);
 					} else if (SDKVersion > 14) {
-						//Ö»ÏÔÊ¾ÄêÈÕ
+						//åªæ˜¾ç¤ºå¹´æ—¥
 						//((ViewGroup) ((ViewGroup) dp.getChildAt(0)).getChildAt(0)).getChildAt(1).setVisibility(View.GONE);//.getChildAt(0)
-						//Ö»ÏÔÊ¾ÄêÔÂ
+						//åªæ˜¾ç¤ºå¹´æœˆ
 						((ViewGroup) ((ViewGroup) dp.getChildAt(0)).getChildAt(0)).getChildAt(2).setVisibility(View.GONE);
-						//Ö»ÏÔÊ¾ÄêÔÂ
+						//åªæ˜¾ç¤ºå¹´æœˆ
 						//((ViewGroup) ((ViewGroup) dp.getChildAt(0)).getChildAt(0)).getChildAt(1).setVisibility(View.GONE);
-						//ÏÔÊ¾ÔÂÈÕ
+						//æ˜¾ç¤ºæœˆæ—¥
 						//((ViewGroup) ((ViewGroup) dp.getChildAt(0)).getChildAt(0)).getChildAt(0).setVisibility(View.GONE);
 					}
 				 }
@@ -173,14 +173,14 @@ public class HuoDongLiangActivity extends Activity{
 	
 	/**
 	 * author:ma_yming
-	 * dis:ÏÔÊ¾ÈÕÆÚ¶Ô»°¿ò
+	 * dis:æ˜¾ç¤ºæ—¥æœŸå¯¹è¯æ¡†
 	 * */
 	private DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
 		  @Override
 		  public void onDateSet(DatePicker view, int yearOfYear, int monthOfYear,int dayOfMonth) {
 			  month = monthOfYear+1;
 			  year = yearOfYear;
-			  nowButton.setText(year + "Äê" + month + "ÔÂ");
+			  nowButton.setText(year + "å¹´" + month + "æœˆ");
 			  date = DateTool.yearMonth(year, month);
 			  if("H".equals(sign)){
 					new loadHuoDongLiangAsyncTask().execute(new String[]{deviceNumber,date});
@@ -193,7 +193,7 @@ public class HuoDongLiangActivity extends Activity{
 	 
 	 
 	 /**
-	  * ´Óµ±Ç°DialogÖĞ²éÕÒDatePicker×Ó¿Ø¼ş
+	  * ä»å½“å‰Dialogä¸­æŸ¥æ‰¾DatePickerå­æ§ä»¶
 	  * 
 	  * @param group
 	  * @return
@@ -216,7 +216,7 @@ public class HuoDongLiangActivity extends Activity{
 	 }
 	 
 	 /**
-	 * »ñÈ¡ÏµÍ³SDK°æ±¾
+	 * è·å–ç³»ç»ŸSDKç‰ˆæœ¬
 	 * 
 	 * @return
 	 */
@@ -232,19 +232,19 @@ public class HuoDongLiangActivity extends Activity{
 	
 	
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class loadHuoDongLiangAsyncTask extends AsyncTask<String, String, List<XingZouJingZhiEntity>>{
 		
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+			dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 		}
 		
 		@Override
@@ -308,9 +308,9 @@ public class HuoDongLiangActivity extends Activity{
 			v1.SetInfo(YData,
     			getWindowManager().getDefaultDisplay(),
     			XData,
-              	"ÈÕ",
-              	"Ç§¿¨",
-              	"Ç§¿¨/ÈÕ",
+              	"æ—¥",
+              	"åƒå¡",
+              	"åƒå¡/æ—¥",
               	BData,
               	sign,
               	xingzouvalue,
@@ -325,19 +325,19 @@ public class HuoDongLiangActivity extends Activity{
 	}
 	
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class loadJingZhiAsyncTask extends AsyncTask<String, String, List<XingZouJingZhiEntity>>{
 		
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+			dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 		}
 		
 		@Override
@@ -401,9 +401,9 @@ public class HuoDongLiangActivity extends Activity{
 			v1.SetInfo(YData,
     			getWindowManager().getDefaultDisplay(),
     			XData,
-              	"ÈÕ",
-              	"´Î",
-              	"´Î/ÈÕ",
+              	"æ—¥",
+              	"æ¬¡",
+              	"æ¬¡/æ—¥",
               	BData,
               	sign,
               	xingzouvalue,
@@ -417,3 +417,4 @@ public class HuoDongLiangActivity extends Activity{
 		
 	}
 }
+

@@ -82,7 +82,7 @@ public class AnyCareMainActivity extends Activity {
 	 */
 	private ViewPager mViewPager;
 	/**
-	 * ViewPagerµÄÊÊÅäÆ÷
+	 * ViewPagerçš„é€‚é…å™¨
 	 */
 	private PagerAdapter mAdapter;
 	private List<View> mViews;
@@ -90,7 +90,7 @@ public class AnyCareMainActivity extends Activity {
 	
 	private int currentIndex;
 	/**
-	 * µ×²¿Á½¸ötextview
+	 * åº•éƒ¨ä¸¤ä¸ªtextview
 	 */
 	private TextView anycareTV;
 	private TextView webmobileTV;
@@ -104,7 +104,7 @@ public class AnyCareMainActivity extends Activity {
 	private TextView popsetTV;
 	private TextView popexitTV;
 	private MyAdapter myAdapter;
-	private List<Map<String,String>> dataList = new ArrayList<Map<String,String>>();//´æ·ÅÊı¾İµÄList
+	private List<Map<String,String>> dataList = new ArrayList<Map<String,String>>();//å­˜æ”¾æ•°æ®çš„List
 	private ListView bind_listview;
 	
 	private TextView nameTV;
@@ -124,31 +124,31 @@ public class AnyCareMainActivity extends Activity {
 	private String longitude;
 	private String latitude;
 	private String address;
-	private String crutchDeviceId;//¶ÔÓ¦¹ÕÕÈÉè±¸±íÖĞµÄid
-	private String beltDeviceId;//¶ÔÓ¦Ñü´øÉè±¸±íÖĞµÄid
+	private String crutchDeviceId;//å¯¹åº”æ‹æ–è®¾å¤‡è¡¨ä¸­çš„id
+	private String beltDeviceId;//å¯¹åº”è…°å¸¦è®¾å¤‡è¡¨ä¸­çš„id
 	
-	private String crutchId;//¶ÔÓ¦¹ÕÕÈÊÕ¼¯µ½µÄ×îĞÂÉè±¸Êı¾İµÄId
-	private String beltId;//¶ÔÓ¦Ñü´øÊÕ¼¯µ½µÄ×îĞÂÉè±¸Êı¾İµÄId
+	private String crutchId;//å¯¹åº”æ‹æ–æ”¶é›†åˆ°çš„æœ€æ–°è®¾å¤‡æ•°æ®çš„Id
+	private String beltId;//å¯¹åº”è…°å¸¦æ”¶é›†åˆ°çš„æœ€æ–°è®¾å¤‡æ•°æ®çš„Id
 	
-	private String serviceTime;//ÏÔÊ¾·şÎñÆ÷×îĞÂÊ±¼ä
-	private String biaoZhi;//1Îªsos£¬2Î»·´Ïò²éÑ¯
+	private String serviceTime;//æ˜¾ç¤ºæœåŠ¡å™¨æœ€æ–°æ—¶é—´
+	private String biaoZhi;//1ä¸ºsosï¼Œ2ä½åå‘æŸ¥è¯¢
 	
 	
 	private Button showMapBtn;
 	private Button qiujiuBtn;
 	private Button huodongliangBtn;
-	private LinearLayout pagerLayout;//¹ã¸æÀ¸ÓÃ add 2015-10-19
-	private ViewPager adViewPager;//¹ã¸æÀ¸ÓÃ add 2015-10-19
-	private List<View> pageViews;//¹ã¸æÀ¸ÓÃ add 2015-10-19
-	private AdPageAdapter adPageAdapter;//¹ã¸æÀ¸ÓÃ add 2015-10-19
-	private boolean isContinue = true;//¹ã¸æÀ¸ÓÃ add 2015-10-19
-	private ImageView imageView;//¹ã¸æÀ¸ÓÃ add 2015-10-19
-	private ImageView[] imageViews;//¹ã¸æÀ¸ÓÃ add 2015-10-19
-	private AtomicInteger atomicInteger = new AtomicInteger(0);//¹ã¸æÀ¸ÓÃ add 2015-10-19
+	private LinearLayout pagerLayout;//å¹¿å‘Šæ ç”¨ add 2015-10-19
+	private ViewPager adViewPager;//å¹¿å‘Šæ ç”¨ add 2015-10-19
+	private List<View> pageViews;//å¹¿å‘Šæ ç”¨ add 2015-10-19
+	private AdPageAdapter adPageAdapter;//å¹¿å‘Šæ ç”¨ add 2015-10-19
+	private boolean isContinue = true;//å¹¿å‘Šæ ç”¨ add 2015-10-19
+	private ImageView imageView;//å¹¿å‘Šæ ç”¨ add 2015-10-19
+	private ImageView[] imageViews;//å¹¿å‘Šæ ç”¨ add 2015-10-19
+	private AtomicInteger atomicInteger = new AtomicInteger(0);//å¹¿å‘Šæ ç”¨ add 2015-10-19
 	
 	private LoadingProgressDialog dialog;
 	/**
-     * ¼ì²â·şÎñÆ÷°æ±¾¸üĞÂËùÓÃ²ÎÊı
+     * æ£€æµ‹æœåŠ¡å™¨ç‰ˆæœ¬æ›´æ–°æ‰€ç”¨å‚æ•°
      * */
     private final String TAG = this.getClass().getName();
 	private final int UPDATA_NONEED = 0;
@@ -163,7 +163,7 @@ public class AnyCareMainActivity extends Activity {
 	private String stime;
 	
 	private int page = 0;
-	private String createSign;//µµ°¸ĞÅÏ¢´´½¨±êÖ¾1±êÊ¶×Ô¼º´´½¨£¬0±íÊ¾²»ÊÇ×Ô¼ºÕËºÅ´´½¨
+	private String createSign;//æ¡£æ¡ˆä¿¡æ¯åˆ›å»ºæ ‡å¿—1æ ‡è¯†è‡ªå·±åˆ›å»ºï¼Œ0è¡¨ç¤ºä¸æ˜¯è‡ªå·±è´¦å·åˆ›å»º
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -178,7 +178,7 @@ public class AnyCareMainActivity extends Activity {
 		anycareTV.setOnClickListener(new MyOnClickListener());
 		webmobileTV.setOnClickListener(new MyOnClickListener());
 		/**
-		 * ³õÊ¼»¯View
+		 * åˆå§‹åŒ–View
 		 */
 		initView();
 		mViewPager.setAdapter(mAdapter);
@@ -210,17 +210,17 @@ public class AnyCareMainActivity extends Activity {
 					maxArg = 0f;
 				}
 				if(arg0 == 0 && currentIndex == 0 && maxArg == 0 && popWindow.isShowing()==false){
-					//ÉèÖÃÔÚÆÁÄ»×ó²àµÄÏÔÊ¾Î»ÖÃ
+					//è®¾ç½®åœ¨å±å¹•å·¦ä¾§çš„æ˜¾ç¤ºä½ç½®
 					 popWindow.showAtLocation(mainlayout, Gravity.NO_GRAVITY, 0, 0);
 				}
 			}
 		});
 		
-		//³õÊ¼»¯dialog
-		dialog=new LoadingProgressDialog(this,"ÕıÔÚ¼ÓÔØ...");
-		//³õÊ¼»¯dialog end
+		//åˆå§‹åŒ–dialog
+		dialog=new LoadingProgressDialog(this,"æ­£åœ¨åŠ è½½...");
+		//åˆå§‹åŒ–dialog end
 //		new loadAllDataByUserIdAsyncTask().execute();
-		//×Ô¶¯¼ì²â°æ±¾Óï¾ä¿ªÊ¼
+		//è‡ªåŠ¨æ£€æµ‹ç‰ˆæœ¬è¯­å¥å¼€å§‹
 		try{
 			localVersion = getVersionName();
 			CheckVersionTask cv = new CheckVersionTask();
@@ -228,7 +228,7 @@ public class AnyCareMainActivity extends Activity {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		//×Ô¶¯¼ì²â°æ±¾Óï¾ä½áÊø
+		//è‡ªåŠ¨æ£€æµ‹ç‰ˆæœ¬è¯­å¥ç»“æŸ
 		dataBaseManager = new DataBaseManager(this);  
 		stime = dataBaseManager.queryParam("1");
 		page = readUserPage();
@@ -249,14 +249,14 @@ public class AnyCareMainActivity extends Activity {
 
 	private String readUserId(){
 		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
 		String userId=sp.getString("userId", "");
 		return userId;
 	}
 	
 	private String readUserPhone(){
 		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
 		String phoneNumber=sp.getString("phoneNumber", "");
 		return phoneNumber;
 	}
@@ -265,7 +265,7 @@ public class AnyCareMainActivity extends Activity {
 		mViews = new ArrayList<View>();
 		View first = mInflater.inflate(R.layout.main_tab_01, null);
 		View second = mInflater.inflate(R.layout.main_tab_02, null);
-		//µã»÷²éÑ¯µØÍ¼btn
+		//ç‚¹å‡»æŸ¥è¯¢åœ°å›¾btn
 		showMapBtn = (Button) first.findViewById(R.id.dianjichaxun);
 		showMapBtn.setOnClickListener(new MyOnClickListener());
 		qiujiuBtn = (Button) first.findViewById(R.id.qiuzhu);
@@ -282,20 +282,20 @@ public class AnyCareMainActivity extends Activity {
 		diquTV = (TextView) first.findViewById(R.id.diqu);
 		tianqituIM =  (ImageView) first.findViewById(R.id.tianqitu);
 		wenduTV = (TextView) first.findViewById(R.id.wendu);
-		//webview¼àÌı
+		//webviewç›‘å¬
 		WebView myWebView = (WebView)second.findViewById(R.id.my_webview);
-		//webview±ØĞëÉèÖÃÖ§³ÖJavascript
+		//webviewå¿…é¡»è®¾ç½®æ”¯æŒJavascript
 		myWebView.getSettings().setJavaScriptEnabled(true);
 		//requestFocus();
-		//ÉèÖÃÊÇ·ñÖ§³ÖËõ·Å£¬ÕâÀïÎªfalse£¬Ä¬ÈÏÎªtrue
+		//è®¾ç½®æ˜¯å¦æ”¯æŒç¼©æ”¾ï¼Œè¿™é‡Œä¸ºfalseï¼Œé»˜è®¤ä¸ºtrue
 		myWebView.getSettings().setSupportZoom(true);
-		//ÉèÖÃÊÇ·ñÏÔÊ¾Ëõ·Å¹¤¾ß£¬Ä¬ÈÏÎªfalse¡£
+		//è®¾ç½®æ˜¯å¦æ˜¾ç¤ºç¼©æ”¾å·¥å…·ï¼Œé»˜è®¤ä¸ºfalseã€‚
 		myWebView.getSettings().setBuiltInZoomControls(false);
-		//Ò»°ãºÜÉÙ»áÓÃµ½Õâ¸ö£¬ÓÃWebView×é¼şÏÔÊ¾ÆÕÍ¨ÍøÒ³Ê±Ò»°ã»á³öÏÖºáÏò¹ö¶¯Ìõ£¬ÕâÑù»áµ¼ÖÂÒ³Ãæ²é¿´ÆğÀ´·Ç³£²»·½±ã¡£
-		//LayoutAlgorithmÊÇÒ»¸öÃ¶¾Ù£¬ÓÃÀ´¿ØÖÆhtmlµÄ²¼¾Ö£¬×Ü¹²ÓĞÈıÖÖÀàĞÍ£º
-		//NORMAL£ºÕı³£ÏÔÊ¾£¬Ã»ÓĞäÖÈ¾±ä»¯¡£
-		//SINGLE_COLUMN£º°ÑËùÓĞÄÚÈİ·Åµ½WebView×é¼şµÈ¿íµÄÒ»ÁĞÖĞ¡£
-		//NARROW_COLUMNS£º¿ÉÄÜµÄ»°£¬Ê¹ËùÓĞÁĞµÄ¿í¶È²»³¬¹ıÆÁÄ»¿í¶È¡£
+		//ä¸€èˆ¬å¾ˆå°‘ä¼šç”¨åˆ°è¿™ä¸ªï¼Œç”¨WebViewç»„ä»¶æ˜¾ç¤ºæ™®é€šç½‘é¡µæ—¶ä¸€èˆ¬ä¼šå‡ºç°æ¨ªå‘æ»šåŠ¨æ¡ï¼Œè¿™æ ·ä¼šå¯¼è‡´é¡µé¢æŸ¥çœ‹èµ·æ¥éå¸¸ä¸æ–¹ä¾¿ã€‚
+		//LayoutAlgorithmæ˜¯ä¸€ä¸ªæšä¸¾ï¼Œç”¨æ¥æ§åˆ¶htmlçš„å¸ƒå±€ï¼Œæ€»å…±æœ‰ä¸‰ç§ç±»å‹ï¼š
+		//NORMALï¼šæ­£å¸¸æ˜¾ç¤ºï¼Œæ²¡æœ‰æ¸²æŸ“å˜åŒ–ã€‚
+		//SINGLE_COLUMNï¼šæŠŠæ‰€æœ‰å†…å®¹æ”¾åˆ°WebViewç»„ä»¶ç­‰å®½çš„ä¸€åˆ—ä¸­ã€‚
+		//NARROW_COLUMNSï¼šå¯èƒ½çš„è¯ï¼Œä½¿æ‰€æœ‰åˆ—çš„å®½åº¦ä¸è¶…è¿‡å±å¹•å®½åº¦ã€‚
 		myWebView.getSettings().setLayoutAlgorithm(LayoutAlgorithm.NORMAL);
 		myWebView.getSettings().setLoadWithOverviewMode(true);
 		myWebView.loadUrl("http://www.any-care.cn/mobile/index.htmlx");
@@ -324,9 +324,9 @@ public class AnyCareMainActivity extends Activity {
 				return mViews.size();
 			}
 		};
-		// ×°ÔØR.layout.popup¶ÔÓ¦µÄ½çÃæ²¼¾Ö
+		// è£…è½½R.layout.popupå¯¹åº”çš„ç•Œé¢å¸ƒå±€
 		popView = this.getLayoutInflater().inflate(R.layout.layout_pop, null);
-		popView.setFocusable(true); // Õâ¸öºÜÖØÒª
+		popView.setFocusable(true); // è¿™ä¸ªå¾ˆé‡è¦
 		popView.setFocusableInTouchMode(true);
 		popsetTV = (TextView) popView.findViewById(R.id.zhuyeshezhi);
 		popexitTV = (TextView) popView.findViewById(R.id.zhuyetuichu);
@@ -337,7 +337,7 @@ public class AnyCareMainActivity extends Activity {
 		popexitTV.setOnClickListener(new MyOnClickListener());
 		addArchBtn.setOnClickListener(new MyOnClickListener());
 		
-		//»ñÈ¡ÆÁÄ»dipÊı¾İ
+		//è·å–å±å¹•dipæ•°æ®
 		DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 		popWindow = new PopupWindow(popView, 0, 0, true);
@@ -347,7 +347,7 @@ public class AnyCareMainActivity extends Activity {
 		popWindow.setTouchable(true);
 		popWindow.setOutsideTouchable(true);
 		popWindow.setBackgroundDrawable(new BitmapDrawable()); 
-		//Ìí¼Ó·µ»Ø°´Å¥ÊÂ¼ş
+		//æ·»åŠ è¿”å›æŒ‰é’®äº‹ä»¶
 		popView.setOnKeyListener(new OnKeyListener() {
 		    @Override
 		    public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -358,7 +358,7 @@ public class AnyCareMainActivity extends Activity {
 		        return false;
 		    }
 		});
-		//Ôö¼Ó»¬¶¯À¸ add 2015-10-19 start
+		//å¢åŠ æ»‘åŠ¨æ  add 2015-10-19 start
 		pagerLayout = (LinearLayout) first.findViewById(R.id.view_pager_content);
 		adViewPager = new ViewPager(this);
         int densityDpi = dm.densityDpi;
@@ -401,7 +401,7 @@ public class AnyCareMainActivity extends Activity {
                 }  
             }  
         }).start(); 
-		//Ôö¼Ó»¬¶¯À¸ add 2015-10-19 end
+		//å¢åŠ æ»‘åŠ¨æ  add 2015-10-19 end
 	}
 	
 	private void initPageAdapter() {
@@ -534,17 +534,17 @@ public class AnyCareMainActivity extends Activity {
 							intent.putExtras(bundle);
 							startActivity(intent);
 //						}else{
-//							Toast.makeText(getApplicationContext(), "Éè±¸Î´·¢ËÍÊı¾İ£¡", Toast.LENGTH_SHORT).show();
+//							Toast.makeText(getApplicationContext(), "è®¾å¤‡æœªå‘é€æ•°æ®ï¼", Toast.LENGTH_SHORT).show();
 //						}
 					}else{
-						Toast.makeText(getApplicationContext(), "Çë°ó¶¨Éè±¸£¡", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), "è¯·ç»‘å®šè®¾å¤‡ï¼", Toast.LENGTH_SHORT).show();
 					}
 					break;
 				case R.id.qiuzhu:
 					if(crutchDeviceNumber!=null&&!"".equals(crutchDeviceNumber)||beltDeviceNumber!=null&&!"".equals(beltDeviceNumber)){
 						if(crutchId!=null&&!"".equals(crutchId)||beltId!=null&&!"".equals(beltId)){
 							if("1".equals(biaoZhi)){
-								Toast.makeText(getApplicationContext(), "Çëµã»÷¶¨Î»²éÑ¯\n"+nameTV.getText()+"ÔÚ"+serviceTime+"·¢ÉúÇóÖú", Toast.LENGTH_SHORT).show();
+								Toast.makeText(getApplicationContext(), "è¯·ç‚¹å‡»å®šä½æŸ¥è¯¢\n"+nameTV.getText()+"åœ¨"+serviceTime+"å‘ç”Ÿæ±‚åŠ©", Toast.LENGTH_SHORT).show();
 							}else{
 								Intent intent = new Intent(AnyCareMainActivity.this,WarningActivity.class);
 								Bundle bundle = new Bundle();
@@ -553,10 +553,10 @@ public class AnyCareMainActivity extends Activity {
 								startActivity(intent);
 							}
 						}else{
-							Toast.makeText(getApplicationContext(), "Éè±¸Î´·¢ËÍÊı¾İ£¡", Toast.LENGTH_SHORT).show();
+							Toast.makeText(getApplicationContext(), "è®¾å¤‡æœªå‘é€æ•°æ®ï¼", Toast.LENGTH_SHORT).show();
 						}
 					}else{
-						Toast.makeText(getApplicationContext(), "Çë°ó¶¨Éè±¸£¡", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), "è¯·ç»‘å®šè®¾å¤‡ï¼", Toast.LENGTH_SHORT).show();
 					}
 					break;
 				case R.id.huodongliang:
@@ -567,12 +567,12 @@ public class AnyCareMainActivity extends Activity {
 						intent.putExtras(bundle);
 						startActivity(intent);
 					}else{
-						Toast.makeText(getApplicationContext(), "Çë°ó¶¨Ñü´øÉè±¸£¡", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), "è¯·ç»‘å®šè…°å¸¦è®¾å¤‡ï¼", Toast.LENGTH_SHORT).show();
 					}
 				break;
 				case R.id.zuotouxiangtu:
-					//ÉèÖÃÎ»ÖÃ
-					//ÉèÖÃÔÚÆÁÄ»×ó²àµÄÏÔÊ¾Î»ÖÃ
+					//è®¾ç½®ä½ç½®
+					//è®¾ç½®åœ¨å±å¹•å·¦ä¾§çš„æ˜¾ç¤ºä½ç½®
 					popWindow.showAtLocation(mainlayout, Gravity.NO_GRAVITY, 0, 0);
 					break;
 				case R.id.zhuyeshezhi:
@@ -599,7 +599,7 @@ public class AnyCareMainActivity extends Activity {
 						intent.putExtras(bundle);
 						startActivity(intent);
 					}else{
-						Toast.makeText(getApplicationContext(), "ÇëÏÈ´´½¨¸öÈËĞÅÏ¢£¡", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), "è¯·å…ˆåˆ›å»ºä¸ªäººä¿¡æ¯ï¼", Toast.LENGTH_SHORT).show();
 					}
 					break;
 			}
@@ -610,29 +610,29 @@ public class AnyCareMainActivity extends Activity {
 		@Override
 		public boolean shouldOverrideUrlLoading(WebView view, String url) {
 			// TODO Auto-generated method stub
-			// Ê¹ÓÃ×Ô¼ºµÄWebView×é¼şÀ´ÏìÓ¦Url¼ÓÔØÊÂ¼ş£¬¶ø²»ÊÇÊ¹ÓÃÄ¬ÈÏä¯ÀÀÆ÷Æ÷¼ÓÔØÒ³Ãæ
+			// ä½¿ç”¨è‡ªå·±çš„WebViewç»„ä»¶æ¥å“åº”UrlåŠ è½½äº‹ä»¶ï¼Œè€Œä¸æ˜¯ä½¿ç”¨é»˜è®¤æµè§ˆå™¨å™¨åŠ è½½é¡µé¢
 			view.loadUrl(url);
-			// ¼ÇµÃÏûºÄµôÕâ¸öÊÂ¼ş¡£¸ø²»ÖªµÀµÄÅóÓÑÔÙ½âÊÍÒ»ÏÂ£¬AndroidÖĞ·µ»ØTrueµÄÒâË¼¾ÍÊÇµ½´ËÎªÖ¹°É,
-			//ÊÂ¼ş¾Í»á²»»áÃ°Åİ´«µİÁË£¬ÎÒÃÇ³ÆÖ®ÎªÏûºÄµô 
+			// è®°å¾—æ¶ˆè€—æ‰è¿™ä¸ªäº‹ä»¶ã€‚ç»™ä¸çŸ¥é“çš„æœ‹å‹å†è§£é‡Šä¸€ä¸‹ï¼ŒAndroidä¸­è¿”å›Trueçš„æ„æ€å°±æ˜¯åˆ°æ­¤ä¸ºæ­¢å§,
+			//äº‹ä»¶å°±ä¼šä¸ä¼šå†’æ³¡ä¼ é€’äº†ï¼Œæˆ‘ä»¬ç§°ä¹‹ä¸ºæ¶ˆè€—æ‰ 
 			return true;
 		}
 	};
 	
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class loadAllDataByUserIdAsyncTask extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+			dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -655,7 +655,7 @@ public class AnyCareMainActivity extends Activity {
 			
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
@@ -707,16 +707,16 @@ public class AnyCareMainActivity extends Activity {
 									JSONObject anyCareDeviceEntity = anyCareDeviceEntityList.getJSONObject(a);
 									String deviceType = anyCareDeviceEntity.getString("deviceType");
 									String deviceId = anyCareDeviceEntity.getString("deviceId");
-									//¹Õ¹÷
+									//æ‹æ£
 									if("1".equals(deviceType)){
 										map.put("crutchDeviceId", deviceId);
-									//Ñü´ø
+									//è…°å¸¦
 									}else if("2".equals(deviceType)){
 										map.put("beltDeviceId", deviceId);
 									}
 								}
 							}
-							//´¦ÀíĞĞ×ß¾²Ö¹»î¶¯Á¿Êı¾İµ½Êı¾İ¿âÖĞ
+							//å¤„ç†è¡Œèµ°é™æ­¢æ´»åŠ¨é‡æ•°æ®åˆ°æ•°æ®åº“ä¸­
 							if(xingZouJingZhiList != null){
 								List<XingZouJingZhiEntity> xzjzList = new ArrayList<XingZouJingZhiEntity>();
 								for(int a = 0 ;a<xingZouJingZhiList.length();a++){
@@ -729,7 +729,7 @@ public class AnyCareMainActivity extends Activity {
 									xzjz.setBuShu(xingZouJingZhiEntity.getString("buShu"));
 									String time = xingZouJingZhiEntity.getString("time");
 									xzjz.setTime(time);
-									//ÅĞ¶Ï¿ªÊ¼ÈÕÆÚ¸úÍ¬²½ÈÕÆÚÒ»ÖÂ,²éÕÒÍ¬²½ÈÕÆÚÊı¾İ
+									//åˆ¤æ–­å¼€å§‹æ—¥æœŸè·ŸåŒæ­¥æ—¥æœŸä¸€è‡´,æŸ¥æ‰¾åŒæ­¥æ—¥æœŸæ•°æ®
 									XingZouJingZhiEntity xzjzEntity = dataBaseManager.query(dn, time);
 									if(xzjzEntity !=null){
 										dataBaseManager.delete(xzjz);
@@ -766,86 +766,86 @@ public class AnyCareMainActivity extends Activity {
 									beltId= map.get("beltId");
 									if(crutchDeviceNumber!=null&&!"".equals(crutchDeviceNumber)||beltDeviceNumber!=null&&!"".equals(beltDeviceNumber)){
 										if(crutchId!=null&&!"".equals(crutchId)||beltId!=null&&!"".equals(beltId)){
-											diquTV.setText("ËùÔÚ³ÇÊĞ:"+city);
+											diquTV.setText("æ‰€åœ¨åŸå¸‚:"+city);
 											if("1".equals(biaoZhi)){
-												qiujiuBtn.setText("ÇóÖú¸æ¾¯");
+												qiujiuBtn.setText("æ±‚åŠ©å‘Šè­¦");
 											}else{
-												qiujiuBtn.setText("ÇóÖúÀúÊ·");
+												qiujiuBtn.setText("æ±‚åŠ©å†å²");
 											}
 										}else{
-											diquTV.setText("ÒÑ°ó¶¨ÎŞÊı¾İ");
-											qiujiuBtn.setText("ÎŞÊı¾İ");
+											diquTV.setText("å·²ç»‘å®šæ— æ•°æ®");
+											qiujiuBtn.setText("æ— æ•°æ®");
 										}
 									}else{
-										diquTV.setText("Éè±¸Î´°ó¶¨");
-										qiujiuBtn.setText("Î´°ó¶¨");
+										diquTV.setText("è®¾å¤‡æœªç»‘å®š");
+										qiujiuBtn.setText("æœªç»‘å®š");
 									}
-									wenduTV.setText(("".equals(temperature1)?"--":temperature1)+"¡æ/"+("".equals(temperature2)?"--":temperature2)+"¡æ");
-									if ("Çç".equals(status)) {
+									wenduTV.setText(("".equals(temperature1)?"--":temperature1)+"â„ƒ/"+("".equals(temperature2)?"--":temperature2)+"â„ƒ");
+									if ("æ™´".equals(status)) {
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather00));
-									}else if("¶àÔÆ".equals(status)){
+									}else if("å¤šäº‘".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather01));
-									}else if("Òõ".equals(status)){
+									}else if("é˜´".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather02));
-									}else if("ÕóÓê".equals(status)){
+									}else if("é˜µé›¨".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather03));
-									}else if("À×ÕóÓê".equals(status)){
+									}else if("é›·é˜µé›¨".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather04));
-									}else if("À×ÕóÓê°éÓĞ±ù±¢".equals(status)){
+									}else if("é›·é˜µé›¨ä¼´æœ‰å†°é›¹".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather05));
-									}else if("Óê¼ĞÑ©".equals(status)){
+									}else if("é›¨å¤¹é›ª".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather06));
-									}else if("Ğ¡Óê".equals(status)){
+									}else if("å°é›¨".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather07));
-									}else if("ÖĞÓê".equals(status)){
+									}else if("ä¸­é›¨".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather08));
-									}else if("´óÓê".equals(status)){
+									}else if("å¤§é›¨".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather09));
-									}else if("±©Óê".equals(status)){
+									}else if("æš´é›¨".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather10));
-									}else if("´ó±©Óê".equals(status)){
+									}else if("å¤§æš´é›¨".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather11));
-									}else if("ÌØ´ó±©Óê".equals(status)){
+									}else if("ç‰¹å¤§æš´é›¨".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather12));
-									}else if("ÕóÑ©".equals(status)){
+									}else if("é˜µé›ª".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather13));
-									}else if("Ğ¡Ñ©".equals(status)){
+									}else if("å°é›ª".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather14));
-									}else if("ÖĞÑ©".equals(status)){
+									}else if("ä¸­é›ª".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather15));
-									}else if("´óÑ©".equals(status)){
+									}else if("å¤§é›ª".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather16));
-									}else if("±©Ñ©".equals(status)){
+									}else if("æš´é›ª".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather17));
-									}else if("Îí".equals(status)){
+									}else if("é›¾".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather18));
-									}else if("¶³Óê".equals(status)){
+									}else if("å†»é›¨".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather19));
-									}else if("É³³¾±©".equals(status)){
+									}else if("æ²™å°˜æš´".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather20));
-									}else if("Ğ¡µ½ÖĞÓê".equals(status)){
+									}else if("å°åˆ°ä¸­é›¨".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather21));
-									}else if("ÖĞµ½´óÓê".equals(status)){
+									}else if("ä¸­åˆ°å¤§é›¨".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather22));
-									}else if("´óµ½±©Óê".equals(status)){
+									}else if("å¤§åˆ°æš´é›¨".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather23));
-									}else if("±©Óêµ½´ó±©Óê".equals(status)){
+									}else if("æš´é›¨åˆ°å¤§æš´é›¨".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather24));
-									}else if("´ó±©Óêµ½ÌØ´ó±©Óê".equals(status)){
+									}else if("å¤§æš´é›¨åˆ°ç‰¹å¤§æš´é›¨".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather25));
-									}else if("Ğ¡µ½ÖĞÑ©".equals(status)){
+									}else if("å°åˆ°ä¸­é›ª".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather26));
-									}else if("ÖĞµ½´óÑ©".equals(status)){
+									}else if("ä¸­åˆ°å¤§é›ª".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather27));
-									}else if("´óµ½±©Ñ©".equals(status)){
+									}else if("å¤§åˆ°æš´é›ª".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather28));
-									}else if("¸¡³¾".equals(status)){
+									}else if("æµ®å°˜".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather29));
-									}else if("ÑïÉ³".equals(status)){
+									}else if("æ‰¬æ²™".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather30));
-									}else if("Ç¿É³³¾±© ".equals(status)){
+									}else if("å¼ºæ²™å°˜æš´ ".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather31));
-									}else if("ö² ".equals(status)){
+									}else if("éœ¾ ".equals(status)){
 										tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather53));
 									}
 								}
@@ -856,17 +856,17 @@ public class AnyCareMainActivity extends Activity {
 						yuanBanJing = "";
 						yuanLat = "";
 						yuanLon = "";
-						nameTV.setText("ÎŞ");
-						idhaoTV.setText("ID:ÎŞ");
+						nameTV.setText("æ— ");
+						idhaoTV.setText("ID:æ— ");
 						crutchDeviceNumber = "";
 						longitude = "";
 						latitude = "";
 						address = "";
 						serviceTime = "";
 						biaoZhi = "";
-						qiujiuBtn.setText("Î´°ó¶¨");
-						diquTV.setText("Éè±¸Î´°ó¶¨");
-						wenduTV.setText("--¡æ/--¡æ");
+						qiujiuBtn.setText("æœªç»‘å®š");
+						diquTV.setText("è®¾å¤‡æœªç»‘å®š");
+						wenduTV.setText("--â„ƒ/--â„ƒ");
 					}
 					if(myAdapter==null){
 						myAdapter=new MyAdapter();
@@ -875,9 +875,9 @@ public class AnyCareMainActivity extends Activity {
 					}else{
 						myAdapter.notifyDataSetChanged();
 					}
-					dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+					dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 				}else{
-					dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+					dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 				}
 			}catch(Exception e){
 				e.printStackTrace();
@@ -887,14 +887,14 @@ public class AnyCareMainActivity extends Activity {
 	}
 	
 	/**
-	 * dis:×Ô¶¨Òåadapter£¬ÊµÏÖlistView °´Å¥ÊÂ¼ş
+	 * dis:è‡ªå®šä¹‰adapterï¼Œå®ç°listView æŒ‰é’®äº‹ä»¶
 	 * */
 	private class MyAdapter extends BaseAdapter {
 		
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			// ÕâÀïÎÒ¾Í·µ»Ø10ÁË£¬Ò²¾ÍÊÇÒ»¹²ÓĞ10ÏîÊı¾İÏî
+			// è¿™é‡Œæˆ‘å°±è¿”å›10äº†ï¼Œä¹Ÿå°±æ˜¯ä¸€å…±æœ‰10é¡¹æ•°æ®é¡¹
 			return dataList.size();
 		}
 
@@ -939,9 +939,9 @@ public class AnyCareMainActivity extends Activity {
 					// TODO Auto-generated method stub
 					AlertDialog.Builder builder = new AlertDialog.Builder(AnyCareMainActivity.this);
 		    		builder
-		    			.setTitle("È·ÈÏ")
-		    			.setMessage("È·ÈÏÉ¾³ı¸ÃÈËÔ±ĞÅÏ¢?")
-		    			.setPositiveButton("ÊÇ", new DialogInterface.OnClickListener() {
+		    			.setTitle("ç¡®è®¤")
+		    			.setMessage("ç¡®è®¤åˆ é™¤è¯¥äººå‘˜ä¿¡æ¯?")
+		    			.setPositiveButton("æ˜¯", new DialogInterface.OnClickListener() {
 		    				@Override
 		    				public void onClick(DialogInterface dialog, int which) {
 		    					// TODO Auto-generated method stub
@@ -949,7 +949,7 @@ public class AnyCareMainActivity extends Activity {
 		    					new UserDeleteArchivesAsyncTask().execute(new String[]{readUserId(),map.get("archivesId")});
 		    				}
 		    			})
-		    			.setNegativeButton("·ñ", new DialogInterface.OnClickListener(){
+		    			.setNegativeButton("å¦", new DialogInterface.OnClickListener(){
 		    				@Override
 		    				public void onClick(DialogInterface dialog, int which) {
 		    					// TODO Auto-generated method stub
@@ -996,86 +996,86 @@ public class AnyCareMainActivity extends Activity {
 			beltId= bindDeviceInforMap.get("beltId");
 			if(crutchDeviceNumber!=null&&!"".equals(crutchDeviceNumber)||beltDeviceNumber!=null&&!"".equals(beltDeviceNumber)){
 				if(crutchId!=null&&!"".equals(crutchId)||beltId!=null&&!"".equals(beltId)){
-					diquTV.setText("ËùÔÚ³ÇÊĞ:"+city);
+					diquTV.setText("æ‰€åœ¨åŸå¸‚:"+city);
 					if("1".equals(biaoZhi)){
-						qiujiuBtn.setText("ÇóÖú¸æ¾¯");
+						qiujiuBtn.setText("æ±‚åŠ©å‘Šè­¦");
 					}else{
-						qiujiuBtn.setText("ÇóÖúÀúÊ·");
+						qiujiuBtn.setText("æ±‚åŠ©å†å²");
 					}
 				}else{
-					diquTV.setText("ÒÑ°ó¶¨ÎŞÊı¾İ");
-					qiujiuBtn.setText("ÎŞÊı¾İ");
+					diquTV.setText("å·²ç»‘å®šæ— æ•°æ®");
+					qiujiuBtn.setText("æ— æ•°æ®");
 				}
 			}else{
-				diquTV.setText("Éè±¸Î´°ó¶¨");
-				qiujiuBtn.setText("Î´°ó¶¨");
+				diquTV.setText("è®¾å¤‡æœªç»‘å®š");
+				qiujiuBtn.setText("æœªç»‘å®š");
 			}
-			wenduTV.setText(("".equals(temperature1)?"--":temperature1)+"¡æ/"+("".equals(temperature2)?"--":temperature2)+"¡æ");
-			if ("Çç".equals(status)) {
+			wenduTV.setText(("".equals(temperature1)?"--":temperature1)+"â„ƒ/"+("".equals(temperature2)?"--":temperature2)+"â„ƒ");
+			if ("æ™´".equals(status)) {
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather00));
-			}else if("¶àÔÆ".equals(status)){
+			}else if("å¤šäº‘".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather01));
-			}else if("Òõ".equals(status)){
+			}else if("é˜´".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather02));
-			}else if("ÕóÓê".equals(status)){
+			}else if("é˜µé›¨".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather03));
-			}else if("À×ÕóÓê".equals(status)){
+			}else if("é›·é˜µé›¨".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather04));
-			}else if("À×ÕóÓê°éÓĞ±ù±¢".equals(status)){
+			}else if("é›·é˜µé›¨ä¼´æœ‰å†°é›¹".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather05));
-			}else if("Óê¼ĞÑ©".equals(status)){
+			}else if("é›¨å¤¹é›ª".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather06));
-			}else if("Ğ¡Óê".equals(status)){
+			}else if("å°é›¨".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather07));
-			}else if("ÖĞÓê".equals(status)){
+			}else if("ä¸­é›¨".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather08));
-			}else if("´óÓê".equals(status)){
+			}else if("å¤§é›¨".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather09));
-			}else if("±©Óê".equals(status)){
+			}else if("æš´é›¨".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather10));
-			}else if("´ó±©Óê".equals(status)){
+			}else if("å¤§æš´é›¨".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather11));
-			}else if("ÌØ´ó±©Óê".equals(status)){
+			}else if("ç‰¹å¤§æš´é›¨".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather12));
-			}else if("ÕóÑ©".equals(status)){
+			}else if("é˜µé›ª".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather13));
-			}else if("Ğ¡Ñ©".equals(status)){
+			}else if("å°é›ª".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather14));
-			}else if("ÖĞÑ©".equals(status)){
+			}else if("ä¸­é›ª".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather15));
-			}else if("´óÑ©".equals(status)){
+			}else if("å¤§é›ª".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather16));
-			}else if("±©Ñ©".equals(status)){
+			}else if("æš´é›ª".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather17));
-			}else if("Îí".equals(status)){
+			}else if("é›¾".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather18));
-			}else if("¶³Óê".equals(status)){
+			}else if("å†»é›¨".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather19));
-			}else if("É³³¾±©".equals(status)){
+			}else if("æ²™å°˜æš´".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather20));
-			}else if("Ğ¡µ½ÖĞÓê".equals(status)){
+			}else if("å°åˆ°ä¸­é›¨".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather21));
-			}else if("ÖĞµ½´óÓê".equals(status)){
+			}else if("ä¸­åˆ°å¤§é›¨".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather22));
-			}else if("´óµ½±©Óê".equals(status)){
+			}else if("å¤§åˆ°æš´é›¨".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather23));
-			}else if("±©Óêµ½´ó±©Óê".equals(status)){
+			}else if("æš´é›¨åˆ°å¤§æš´é›¨".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather24));
-			}else if("´ó±©Óêµ½ÌØ´ó±©Óê".equals(status)){
+			}else if("å¤§æš´é›¨åˆ°ç‰¹å¤§æš´é›¨".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather25));
-			}else if("Ğ¡µ½ÖĞÑ©".equals(status)){
+			}else if("å°åˆ°ä¸­é›ª".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather26));
-			}else if("ÖĞµ½´óÑ©".equals(status)){
+			}else if("ä¸­åˆ°å¤§é›ª".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather27));
-			}else if("´óµ½±©Ñ©".equals(status)){
+			}else if("å¤§åˆ°æš´é›ª".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather28));
-			}else if("¸¡³¾".equals(status)){
+			}else if("æµ®å°˜".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather29));
-			}else if("ÑïÉ³".equals(status)){
+			}else if("æ‰¬æ²™".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather30));
-			}else if("Ç¿É³³¾±© ".equals(status)){
+			}else if("å¼ºæ²™å°˜æš´ ".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather31));
-			}else if("ö² ".equals(status)){
+			}else if("éœ¾ ".equals(status)){
 				tianqituIM.setBackgroundDrawable(getResources().getDrawable(R.drawable.weather53));
 			}
 			popWindow.dismiss();
@@ -1095,7 +1095,7 @@ public class AnyCareMainActivity extends Activity {
 	
 	/** 
 	 * author:ma_yming
-	 * dis:ÏÔÊ¾dialog 
+	 * dis:æ˜¾ç¤ºdialog 
 	 * */
 	private void dialog() {
 		if(mViewPager.getCurrentItem()==1){
@@ -1109,20 +1109,20 @@ public class AnyCareMainActivity extends Activity {
 	
 	
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class UserDeleteArchivesAsyncTask extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+			dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -1144,46 +1144,46 @@ public class AnyCareMainActivity extends Activity {
 			super.onProgressUpdate(values);
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
 			dataList.clear();
 			if(result!=null&&!"".equals(result)&&"true".equals(result)){
-				Toast.makeText(getApplicationContext(), "ÈËÔ±ĞÅÏ¢É¾³ı³É¹¦£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "äººå‘˜ä¿¡æ¯åˆ é™¤æˆåŠŸï¼", Toast.LENGTH_SHORT).show();
 				new loadAllDataByUserIdAsyncTask().execute();
 			}else if(result!=null&&!"".equals(result)&&"false".equals(result)){
-				Toast.makeText(getApplicationContext(), "ÈËÔ±ĞÅÏ¢É¾³ıÊ§°Ü£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "äººå‘˜ä¿¡æ¯åˆ é™¤å¤±è´¥ï¼", Toast.LENGTH_SHORT).show();
 			}else if("".equals(result)){
-				Toast.makeText(getApplicationContext(), "²Ù×÷Ê§°Ü£¬ÇëÖØÊÔ£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "æ“ä½œå¤±è´¥ï¼Œè¯·é‡è¯•ï¼", Toast.LENGTH_SHORT).show();
 			}
-			dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+			dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 		}
 	}
 	
 	
 	/*
-	 * »ñÈ¡µ±Ç°³ÌĞòµÄ°æ±¾ºÅ
+	 * è·å–å½“å‰ç¨‹åºçš„ç‰ˆæœ¬å·
 	 */
 	private String getVersionName() throws Exception {
-		// »ñÈ¡packagemanagerµÄÊµÀı
+		// è·å–packagemanagerçš„å®ä¾‹
 		PackageManager packageManager = getPackageManager();
-		// getPackageName()ÊÇÄãµ±Ç°ÀàµÄ°üÃû£¬0´ú±íÊÇ»ñÈ¡°æ±¾ĞÅÏ¢
+		// getPackageName()æ˜¯ä½ å½“å‰ç±»çš„åŒ…åï¼Œ0ä»£è¡¨æ˜¯è·å–ç‰ˆæœ¬ä¿¡æ¯
 		PackageInfo packInfo = packageManager.getPackageInfo(getPackageName(),0);
 		return packInfo.versionName;
 	}
 	
 	/*
-	 * ´Ó·şÎñÆ÷»ñÈ¡xml½âÎö²¢½øĞĞ±È¶Ô°æ±¾ºÅ
+	 * ä»æœåŠ¡å™¨è·å–xmlè§£æå¹¶è¿›è¡Œæ¯”å¯¹ç‰ˆæœ¬å·
 	 */
 	public class CheckVersionTask implements Runnable {
 
 		public void run() {
 			try {
-				// ´Ó×ÊÔ´ÎÄ¼ş»ñÈ¡·şÎñÆ÷ µØÖ·
+				// ä»èµ„æºæ–‡ä»¶è·å–æœåŠ¡å™¨ åœ°å€
 				String path = getResources().getString(R.string.url_server);
-				// °ü×°³ÉurlµÄ¶ÔÏó
+				// åŒ…è£…æˆurlçš„å¯¹è±¡
 				URL url = new URL(path);
 				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 				conn.setConnectTimeout(5000);
@@ -1200,7 +1200,7 @@ public class AnyCareMainActivity extends Activity {
 					handler.sendMessage(msg);
 				}
 			} catch (Exception e) {
-				// ´ı´¦Àí
+				// å¾…å¤„ç†
 				Message msg = new Message();
 				msg.what = GET_UNDATAINFO_ERROR;
 				handler.sendMessage(msg);
@@ -1218,25 +1218,25 @@ public class AnyCareMainActivity extends Activity {
 			super.handleMessage(msg);
 			switch (msg.what) {
 			case UPDATA_NONEED:
-//				Toast.makeText(getApplicationContext(), "°æ±¾ºÅÏàÍ¬ÎŞĞèÉı¼¶",Toast.LENGTH_SHORT).show();
+//				Toast.makeText(getApplicationContext(), "ç‰ˆæœ¬å·ç›¸åŒæ— éœ€å‡çº§",Toast.LENGTH_SHORT).show();
 				break;
 			case UPDATA_CLIENT:
-				// ¶Ô»°¿òÍ¨ÖªÓÃ»§Éı¼¶³ÌĞò
-				// Toast.makeText(getApplicationContext(), "¿ÉÒÔÉı¼¶³ÌĞòÀ²~",1).show();
+				// å¯¹è¯æ¡†é€šçŸ¥ç”¨æˆ·å‡çº§ç¨‹åº
+				// Toast.makeText(getApplicationContext(), "å¯ä»¥å‡çº§ç¨‹åºå•¦~",1).show();
 				showUpdataDialog();
 				break;
 			case GET_UNDATAINFO_ERROR:
-				// ·şÎñÆ÷³¬Ê±
-				Toast.makeText(getApplicationContext(), "»ñÈ¡·şÎñÆ÷¸üĞÂĞÅÏ¢Ê§°Ü", 1).show();
+				// æœåŠ¡å™¨è¶…æ—¶
+				Toast.makeText(getApplicationContext(), "è·å–æœåŠ¡å™¨æ›´æ–°ä¿¡æ¯å¤±è´¥", 1).show();
 				// LoginMain();
 				break;
 			case SDCARD_NOMOUNTED:
-				// sdcard²»¿ÉÓÃ
-				Toast.makeText(getApplicationContext(), "SD¿¨²»¿ÉÓÃ",1).show();
+				// sdcardä¸å¯ç”¨
+				Toast.makeText(getApplicationContext(), "SDå¡ä¸å¯ç”¨",1).show();
 				break;
 			case DOWN_ERROR:
-				// ÏÂÔØapkÊ§°Ü
-				Toast.makeText(getApplicationContext(), "ÏÂÔØĞÂ°æ±¾Ê§°Ü", 1).show();
+				// ä¸‹è½½apkå¤±è´¥
+				Toast.makeText(getApplicationContext(), "ä¸‹è½½æ–°ç‰ˆæœ¬å¤±è´¥", 1).show();
 				// LoginMain();
 				break;
 			}
@@ -1246,24 +1246,24 @@ public class AnyCareMainActivity extends Activity {
 	
 	/*
 	 * 
-	 * µ¯³ö¶Ô»°¿òÍ¨ÖªÓÃ»§¸üĞÂ³ÌĞò
+	 * å¼¹å‡ºå¯¹è¯æ¡†é€šçŸ¥ç”¨æˆ·æ›´æ–°ç¨‹åº
 	 * 
-	 * µ¯³ö¶Ô»°¿òµÄ²½Öè£º 1.´´½¨alertDialogµÄbuilder. 2.Òª¸øbuilderÉèÖÃÊôĞÔ, ¶Ô»°¿òµÄÄÚÈİ,ÑùÊ½,°´Å¥
-	 * 3.Í¨¹ıbuilder ´´½¨Ò»¸ö¶Ô»°¿ò 4.¶Ô»°¿òshow()³öÀ´
+	 * å¼¹å‡ºå¯¹è¯æ¡†çš„æ­¥éª¤ï¼š 1.åˆ›å»ºalertDialogçš„builder. 2.è¦ç»™builderè®¾ç½®å±æ€§, å¯¹è¯æ¡†çš„å†…å®¹,æ ·å¼,æŒ‰é’®
+	 * 3.é€šè¿‡builder åˆ›å»ºä¸€ä¸ªå¯¹è¯æ¡† 4.å¯¹è¯æ¡†show()å‡ºæ¥
 	 */
 	protected void showUpdataDialog() {
 		AlertDialog.Builder builer = new Builder(this);
-		builer.setTitle("°æ±¾Éı¼¶");
+		builer.setTitle("ç‰ˆæœ¬å‡çº§");
 		builer.setMessage(info.getDescription());
-		// µ±µãÈ·¶¨°´Å¥Ê±´Ó·şÎñÆ÷ÉÏÏÂÔØ ĞÂµÄapk È»ºó°²×°
-		builer.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+		// å½“ç‚¹ç¡®å®šæŒ‰é’®æ—¶ä»æœåŠ¡å™¨ä¸Šä¸‹è½½ æ–°çš„apk ç„¶åå®‰è£…
+		builer.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
-				Log.i(TAG, "ÏÂÔØapk,¸üĞÂ");
+				Log.i(TAG, "ä¸‹è½½apk,æ›´æ–°");
 				downLoadApk();
 			}
 		});
-		// µ±µãÈ¡Ïû°´Å¥Ê±½øĞĞµÇÂ¼
-		builer.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+		// å½“ç‚¹å–æ¶ˆæŒ‰é’®æ—¶è¿›è¡Œç™»å½•
+		builer.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
 				// LoginMain();
@@ -1274,13 +1274,13 @@ public class AnyCareMainActivity extends Activity {
 	}
 	
 	/*
-	 * ´Ó·şÎñÆ÷ÖĞÏÂÔØAPK
+	 * ä»æœåŠ¡å™¨ä¸­ä¸‹è½½APK
 	 */
 	protected void downLoadApk() {
-		final ProgressDialog pd; // ½ø¶ÈÌõ¶Ô»°¿ò
+		final ProgressDialog pd; // è¿›åº¦æ¡å¯¹è¯æ¡†
 		pd = new ProgressDialog(AnyCareMainActivity.this);
 		pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-		pd.setMessage("ÕıÔÚÏÂÔØ¸üĞÂ");
+		pd.setMessage("æ­£åœ¨ä¸‹è½½æ›´æ–°");
 		if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
 			Message msg = new Message();
 			msg.what = SDCARD_NOMOUNTED;
@@ -1294,7 +1294,7 @@ public class AnyCareMainActivity extends Activity {
 						File file = DownLoadManager.getFileFromServer(info.getUrl(), pd);
 						sleep(1000);
 						installApk(file);
-						pd.dismiss(); // ½áÊøµô½ø¶ÈÌõ¶Ô»°¿ò
+						pd.dismiss(); // ç»“æŸæ‰è¿›åº¦æ¡å¯¹è¯æ¡†
 
 					} catch (Exception e) {
 						Message msg = new Message();
@@ -1307,12 +1307,12 @@ public class AnyCareMainActivity extends Activity {
 		}
 	}
 	
-	// °²×°apk
+	// å®‰è£…apk
 	protected void installApk(File file) {
 		Intent intent = new Intent();
-		// Ö´ĞĞ¶¯×÷
+		// æ‰§è¡ŒåŠ¨ä½œ
 		intent.setAction(Intent.ACTION_VIEW);
-		// Ö´ĞĞµÄÊı¾İÀàĞÍ
+		// æ‰§è¡Œçš„æ•°æ®ç±»å‹
 		intent.setDataAndType(Uri.fromFile(file),"application/vnd.android.package-archive");
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
 		startActivity(intent);
@@ -1320,20 +1320,21 @@ public class AnyCareMainActivity extends Activity {
 	
 	
 	private void saveUserPage(int page){
-		//»ñÈ¡SharedPreferences¶ÔÏó£¬Â·¾¶ÔÚ/data/data/cn.itcast.preferences/shared_pref/paramater.xml
+		//è·å–SharedPreferenceså¯¹è±¡ï¼Œè·¯å¾„åœ¨/data/data/cn.itcast.preferences/shared_pref/paramater.xml
 		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-		//»ñÈ¡±à¼­Æ÷
+		//è·å–ç¼–è¾‘å™¨
 		Editor editor=sp.edit();
-		//Í¨¹ıeditor½øĞĞÉèÖÃ
+		//é€šè¿‡editorè¿›è¡Œè®¾ç½®
 		editor.putInt("page", page);
-		//Ìá½»ĞŞ¸Ä£¬½«Êı¾İĞ´µ½ÎÄ¼ş
+		//æäº¤ä¿®æ”¹ï¼Œå°†æ•°æ®å†™åˆ°æ–‡ä»¶
 		editor.commit();
 	}
 	
 	private int readUserPage(){
 		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
 		int page=sp.getInt("page", 0);
 		return page;
 	}
 }
+

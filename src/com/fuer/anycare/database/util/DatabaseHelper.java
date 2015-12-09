@@ -11,43 +11,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static final int VERSION = 1;  
 	private static final String ANYCARE="anycare";
 
-	//Èı¸ö²»Í¬²ÎÊıµÄ¹¹Ôìº¯Êı  
-	//´øÈ«²¿²ÎÊıµÄ¹¹Ôìº¯Êı£¬´Ë¹¹Ôìº¯Êı±Ø²»¿ÉÉÙ  
+	//ä¸‰ä¸ªä¸åŒå‚æ•°çš„æ„é€ å‡½æ•°  
+	//å¸¦å…¨éƒ¨å‚æ•°çš„æ„é€ å‡½æ•°ï¼Œæ­¤æ„é€ å‡½æ•°å¿…ä¸å¯å°‘  
 	public DatabaseHelper(Context context, String name, CursorFactory factory,int version) {  
 		super(context, ANYCARE, factory, version);  
 	}  
-	//´øÁ½¸ö²ÎÊıµÄ¹¹Ôìº¯Êı£¬µ÷ÓÃµÄÆäÊµÊÇ´øÈı¸ö²ÎÊıµÄ¹¹Ôìº¯Êı  
+	//å¸¦ä¸¤ä¸ªå‚æ•°çš„æ„é€ å‡½æ•°ï¼Œè°ƒç”¨çš„å…¶å®æ˜¯å¸¦ä¸‰ä¸ªå‚æ•°çš„æ„é€ å‡½æ•°  
 	public DatabaseHelper(Context context,String name){  
 		this(context,ANYCARE,VERSION);  
 	}  
-	//´øÈı¸ö²ÎÊıµÄ¹¹Ôìº¯Êı£¬µ÷ÓÃµÄÊÇ´øËùÓĞ²ÎÊıµÄ¹¹Ôìº¯Êı  
+	//å¸¦ä¸‰ä¸ªå‚æ•°çš„æ„é€ å‡½æ•°ï¼Œè°ƒç”¨çš„æ˜¯å¸¦æ‰€æœ‰å‚æ•°çš„æ„é€ å‡½æ•°  
 	public DatabaseHelper(Context context,String name,int version){  
 		this(context, ANYCARE,null,version);  
 	}
 	
 	public DatabaseHelper(Context context) {
-	//CursorFactoryÉèÖÃÎªnull,Ê¹ÓÃÄ¬ÈÏÖµ  
+	//CursorFactoryè®¾ç½®ä¸ºnull,ä½¿ç”¨é»˜è®¤å€¼  
 		super(context, ANYCARE, null, VERSION);
 	}  
 
 
-	//Êı¾İ¿âµÚÒ»´Î±»´´½¨Ê±onCreate»á±»µ÷ÓÃ  
+	//æ•°æ®åº“ç¬¬ä¸€æ¬¡è¢«åˆ›å»ºæ—¶onCreateä¼šè¢«è°ƒç”¨  
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
 		Log.i(ANYCARE,"create a Database");
-		//´´½¨Êı¾İ¿âsqlÓï¾ä
+		//åˆ›å»ºæ•°æ®åº“sqlè¯­å¥
 		db.execSQL("CREATE TABLE IF NOT EXISTS param (id VARCHAR PRIMARY KEY, name VARCHAR, content VARCHAR, createtime VARCHAR)");
 		db.execSQL("CREATE TABLE IF NOT EXISTS xingzoujingzhi (devicenumber VARCHAR, jingzhi VARCHAR,bushu VARCHAR, huodongliang VARCHAR,time VARCHAR)");
-		db.execSQL("INSERT INTO param VALUES(?, ?, ?, ?)",new Object[] {"1","×îĞÂÍ¬²½ÈÕÆÚ","1900-01-01","1900-01-01"});
+		db.execSQL("INSERT INTO param VALUES(?, ?, ?, ?)",new Object[] {"1","æœ€æ–°åŒæ­¥æ—¥æœŸ","1900-01-01","1900-01-01"});
 	}
 
-	//Èç¹ûDATABASE_VERSIONÖµ±»¸ÄÎª2,ÏµÍ³·¢ÏÖÏÖÓĞÊı¾İ¿â°æ±¾²»Í¬,¼´»áµ÷ÓÃonUpgrade
+	//å¦‚æœDATABASE_VERSIONå€¼è¢«æ”¹ä¸º2,ç³»ç»Ÿå‘ç°ç°æœ‰æ•°æ®åº“ç‰ˆæœ¬ä¸åŒ,å³ä¼šè°ƒç”¨onUpgrade
 	@Override
 	public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
 		// TODO Auto-generated method stub
-		//´´½¨³É¹¦£¬ÈÕÖ¾Êä³öÌáÊ¾  
+		//åˆ›å»ºæˆåŠŸï¼Œæ—¥å¿—è¾“å‡ºæç¤º  
 		Log.i(ANYCARE,"update a Database");
 	}
 	
 }
+

@@ -47,7 +47,7 @@ public class AnyCareRegister2Activity extends Activity {
 					String userId = readUserId();
 					new UserRegisterAsyncTask().execute(new String[]{userId,mimaStr});
 				}else{
-					Toast.makeText(getApplicationContext(), "ÃÜÂë²»Ò»ÖÂ", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "å¯†ç ä¸ä¸€è‡´", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
@@ -62,13 +62,13 @@ public class AnyCareRegister2Activity extends Activity {
 		});
 		mima.addTextChangedListener(textWatcher);
 		mimaqueren.addTextChangedListener(textWatcher);
-		//³õÊ¼»¯dialog
-		dialog=new LoadingProgressDialog(this,"ÕıÔÚ¼ÓÔØ...");
-		//³õÊ¼»¯dialog end
+		//åˆå§‹åŒ–dialog
+		dialog=new LoadingProgressDialog(this,"æ­£åœ¨åŠ è½½...");
+		//åˆå§‹åŒ–dialog end
 	}
 	private String readUserId(){
 		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
 		String userId=sp.getString("userId", "");
 		return userId;
 	}
@@ -91,20 +91,20 @@ public class AnyCareRegister2Activity extends Activity {
 	};
 	
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class UserRegisterAsyncTask extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+			dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -131,21 +131,22 @@ public class AnyCareRegister2Activity extends Activity {
 			
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
 			if("true".equals(result)){
-				Toast.makeText(getApplicationContext(), "×¢²á³É¹¦£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "æ³¨å†ŒæˆåŠŸï¼", Toast.LENGTH_SHORT).show();
 				startActivity(new Intent(getApplication(), AnyCareLoginActivity.class));
 				overridePendingTransition(R.anim.zoom_enter, R.anim.zoom_exit);
 			}else if("false".equals(result)){
-				Toast.makeText(getApplicationContext(), "×¢²áÊ§°Ü£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "æ³¨å†Œå¤±è´¥ï¼", Toast.LENGTH_SHORT).show();
 			}else if("".equals(result)){
-				Toast.makeText(getApplicationContext(), "Í¨ĞÅ¹ÊÕÏ£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "é€šä¿¡æ•…éšœï¼", Toast.LENGTH_SHORT).show();
 			}
-			dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+			dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 		}
 	}
 }
+

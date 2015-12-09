@@ -11,22 +11,22 @@ import android.util.Xml;
 public class UpdataInfoParser {
 
 	/*
-	 * ÓÃpull½âÎöÆ÷½âÎö·şÎñÆ÷·µ»ØµÄxmlÎÄ¼ş (xml·â×°ÁË°æ±¾ºÅ)
+	 * ç”¨pullè§£æå™¨è§£ææœåŠ¡å™¨è¿”å›çš„xmlæ–‡ä»¶ (xmlå°è£…äº†ç‰ˆæœ¬å·)
 	 */
 	public static UpdataInfo getUpdataInfo(InputStream is) throws Exception{
 		XmlPullParser  parser = Xml.newPullParser();  
-		parser.setInput(is, "utf-8");//ÉèÖÃ½âÎöµÄÊı¾İÔ´ 
+		parser.setInput(is, "utf-8");//è®¾ç½®è§£æçš„æ•°æ®æº 
 		int type = parser.getEventType();
-		UpdataInfo info = new UpdataInfo();//ÊµÌå
+		UpdataInfo info = new UpdataInfo();//å®ä½“
 		while(type != XmlPullParser.END_DOCUMENT ){
 			switch (type) {
 			case XmlPullParser.START_TAG:
 				if("version".equals(parser.getName())){
-					info.setVersion(parser.nextText());	//»ñÈ¡°æ±¾ºÅ
+					info.setVersion(parser.nextText());	//è·å–ç‰ˆæœ¬å·
 				}else if ("url".equals(parser.getName())){
-					info.setUrl(parser.nextText());	//»ñÈ¡ÒªÉı¼¶µÄAPKÎÄ¼ş
+					info.setUrl(parser.nextText());	//è·å–è¦å‡çº§çš„APKæ–‡ä»¶
 				}else if ("description".equals(parser.getName())){
-					info.setDescription(parser.nextText());	//»ñÈ¡¸ÃÎÄ¼şµÄĞÅÏ¢
+					info.setDescription(parser.nextText());	//è·å–è¯¥æ–‡ä»¶çš„ä¿¡æ¯
 				}
 				break;
 			}
@@ -35,3 +35,4 @@ public class UpdataInfoParser {
 		return info;
 	}
 }
+

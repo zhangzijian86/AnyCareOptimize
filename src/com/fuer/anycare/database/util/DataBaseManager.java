@@ -14,9 +14,9 @@ public class DataBaseManager {
 
 	public DataBaseManager(Context context) {
 		helper = new DatabaseHelper(context);
-		// ÒòÎªgetWritableDatabaseÄÚ²¿µ÷ÓÃÁËmContext.openOrCreateDatabase(mName, 0,
+		// å› ä¸ºgetWritableDatabaseå†…éƒ¨è°ƒç”¨äº†mContext.openOrCreateDatabase(mName, 0,
 		// mFactory);
-		// ËùÒÔÒªÈ·±£contextÒÑ³õÊ¼»¯,ÎÒÃÇ¿ÉÒÔ°ÑÊµÀı»¯DBManagerµÄ²½Öè·ÅÔÚActivityµÄonCreateÀï
+		// æ‰€ä»¥è¦ç¡®ä¿contextå·²åˆå§‹åŒ–,æˆ‘ä»¬å¯ä»¥æŠŠå®ä¾‹åŒ–DBManagerçš„æ­¥éª¤æ”¾åœ¨Activityçš„onCreateé‡Œ
 		db = helper.getWritableDatabase();
 	}
 
@@ -26,14 +26,14 @@ public class DataBaseManager {
 	 * @param persons
 	 */
 	public void add(List<XingZouJingZhiEntity> xingzoujingzhis) {
-		db.beginTransaction(); // ¿ªÊ¼ÊÂÎñ
+		db.beginTransaction(); // å¼€å§‹äº‹åŠ¡
 		try {
 			for (XingZouJingZhiEntity xingzoujingzhi : xingzoujingzhis) {
 				db.execSQL("INSERT INTO xingzoujingzhi VALUES(?, ?, ?, ?, ?)",new Object[] { xingzoujingzhi.getDeviceNumber(), xingzoujingzhi.getJingZhi(), xingzoujingzhi.getBuShu(), xingzoujingzhi.getHuoDongLiang(),xingzoujingzhi.getTime() });
 			}
-			db.setTransactionSuccessful(); // ÉèÖÃÊÂÎñ³É¹¦Íê³É
+			db.setTransactionSuccessful(); // è®¾ç½®äº‹åŠ¡æˆåŠŸå®Œæˆ
 		} finally {
-			db.endTransaction(); // ½áÊøÊÂÎñ
+			db.endTransaction(); // ç»“æŸäº‹åŠ¡
 		}
 	}
 	
@@ -43,12 +43,12 @@ public class DataBaseManager {
 	 * @param persons
 	 */
 	public void update(XingZouJingZhiEntity xingZouJingZhiEntity) {
-		db.beginTransaction(); // ¿ªÊ¼ÊÂÎñ
+		db.beginTransaction(); // å¼€å§‹äº‹åŠ¡
 		try {
 			db.execSQL("UPDATE xingzoujingzhi set jingzhi = ? ,bushu = ? , huodongliang = ? WHERE devicenumber = ? AND time = ?",new Object[] {xingZouJingZhiEntity.getJingZhi(),xingZouJingZhiEntity.getBuShu(), xingZouJingZhiEntity.getHuoDongLiang(),xingZouJingZhiEntity.getDeviceNumber(),xingZouJingZhiEntity.getTime() });
-			db.setTransactionSuccessful(); // ÉèÖÃÊÂÎñ³É¹¦Íê³É
+			db.setTransactionSuccessful(); // è®¾ç½®äº‹åŠ¡æˆåŠŸå®Œæˆ
 		} finally {
-			db.endTransaction(); // ½áÊøÊÂÎñ
+			db.endTransaction(); // ç»“æŸäº‹åŠ¡
 		}
 	}
 	
@@ -58,22 +58,22 @@ public class DataBaseManager {
 	 * @param persons
 	 */
 	public void delete(XingZouJingZhiEntity xingZouJingZhiEntity) {
-		db.beginTransaction(); // ¿ªÊ¼ÊÂÎñ
+		db.beginTransaction(); // å¼€å§‹äº‹åŠ¡
 		try {
 			db.execSQL("delete from  xingzoujingzhi WHERE devicenumber = ? AND time = ?",new Object[] {xingZouJingZhiEntity.getDeviceNumber(),xingZouJingZhiEntity.getTime() });
-			db.setTransactionSuccessful(); // ÉèÖÃÊÂÎñ³É¹¦Íê³É
+			db.setTransactionSuccessful(); // è®¾ç½®äº‹åŠ¡æˆåŠŸå®Œæˆ
 		} finally {
-			db.endTransaction(); // ½áÊøÊÂÎñ
+			db.endTransaction(); // ç»“æŸäº‹åŠ¡
 		}
 	}
 	
 	public void updateParam(String id,String content) {
-		db.beginTransaction(); // ¿ªÊ¼ÊÂÎñ
+		db.beginTransaction(); // å¼€å§‹äº‹åŠ¡
 		try {
 			db.execSQL("UPDATE param set content = ?  WHERE id = ? ",new Object[] {content,id });
-			db.setTransactionSuccessful(); // ÉèÖÃÊÂÎñ³É¹¦Íê³É
+			db.setTransactionSuccessful(); // è®¾ç½®äº‹åŠ¡æˆåŠŸå®Œæˆ
 		} finally {
-			db.endTransaction(); // ½áÊøÊÂÎñ
+			db.endTransaction(); // ç»“æŸäº‹åŠ¡
 		}
 	}
 	
@@ -123,3 +123,4 @@ public class DataBaseManager {
 	}
 
 }
+

@@ -57,33 +57,33 @@ public class AnyCareAlterPasswordActivity extends Activity{
 					if(newmima.equals(newmimarepeat)){
 						new UserAlterAsyncTask().execute(new String[]{mima,newmima});
 					}else{
-						Toast.makeText(getApplicationContext(), "ĞÂÃÜÂë¡¢È·ÈÏÃÜÂë²»Ò»ÖÂ£¡", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), "æ–°å¯†ç ã€ç¡®è®¤å¯†ç ä¸ä¸€è‡´ï¼", Toast.LENGTH_SHORT).show();
 					}
 				}else{
-					Toast.makeText(getApplicationContext(), "Ô­Ê¼ÃÜÂë¡¢ĞÂÃÜÂë¡¢È·ÈÏÃÜÂë¶¼²»ÄÜÎª¿Õ£¡", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "åŸå§‹å¯†ç ã€æ–°å¯†ç ã€ç¡®è®¤å¯†ç éƒ½ä¸èƒ½ä¸ºç©ºï¼", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
-        //³õÊ¼»¯dialog
-       dialog=new LoadingProgressDialog(this,"ÕıÔÚ¼ÓÔØ...");
-       //³õÊ¼»¯dialog end
+        //åˆå§‹åŒ–dialog
+       dialog=new LoadingProgressDialog(this,"æ­£åœ¨åŠ è½½...");
+       //åˆå§‹åŒ–dialog end
 	}
 	
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class UserAlterAsyncTask extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+			dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -111,24 +111,25 @@ public class AnyCareAlterPasswordActivity extends Activity{
 			super.onProgressUpdate(values);
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
 			if("true".equals(result)){
-				Toast.makeText(getApplicationContext(), "ÃÜÂëĞŞ¸Ä³É¹¦£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "å¯†ç ä¿®æ”¹æˆåŠŸï¼", Toast.LENGTH_SHORT).show();
 			}else if("false".equals(result)){
-				Toast.makeText(getApplicationContext(), "ÃÜÂëĞŞ¸ÄÊ§°Ü£¬ÇëÖØĞÂĞŞ¸Ä£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "å¯†ç ä¿®æ”¹å¤±è´¥ï¼Œè¯·é‡æ–°ä¿®æ”¹ï¼", Toast.LENGTH_SHORT).show();
 			}
-			dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+			dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 		}
 	}
 	private String readUserId(){
 		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
 		String userId=sp.getString("userId", "");
 		return userId;
 	}
 	
 }
+

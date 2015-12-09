@@ -49,14 +49,14 @@ public class AnyCareSplashActivity extends Activity{
 	
 	private String readOpenParam(){
 		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
 		String openParam=sp.getString("openParam", "");
 		return openParam;
 	}
 	
 	private String readFirstOpenName(){
 		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
 		String firstOpen=sp.getString("firstOpen", "");
 		return firstOpen;
 	}
@@ -78,3 +78,4 @@ public class AnyCareSplashActivity extends Activity{
 	
 	
 }
+

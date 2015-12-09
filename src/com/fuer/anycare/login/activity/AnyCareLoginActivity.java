@@ -60,7 +60,7 @@ public class AnyCareLoginActivity extends Activity {
 	private TextView wangjiTV;
 	
 	/**
-     * ¼ì²â·şÎñÆ÷°æ±¾¸üĞÂËùÓÃ²ÎÊı
+     * æ£€æµ‹æœåŠ¡å™¨ç‰ˆæœ¬æ›´æ–°æ‰€ç”¨å‚æ•°
      * */
     private final String TAG = this.getClass().getName();
 	private final int UPDATA_NONEED = 0;
@@ -88,14 +88,14 @@ public class AnyCareLoginActivity extends Activity {
 //				Intent intent = new Intent(AnyCareLoginActivity.this,AnyCareMainActivity.class); 
 //				startActivity(intent);
 				if(NetUtils.isConnected(getApplicationContext())){
-					//trueÎª¼Ç×¡ÃÜÂë
+					//trueä¸ºè®°ä½å¯†ç 
 					String loginName = namededit.getText().toString().trim();
 					String loginPass = passwdedit.getText().toString().trim();
 					if(!TextUtils.isEmpty(loginName)&&!TextUtils.isEmpty(loginPass)){
-						//Ö´ĞĞÑéÖ¤µÄÒì²½²Ù×÷
+						//æ‰§è¡ŒéªŒè¯çš„å¼‚æ­¥æ“ä½œ
 						new UserLoginAsyncTask().execute(new String[]{loginName,loginPass});
 					}else{
-						Toast.makeText(getApplicationContext(), "ÓÃ»§Ãû»òÕßÃÜÂë²»ÄÜÎª¿Õ£¡", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), "ç”¨æˆ·åæˆ–è€…å¯†ç ä¸èƒ½ä¸ºç©ºï¼", Toast.LENGTH_SHORT).show();
 					}
 				}else{
 					NetUtils.openSetting(AnyCareLoginActivity.this);
@@ -116,13 +116,13 @@ public class AnyCareLoginActivity extends Activity {
 				startActivity(intent); 
 			}
 		 });
-        //³õÊ¼»¯dialog
-		dialog=new LoadingProgressDialog(this,"ÕıÔÚ¼ÓÔØ...");
-		//³õÊ¼»¯dialog end
-		//¼Ç×¡ÓÃ»§ÃûºÍÃÜÂë
+        //åˆå§‹åŒ–dialog
+		dialog=new LoadingProgressDialog(this,"æ­£åœ¨åŠ è½½...");
+		//åˆå§‹åŒ–dialog end
+		//è®°ä½ç”¨æˆ·åå’Œå¯†ç 
 		namededit.setText(readLoginName());
 		passwdedit.setText(readLoginPass());
-		//×Ô¶¯¼ì²â°æ±¾Óï¾ä¿ªÊ¼
+		//è‡ªåŠ¨æ£€æµ‹ç‰ˆæœ¬è¯­å¥å¼€å§‹
 		try{
 			localVersion = getVersionName();
 			CheckVersionTask cv = new CheckVersionTask();
@@ -130,24 +130,24 @@ public class AnyCareLoginActivity extends Activity {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		//×Ô¶¯¼ì²â°æ±¾Óï¾ä½áÊø
+		//è‡ªåŠ¨æ£€æµ‹ç‰ˆæœ¬è¯­å¥ç»“æŸ
 		
     }  
     	/**
-    	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-    	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-    	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-    	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+    	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+    	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+    	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+    	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
     	 * */
     	private class UserLoginAsyncTask extends AsyncTask<String, String, String>{
-    		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+    		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
     		@Override
     		protected void onPreExecute() {
     			// TODO Auto-generated method stub
     			super.onPreExecute();
-    			dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+    			dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
     		}
-    		//Íê³ÉºÄÊ±²Ù×÷
+    		//å®Œæˆè€—æ—¶æ“ä½œ
     		@Override
     		protected String doInBackground(String... params) {
     			// TODO Auto-generated method stub
@@ -159,8 +159,8 @@ public class AnyCareLoginActivity extends Activity {
     				String jsonResult = HttpUtils.doPost("/anyCare/userLogin.action", userInforMap);
     				if(jsonResult!=null&&!"".equals(jsonResult)){
     					if(!"errorinfor".equals(jsonResult)){
-    						// µ÷ÓÃ JPush ½Ó¿ÚÀ´ÉèÖÃ±ğÃû¡£add by ma_yming
-    						JPushInterface.setAliasAndTags(getApplicationContext(), jsonResult, null, mAliasCallback);//ÉèÖÃuserIdµÄalias£¨±ğÃû£©
+    						// è°ƒç”¨ JPush æ¥å£æ¥è®¾ç½®åˆ«åã€‚add by ma_yming
+    						JPushInterface.setAliasAndTags(getApplicationContext(), jsonResult, null, mAliasCallback);//è®¾ç½®userIdçš„aliasï¼ˆåˆ«åï¼‰
     						//add by ma_yming end
     						saveLoginInfor(params[0], params[1]);
     						saveUserInfor(jsonResult, phoneNumber);
@@ -185,84 +185,84 @@ public class AnyCareLoginActivity extends Activity {
     			
     		}
     		
-    		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+    		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
     		@Override
     		protected void onPostExecute(String result) {
     			// TODO Auto-generated method stub
     			super.onPostExecute(result);
     			if("success".equals(result)){
-    				Toast.makeText(getApplicationContext(), "µÇÂ¼³É¹¦", Toast.LENGTH_SHORT).show();
+    				Toast.makeText(getApplicationContext(), "ç™»å½•æˆåŠŸ", Toast.LENGTH_SHORT).show();
     				startActivity(new Intent(getApplication(), AnyCareMainActivity.class));
     				overridePendingTransition(R.anim.zoom_enter, R.anim.zoom_exit);
     				AnyCareLoginActivity.this.finish();
     			}else if("false".equals(result)){
-    				Toast.makeText(getApplicationContext(), "ÓÃ»§ÃûÃÜÂëÓĞÎó£¬ÇëÖØĞÂµÇÂ¼£¡", Toast.LENGTH_SHORT).show();
+    				Toast.makeText(getApplicationContext(), "ç”¨æˆ·åå¯†ç æœ‰è¯¯ï¼Œè¯·é‡æ–°ç™»å½•ï¼", Toast.LENGTH_SHORT).show();
     			}else if("networkerror".equals(result)){
-    				Toast.makeText(getApplicationContext(), "ÍøÂç¼ÓÔØÒì³£", Toast.LENGTH_SHORT).show();
+    				Toast.makeText(getApplicationContext(), "ç½‘ç»œåŠ è½½å¼‚å¸¸", Toast.LENGTH_SHORT).show();
     			}
-    			dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+    			dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
     		}
     	}
     	
     	private void saveOpenParam(String openParam){
-    		//»ñÈ¡SharedPreferences¶ÔÏó£¬Â·¾¶ÔÚ/data/data/cn.itcast.preferences/shared_pref/paramater.xml
+    		//è·å–SharedPreferenceså¯¹è±¡ï¼Œè·¯å¾„åœ¨/data/data/cn.itcast.preferences/shared_pref/paramater.xml
     		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-    		//»ñÈ¡±à¼­Æ÷
+    		//è·å–ç¼–è¾‘å™¨
     		Editor editor=sp.edit();
-    		//Í¨¹ıeditor½øĞĞÉèÖÃ
+    		//é€šè¿‡editorè¿›è¡Œè®¾ç½®
     		editor.putString("openParam", openParam);
-    		//Ìá½»ĞŞ¸Ä£¬½«Êı¾İĞ´µ½ÎÄ¼ş
+    		//æäº¤ä¿®æ”¹ï¼Œå°†æ•°æ®å†™åˆ°æ–‡ä»¶
     		editor.commit();
     	}
     	
     	private void saveLoginInfor(String loginName,String loginPass){
-    		//»ñÈ¡SharedPreferences¶ÔÏó£¬Â·¾¶ÔÚ/data/data/cn.itcast.preferences/shared_pref/paramater.xml
+    		//è·å–SharedPreferenceså¯¹è±¡ï¼Œè·¯å¾„åœ¨/data/data/cn.itcast.preferences/shared_pref/paramater.xml
     		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-    		//»ñÈ¡±à¼­Æ÷
+    		//è·å–ç¼–è¾‘å™¨
     		Editor editor=sp.edit();
-    		//Í¨¹ıeditor½øĞĞÉèÖÃ
+    		//é€šè¿‡editorè¿›è¡Œè®¾ç½®
     		editor.putString("loginName", loginName);
     		editor.putString("loginPass", loginPass);
-    		//Ìá½»ĞŞ¸Ä£¬½«Êı¾İĞ´µ½ÎÄ¼ş
+    		//æäº¤ä¿®æ”¹ï¼Œå°†æ•°æ®å†™åˆ°æ–‡ä»¶
     		editor.commit();
     	}
     	
     	private void saveUserInfor(String userId,String phoneNumber){
-    		//»ñÈ¡SharedPreferences¶ÔÏó£¬Â·¾¶ÔÚ/data/data/cn.itcast.preferences/shared_pref/paramater.xml
+    		//è·å–SharedPreferenceså¯¹è±¡ï¼Œè·¯å¾„åœ¨/data/data/cn.itcast.preferences/shared_pref/paramater.xml
     		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-    		//»ñÈ¡±à¼­Æ÷
+    		//è·å–ç¼–è¾‘å™¨
     		Editor editor=sp.edit();
-    		//Í¨¹ıeditor½øĞĞÉèÖÃ
+    		//é€šè¿‡editorè¿›è¡Œè®¾ç½®
     		editor.putString("userId", userId);
     		editor.putString("phoneNumber", phoneNumber);
-    		//Ìá½»ĞŞ¸Ä£¬½«Êı¾İĞ´µ½ÎÄ¼ş
+    		//æäº¤ä¿®æ”¹ï¼Œå°†æ•°æ®å†™åˆ°æ–‡ä»¶
     		editor.commit();
     	}
     	
     	private String readUserId(){
     		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-    		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+    		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
     		String userId=sp.getString("userId", "");
     		return userId;
     	}
     	
     	private String readUserPhone(){
     		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-    		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+    		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
     		String phoneNumber=sp.getString("phoneNumber", "");
     		return phoneNumber;
     	}
     	
     	private String readLoginName(){
     		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-    		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+    		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
     		String loginName=sp.getString("loginName", "");
     		return loginName;
     	}
     	
     	private String readLoginPass(){
     		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-    		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+    		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
     		String loginPass=sp.getString("loginPass", "");
     		return loginPass;
     	}
@@ -276,14 +276,14 @@ public class AnyCareLoginActivity extends Activity {
     	}
     	/** 
     	 * author:ma_yming
-    	 * dis:ÏÔÊ¾dialog 
+    	 * dis:æ˜¾ç¤ºdialog 
     	 * */
     	private void dialog() {
     		AlertDialog.Builder builder = new AlertDialog.Builder(AnyCareLoginActivity.this);
     		builder
-    			.setTitle("È·ÈÏ")
-    			.setMessage("È·¶¨ÒªÍË³öÂğ?")
-    			.setPositiveButton("ÊÇ", new DialogInterface.OnClickListener() {
+    			.setTitle("ç¡®è®¤")
+    			.setMessage("ç¡®å®šè¦é€€å‡ºå—?")
+    			.setPositiveButton("æ˜¯", new DialogInterface.OnClickListener() {
     				@Override
     				public void onClick(DialogInterface dialog, int which) {
     					// TODO Auto-generated method stub
@@ -293,7 +293,7 @@ public class AnyCareLoginActivity extends Activity {
     					AnyCareLoginActivity.this.finish();
     				}
     			})
-    			.setNegativeButton("·ñ", new DialogInterface.OnClickListener(){
+    			.setNegativeButton("å¦", new DialogInterface.OnClickListener(){
     	
     				@Override
     				public void onClick(DialogInterface dialog, int which) {
@@ -310,28 +310,28 @@ public class AnyCareLoginActivity extends Activity {
     	        String logs ;
     	        switch (code) {
     	        case 0:
-    	            //logs = "³É¹¦ÉèÖÃAliasºÍTags";
+    	            //logs = "æˆåŠŸè®¾ç½®Aliaså’ŒTags";
     	            //Log.i("MYPUSH", logs);
-    	            // ½¨ÒéÕâÀïÍù SharePreference ÀïĞ´Ò»¸ö³É¹¦ÉèÖÃµÄ×´Ì¬¡£³É¹¦ÉèÖÃÒ»´Îºó£¬ÒÔºó²»±ØÔÙ´ÎÉèÖÃÁË¡£
+    	            // å»ºè®®è¿™é‡Œå¾€ SharePreference é‡Œå†™ä¸€ä¸ªæˆåŠŸè®¾ç½®çš„çŠ¶æ€ã€‚æˆåŠŸè®¾ç½®ä¸€æ¬¡åï¼Œä»¥åä¸å¿…å†æ¬¡è®¾ç½®äº†ã€‚
     	            break;
     	        case 6002:
-    	            //logs = "ÉèÖÃAliasºÍTagsÊ§°Ü£¬Çë60ÃëºóÔÙÊÔ";
+    	            //logs = "è®¾ç½®Aliaså’ŒTagså¤±è´¥ï¼Œè¯·60ç§’åå†è¯•";
     	            //Log.i("MYPUSH", logs);
     	    		AlertDialog.Builder builder = new AlertDialog.Builder(AnyCareLoginActivity.this);
     	    		builder
-    	    			.setTitle("ÉèÖÃÍÆËÍ²ÎÊıÊ§°Ü£¡")
-    	    			.setMessage("ÊÇ·ñÖØÊÔ?")
-    	    			.setPositiveButton("ÊÇ", new DialogInterface.OnClickListener() {
+    	    			.setTitle("è®¾ç½®æ¨é€å‚æ•°å¤±è´¥ï¼")
+    	    			.setMessage("æ˜¯å¦é‡è¯•?")
+    	    			.setPositiveButton("æ˜¯", new DialogInterface.OnClickListener() {
     	    				@Override
     	    				public void onClick(DialogInterface dialog, int which) {
     	    					// TODO Auto-generated method stub
     	    					dialog.cancel();
-    	    					// µ÷ÓÃ JPush ½Ó¿ÚÀ´ÉèÖÃ±ğÃû¡£add by ma_yming
-    	    		            JPushInterface.setAliasAndTags(getApplicationContext(), readUserId(), null, mAliasCallback);//ÉèÖÃuserIdµÄalias£¨±ğÃû£©
+    	    					// è°ƒç”¨ JPush æ¥å£æ¥è®¾ç½®åˆ«åã€‚add by ma_yming
+    	    		            JPushInterface.setAliasAndTags(getApplicationContext(), readUserId(), null, mAliasCallback);//è®¾ç½®userIdçš„aliasï¼ˆåˆ«åï¼‰
     	    		            //add by ma_yming end
     	    				}
     	    			})
-    	    			.setNegativeButton("·ñ", new DialogInterface.OnClickListener(){
+    	    			.setNegativeButton("å¦", new DialogInterface.OnClickListener(){
     	    	
     	    				@Override
     	    				public void onClick(DialogInterface dialog, int which) {
@@ -350,26 +350,26 @@ public class AnyCareLoginActivity extends Activity {
     	
     	
     	/*
-    	 * »ñÈ¡µ±Ç°³ÌĞòµÄ°æ±¾ºÅ
+    	 * è·å–å½“å‰ç¨‹åºçš„ç‰ˆæœ¬å·
     	 */
     	private String getVersionName() throws Exception {
-    		// »ñÈ¡packagemanagerµÄÊµÀı
+    		// è·å–packagemanagerçš„å®ä¾‹
     		PackageManager packageManager = getPackageManager();
-    		// getPackageName()ÊÇÄãµ±Ç°ÀàµÄ°üÃû£¬0´ú±íÊÇ»ñÈ¡°æ±¾ĞÅÏ¢
+    		// getPackageName()æ˜¯ä½ å½“å‰ç±»çš„åŒ…åï¼Œ0ä»£è¡¨æ˜¯è·å–ç‰ˆæœ¬ä¿¡æ¯
     		PackageInfo packInfo = packageManager.getPackageInfo(getPackageName(),0);
     		return packInfo.versionName;
     	}
     	
     	/*
-    	 * ´Ó·şÎñÆ÷»ñÈ¡xml½âÎö²¢½øĞĞ±È¶Ô°æ±¾ºÅ
+    	 * ä»æœåŠ¡å™¨è·å–xmlè§£æå¹¶è¿›è¡Œæ¯”å¯¹ç‰ˆæœ¬å·
     	 */
     	public class CheckVersionTask implements Runnable {
 
     		public void run() {
     			try {
-    				// ´Ó×ÊÔ´ÎÄ¼ş»ñÈ¡·şÎñÆ÷ µØÖ·
+    				// ä»èµ„æºæ–‡ä»¶è·å–æœåŠ¡å™¨ åœ°å€
     				String path = getResources().getString(R.string.url_server);
-    				// °ü×°³ÉurlµÄ¶ÔÏó
+    				// åŒ…è£…æˆurlçš„å¯¹è±¡
     				URL url = new URL(path);
     				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
     				conn.setConnectTimeout(5000);
@@ -386,7 +386,7 @@ public class AnyCareLoginActivity extends Activity {
     					handler.sendMessage(msg);
     				}
     			} catch (Exception e) {
-    				// ´ı´¦Àí
+    				// å¾…å¤„ç†
     				Message msg = new Message();
     				msg.what = GET_UNDATAINFO_ERROR;
     				handler.sendMessage(msg);
@@ -404,25 +404,25 @@ public class AnyCareLoginActivity extends Activity {
     			super.handleMessage(msg);
     			switch (msg.what) {
     			case UPDATA_NONEED:
-//    				Toast.makeText(getApplicationContext(), "°æ±¾ºÅÏàÍ¬ÎŞĞèÉı¼¶",Toast.LENGTH_SHORT).show();
+//    				Toast.makeText(getApplicationContext(), "ç‰ˆæœ¬å·ç›¸åŒæ— éœ€å‡çº§",Toast.LENGTH_SHORT).show();
     				break;
     			case UPDATA_CLIENT:
-    				// ¶Ô»°¿òÍ¨ÖªÓÃ»§Éı¼¶³ÌĞò
-    				// Toast.makeText(getApplicationContext(), "¿ÉÒÔÉı¼¶³ÌĞòÀ²~",1).show();
+    				// å¯¹è¯æ¡†é€šçŸ¥ç”¨æˆ·å‡çº§ç¨‹åº
+    				// Toast.makeText(getApplicationContext(), "å¯ä»¥å‡çº§ç¨‹åºå•¦~",1).show();
     				showUpdataDialog();
     				break;
     			case GET_UNDATAINFO_ERROR:
-    				// ·şÎñÆ÷³¬Ê±
-    				Toast.makeText(getApplicationContext(), "»ñÈ¡·şÎñÆ÷¸üĞÂĞÅÏ¢Ê§°Ü", 1).show();
+    				// æœåŠ¡å™¨è¶…æ—¶
+    				Toast.makeText(getApplicationContext(), "è·å–æœåŠ¡å™¨æ›´æ–°ä¿¡æ¯å¤±è´¥", 1).show();
     				// LoginMain();
     				break;
     			case SDCARD_NOMOUNTED:
-    				// sdcard²»¿ÉÓÃ
-    				Toast.makeText(getApplicationContext(), "SD¿¨²»¿ÉÓÃ",1).show();
+    				// sdcardä¸å¯ç”¨
+    				Toast.makeText(getApplicationContext(), "SDå¡ä¸å¯ç”¨",1).show();
     				break;
     			case DOWN_ERROR:
-    				// ÏÂÔØapkÊ§°Ü
-    				Toast.makeText(getApplicationContext(), "ÏÂÔØĞÂ°æ±¾Ê§°Ü", 1).show();
+    				// ä¸‹è½½apkå¤±è´¥
+    				Toast.makeText(getApplicationContext(), "ä¸‹è½½æ–°ç‰ˆæœ¬å¤±è´¥", 1).show();
     				// LoginMain();
     				break;
     			}
@@ -432,24 +432,24 @@ public class AnyCareLoginActivity extends Activity {
     	
     	/*
     	 * 
-    	 * µ¯³ö¶Ô»°¿òÍ¨ÖªÓÃ»§¸üĞÂ³ÌĞò
+    	 * å¼¹å‡ºå¯¹è¯æ¡†é€šçŸ¥ç”¨æˆ·æ›´æ–°ç¨‹åº
     	 * 
-    	 * µ¯³ö¶Ô»°¿òµÄ²½Öè£º 1.´´½¨alertDialogµÄbuilder. 2.Òª¸øbuilderÉèÖÃÊôĞÔ, ¶Ô»°¿òµÄÄÚÈİ,ÑùÊ½,°´Å¥
-    	 * 3.Í¨¹ıbuilder ´´½¨Ò»¸ö¶Ô»°¿ò 4.¶Ô»°¿òshow()³öÀ´
+    	 * å¼¹å‡ºå¯¹è¯æ¡†çš„æ­¥éª¤ï¼š 1.åˆ›å»ºalertDialogçš„builder. 2.è¦ç»™builderè®¾ç½®å±æ€§, å¯¹è¯æ¡†çš„å†…å®¹,æ ·å¼,æŒ‰é’®
+    	 * 3.é€šè¿‡builder åˆ›å»ºä¸€ä¸ªå¯¹è¯æ¡† 4.å¯¹è¯æ¡†show()å‡ºæ¥
     	 */
     	protected void showUpdataDialog() {
     		AlertDialog.Builder builer = new Builder(this);
-    		builer.setTitle("°æ±¾Éı¼¶");
+    		builer.setTitle("ç‰ˆæœ¬å‡çº§");
     		builer.setMessage(info.getDescription());
-    		// µ±µãÈ·¶¨°´Å¥Ê±´Ó·şÎñÆ÷ÉÏÏÂÔØ ĞÂµÄapk È»ºó°²×°
-    		builer.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+    		// å½“ç‚¹ç¡®å®šæŒ‰é’®æ—¶ä»æœåŠ¡å™¨ä¸Šä¸‹è½½ æ–°çš„apk ç„¶åå®‰è£…
+    		builer.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
     			public void onClick(DialogInterface dialog, int which) {
-    				Log.i(TAG, "ÏÂÔØapk,¸üĞÂ");
+    				Log.i(TAG, "ä¸‹è½½apk,æ›´æ–°");
     				downLoadApk();
     			}
     		});
-    		// µ±µãÈ¡Ïû°´Å¥Ê±½øĞĞµÇÂ¼
-    		builer.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+    		// å½“ç‚¹å–æ¶ˆæŒ‰é’®æ—¶è¿›è¡Œç™»å½•
+    		builer.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
     			public void onClick(DialogInterface dialog, int which) {
     				// TODO Auto-generated method stub
     				// LoginMain();
@@ -460,13 +460,13 @@ public class AnyCareLoginActivity extends Activity {
     	}
     	
     	/*
-    	 * ´Ó·şÎñÆ÷ÖĞÏÂÔØAPK
+    	 * ä»æœåŠ¡å™¨ä¸­ä¸‹è½½APK
     	 */
     	protected void downLoadApk() {
-    		final ProgressDialog pd; // ½ø¶ÈÌõ¶Ô»°¿ò
+    		final ProgressDialog pd; // è¿›åº¦æ¡å¯¹è¯æ¡†
     		pd = new ProgressDialog(AnyCareLoginActivity.this);
     		pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-    		pd.setMessage("ÕıÔÚÏÂÔØ¸üĞÂ");
+    		pd.setMessage("æ­£åœ¨ä¸‹è½½æ›´æ–°");
     		if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
     			Message msg = new Message();
     			msg.what = SDCARD_NOMOUNTED;
@@ -480,7 +480,7 @@ public class AnyCareLoginActivity extends Activity {
     						File file = DownLoadManager.getFileFromServer(info.getUrl(), pd);
     						sleep(1000);
     						installApk(file);
-    						pd.dismiss(); // ½áÊøµô½ø¶ÈÌõ¶Ô»°¿ò
+    						pd.dismiss(); // ç»“æŸæ‰è¿›åº¦æ¡å¯¹è¯æ¡†
 
     					} catch (Exception e) {
     						Message msg = new Message();
@@ -493,14 +493,15 @@ public class AnyCareLoginActivity extends Activity {
     		}
     	}
     	
-    	// °²×°apk
+    	// å®‰è£…apk
     	protected void installApk(File file) {
     		Intent intent = new Intent();
-    		// Ö´ĞĞ¶¯×÷
+    		// æ‰§è¡ŒåŠ¨ä½œ
     		intent.setAction(Intent.ACTION_VIEW);
-    		// Ö´ĞĞµÄÊı¾İÀàĞÍ
+    		// æ‰§è¡Œçš„æ•°æ®ç±»å‹
     		intent.setDataAndType(Uri.fromFile(file),"application/vnd.android.package-archive");
     		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
     		startActivity(intent);
     	}
 }
+

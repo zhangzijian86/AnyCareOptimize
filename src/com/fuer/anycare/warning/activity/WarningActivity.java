@@ -37,7 +37,7 @@ import com.fuer.main.anycare.R;
 
 public class WarningActivity extends Activity {
 	
-	private List<Map<String,Object>> dataList = new ArrayList<Map<String,Object>>();//´æ·ÅÊı¾İµÄList
+	private List<Map<String,Object>> dataList = new ArrayList<Map<String,Object>>();//å­˜æ”¾æ•°æ®çš„List
 	private MyAdapter myAdapter;
 	private ListView bind_listview;
 	
@@ -67,14 +67,14 @@ public class WarningActivity extends Activity {
 		preButton.setOnClickListener(new MyOnClickListener());
         nextButton.setOnClickListener(new MyOnClickListener());
         nowButton.setOnClickListener(new MyOnClickListener());
-        //³õÊ¼»¯ÈÕÆÚ start
+        //åˆå§‹åŒ–æ—¥æœŸ start
   		year=DateTool.getDateYear();
   		month=DateTool.getDateMonth();
-  		//³õÊ¼»¯end
-  		nowButton.setText(year + "Äê" + month + "ÔÂ");
-  		//³õÊ¼»¯dialog
-		dialog=new LoadingProgressDialog(this,"ÕıÔÚ¼ÓÔØ...");
-		//³õÊ¼»¯dialog end
+  		//åˆå§‹åŒ–end
+  		nowButton.setText(year + "å¹´" + month + "æœˆ");
+  		//åˆå§‹åŒ–dialog
+		dialog=new LoadingProgressDialog(this,"æ­£åœ¨åŠ è½½...");
+		//åˆå§‹åŒ–dialog end
 		Bundle bundle = this.getIntent().getExtras();
 		archivesId = bundle.getString("archivesId");
 		date = DateTool.yearMonth(year, month);
@@ -82,14 +82,14 @@ public class WarningActivity extends Activity {
 	}
 	
 	/**
-	 * dis:×Ô¶¨Òåadapter£¬ÊµÏÖlistView °´Å¥ÊÂ¼ş
+	 * dis:è‡ªå®šä¹‰adapterï¼Œå®ç°listView æŒ‰é’®äº‹ä»¶
 	 * */
 	private class MyAdapter extends BaseAdapter {
 		
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			// ÕâÀïÎÒ¾Í·µ»Ø10ÁË£¬Ò²¾ÍÊÇÒ»¹²ÓĞ10ÏîÊı¾İÏî
+			// è¿™é‡Œæˆ‘å°±è¿”å›10äº†ï¼Œä¹Ÿå°±æ˜¯ä¸€å…±æœ‰10é¡¹æ•°æ®é¡¹
 			return dataList.size();
 		}
 
@@ -110,7 +110,7 @@ public class WarningActivity extends Activity {
 			// TODO Auto-generated method stub
 			convertView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.layout_warning_list_style,null);
 			TextView day= (TextView)convertView.findViewById(R.id.day_textview);
-			LinearLayout addviewLayout = (LinearLayout)convertView.findViewById(R.id.addview_layout);//¶¯Ì¬Ìí¼ÓÊı¾İ
+			LinearLayout addviewLayout = (LinearLayout)convertView.findViewById(R.id.addview_layout);//åŠ¨æ€æ·»åŠ æ•°æ®
 			final Map<String,Object> map=(Map<String,Object>)dataList.get(position);
 			String dayString = map.get("servicetime").toString().substring(8);
 			day.setText(dayString);
@@ -147,7 +147,7 @@ public class WarningActivity extends Activity {
 					String []yearSplitMonth1 = date.split("-");
 					year = Integer.parseInt(yearSplitMonth1[0]);
 					month =Integer.parseInt(yearSplitMonth1[1]);
-					nowButton.setText(year + "Äê" + month + "ÔÂ");
+					nowButton.setText(year + "å¹´" + month + "æœˆ");
 					new UserLoadGaoJingHistoryAsync().execute(new String[]{archivesId,date});
 					break;
 				case R.id.pre_button:
@@ -155,25 +155,25 @@ public class WarningActivity extends Activity {
 					String []yearSplitMonth2 = date.split("-");
 					year = Integer.parseInt(yearSplitMonth2[0]);
 					month =Integer.parseInt(yearSplitMonth2[1]);
-					nowButton.setText(year + "Äê" + month + "ÔÂ");
+					nowButton.setText(year + "å¹´" + month + "æœˆ");
 					new UserLoadGaoJingHistoryAsync().execute(new String[]{archivesId,date});
 					break;
 				case R.id.now_button:
 					showDialog(R.id.now_button);
-					int SDKVersion = WarningActivity.this.getSDKVersionNumber();// »ñÈ¡ÏµÍ³°æ±¾
+					int SDKVersion = WarningActivity.this.getSDKVersionNumber();// è·å–ç³»ç»Ÿç‰ˆæœ¬
 					System.out.println("SDKVersion = " + SDKVersion);
-					DatePicker dp = findDatePicker((ViewGroup) mdialog.getWindow().getDecorView());// ÉèÖÃµ¯³öÄêÔÂÈÕ
+					DatePicker dp = findDatePicker((ViewGroup) mdialog.getWindow().getDecorView());// è®¾ç½®å¼¹å‡ºå¹´æœˆæ—¥
 					if (dp != null) {
 						if (SDKVersion < 11) {
 							((ViewGroup) dp.getChildAt(0)).getChildAt(1).setVisibility(View.GONE);
 						} else if (SDKVersion > 14) {
-							//Ö»ÏÔÊ¾ÄêÈÕ
+							//åªæ˜¾ç¤ºå¹´æ—¥
 							//((ViewGroup) ((ViewGroup) dp.getChildAt(0)).getChildAt(0)).getChildAt(1).setVisibility(View.GONE);//.getChildAt(0)
-							//Ö»ÏÔÊ¾ÄêÔÂ
+							//åªæ˜¾ç¤ºå¹´æœˆ
 							((ViewGroup) ((ViewGroup) dp.getChildAt(0)).getChildAt(0)).getChildAt(2).setVisibility(View.GONE);
-							//Ö»ÏÔÊ¾ÄêÔÂ
+							//åªæ˜¾ç¤ºå¹´æœˆ
 							//((ViewGroup) ((ViewGroup) dp.getChildAt(0)).getChildAt(0)).getChildAt(1).setVisibility(View.GONE);
-							//ÏÔÊ¾ÔÂÈÕ
+							//æ˜¾ç¤ºæœˆæ—¥
 							//((ViewGroup) ((ViewGroup) dp.getChildAt(0)).getChildAt(0)).getChildAt(0).setVisibility(View.GONE);
 						}
 					 }
@@ -195,14 +195,14 @@ public class WarningActivity extends Activity {
 	
 	/**
 	 * author:ma_yming
-	 * dis:ÏÔÊ¾ÈÕÆÚ¶Ô»°¿ò
+	 * dis:æ˜¾ç¤ºæ—¥æœŸå¯¹è¯æ¡†
 	 * */
 	private DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
 		  @Override
 		  public void onDateSet(DatePicker view, int yearOfYear, int monthOfYear,int dayOfMonth) {
 			  month = monthOfYear+1;
 			  year = yearOfYear;
-			  nowButton.setText(year + "Äê" + month + "ÔÂ");
+			  nowButton.setText(year + "å¹´" + month + "æœˆ");
 			  date = DateTool.yearMonth(year, month);
 			  new UserLoadGaoJingHistoryAsync().execute(new String[]{archivesId,date});
 		  }
@@ -210,7 +210,7 @@ public class WarningActivity extends Activity {
 	 
 	 
 	 /**
-	  * ´Óµ±Ç°DialogÖĞ²éÕÒDatePicker×Ó¿Ø¼ş
+	  * ä»å½“å‰Dialogä¸­æŸ¥æ‰¾DatePickerå­æ§ä»¶
 	  * 
 	  * @param group
 	  * @return
@@ -233,7 +233,7 @@ public class WarningActivity extends Activity {
 	 }
 	 
 	 /**
-	 * »ñÈ¡ÏµÍ³SDK°æ±¾
+	 * è·å–ç³»ç»ŸSDKç‰ˆæœ¬
 	 * 
 	 * @return
 	 */
@@ -248,20 +248,20 @@ public class WarningActivity extends Activity {
 	}
 	
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class UserLoadGaoJingHistoryAsync extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+			dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -293,7 +293,7 @@ public class WarningActivity extends Activity {
 			
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
@@ -301,7 +301,7 @@ public class WarningActivity extends Activity {
 			dataList.clear();
 			if(!TextUtils.isEmpty(result)){
 				if("paramempty".equals(result)){
-					Toast.makeText(getApplicationContext(), "ÇëÇó²ÎÊı²»ÍêÕû£¬ÇëÖØĞÂÇëÇó", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "è¯·æ±‚å‚æ•°ä¸å®Œæ•´ï¼Œè¯·é‡æ–°è¯·æ±‚", Toast.LENGTH_SHORT).show();
 				}else{
 					try {
 						JSONObject jsonObject = new JSONObject(result);
@@ -332,7 +332,7 @@ public class WarningActivity extends Activity {
 					}
 				}
 			}else {
-				Toast.makeText(getApplicationContext(), "ÍøÂçÇëÇóÊ§°Ü£¬ÇëÖØĞÂÇëÇó", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "ç½‘ç»œè¯·æ±‚å¤±è´¥ï¼Œè¯·é‡æ–°è¯·æ±‚", Toast.LENGTH_SHORT).show();
 			}
 			if(myAdapter==null){
 				myAdapter=new MyAdapter();
@@ -340,14 +340,15 @@ public class WarningActivity extends Activity {
 			}else{
 				myAdapter.notifyDataSetChanged();
 			}
-			dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+			dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 		}
 	}
 	
 	private String readUserId(){
 		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
 		String userId=sp.getString("userId", "");
 		return userId;
 	}
 }
+

@@ -50,7 +50,7 @@ public class AnyCareForgetActivity extends Activity {
 				if(!TextUtils.isEmpty(phoneNumber)&&!TextUtils.isEmpty(yanZhengMa)&&!TextUtils.isEmpty(yanZhengMa)){
 					new UserForgetAsyncTask().execute(new String[]{phoneNumber,yanZhengMa,newmima});
 				}else{
-					Toast.makeText(getApplicationContext(), "ÊÖ»úºÅ¡¢ÑéÖ¤Âë¡¢ÃÜÂë¶¼²»ÄÜÎª¿Õ£¡", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "æ‰‹æœºå·ã€éªŒè¯ç ã€å¯†ç éƒ½ä¸èƒ½ä¸ºç©ºï¼", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
@@ -72,25 +72,25 @@ public class AnyCareForgetActivity extends Activity {
 				finish();
 			}
 		});
-		//³õÊ¼»¯dialog
-		dialog=new LoadingProgressDialog(this,"ÕıÔÚ¼ÓÔØ...");
-		//³õÊ¼»¯dialog end
+		//åˆå§‹åŒ–dialog
+		dialog=new LoadingProgressDialog(this,"æ­£åœ¨åŠ è½½...");
+		//åˆå§‹åŒ–dialog end
 	}
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class UserForgetAsyncTask extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+			dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -118,51 +118,51 @@ public class AnyCareForgetActivity extends Activity {
 			
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
 			if(result.length()==32){
-				Toast.makeText(getApplicationContext(), "ĞŞ¸Ä³É¹¦£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "ä¿®æ”¹æˆåŠŸï¼", Toast.LENGTH_SHORT).show();
 				saveUserInfor(result);
 				startActivity(new Intent(getApplication(), AnyCareMainActivity.class));
 				overridePendingTransition(R.anim.zoom_enter, R.anim.zoom_exit);
 			}else if("yanzhengcodeerror".equals(result)){
-				Toast.makeText(getApplicationContext(), "ÑéÖ¤ÂëÊäÈë´íÎó£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "éªŒè¯ç è¾“å…¥é”™è¯¯ï¼", Toast.LENGTH_SHORT).show();
 			}else if("false".equals(result)){
-				Toast.makeText(getApplicationContext(), "ĞŞ¸ÄÊ§°Ü£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "ä¿®æ”¹å¤±è´¥ï¼", Toast.LENGTH_SHORT).show();
 			}
-			dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+			dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 		}
 	}
 	
 	private void saveUserInfor(String userId){
-		//»ñÈ¡SharedPreferences¶ÔÏó£¬Â·¾¶ÔÚ/data/data/cn.itcast.preferences/shared_pref/paramater.xml
+		//è·å–SharedPreferenceså¯¹è±¡ï¼Œè·¯å¾„åœ¨/data/data/cn.itcast.preferences/shared_pref/paramater.xml
 		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-		//»ñÈ¡±à¼­Æ÷
+		//è·å–ç¼–è¾‘å™¨
 		Editor editor=sp.edit();
-		//Í¨¹ıeditor½øĞĞÉèÖÃ
+		//é€šè¿‡editorè¿›è¡Œè®¾ç½®
 		editor.putString("userId", userId);
-		//Ìá½»ĞŞ¸Ä£¬½«Êı¾İĞ´µ½ÎÄ¼ş
+		//æäº¤ä¿®æ”¹ï¼Œå°†æ•°æ®å†™åˆ°æ–‡ä»¶
 		editor.commit();
 	}
 	
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class UserForgetYanZhengMaAsyncTask extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+			dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -188,19 +188,20 @@ public class AnyCareForgetActivity extends Activity {
 			
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
 			if("true".equals(result)){
-				Toast.makeText(getApplicationContext(), "ÇëÇó³É¹¦£¬µÈ´ı¶ÌĞÅÑéÖ¤Âë·¢ËÍ£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "è¯·æ±‚æˆåŠŸï¼Œç­‰å¾…çŸ­ä¿¡éªŒè¯ç å‘é€ï¼", Toast.LENGTH_SHORT).show();
 			}else if("repeatcommit".equals(result)){
-				Toast.makeText(getApplicationContext(), "5·ÖÖÓÖ®ÄÚ²»¿ÉÖØ¸´»ñÈ¡ÑéÖ¤Âë£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "5åˆ†é’Ÿä¹‹å†…ä¸å¯é‡å¤è·å–éªŒè¯ç ï¼", Toast.LENGTH_SHORT).show();
 			}else if("false".equals(result)){
-				Toast.makeText(getApplicationContext(), "ÑéÖ¤ÂëÇëÇóÊ§°Ü£¬ÇëÖØĞÂÇëÇó£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "éªŒè¯ç è¯·æ±‚å¤±è´¥ï¼Œè¯·é‡æ–°è¯·æ±‚ï¼", Toast.LENGTH_SHORT).show();
 			}
-			dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+			dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 		}
 	}
 }
+

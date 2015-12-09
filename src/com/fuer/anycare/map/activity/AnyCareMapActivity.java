@@ -51,7 +51,7 @@ public class AnyCareMapActivity extends Activity{
 	private BaiduMap mBaiduMap = null;
 	private Marker mMarkerA;
 	private InfoWindow mInfoWindow;
-	// ³õÊ¼»¯È«¾Ö bitmap ĞÅÏ¢£¬²»ÓÃÊ±¼°Ê± recycle
+	// åˆå§‹åŒ–å…¨å±€ bitmap ä¿¡æ¯ï¼Œä¸ç”¨æ—¶åŠæ—¶ recycle
 	BitmapDescriptor bdA = null;
 	private String archivesId;
 	private String crutchDeviceNumber;
@@ -64,7 +64,7 @@ public class AnyCareMapActivity extends Activity{
 	private Button liShiBtn;
 	private String liShiSign="OFF";
 	private Button mylocation_button;
-	private LatLng llA;//¶¨Î»×ø±êÎ»ÖÃ
+	private LatLng llA;//å®šä½åæ ‡ä½ç½®
 	private LoadingProgressDialog dialog;
 	
 	private String crutchId;
@@ -84,8 +84,8 @@ public class AnyCareMapActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		//ÔÚÊ¹ÓÃSDK¸÷×é¼şÖ®Ç°³õÊ¼»¯contextĞÅÏ¢£¬´«ÈëApplicationContext  
-        //×¢Òâ¸Ã·½·¨ÒªÔÙsetContentView·½·¨Ö®Ç°ÊµÏÖ  
+		//åœ¨ä½¿ç”¨SDKå„ç»„ä»¶ä¹‹å‰åˆå§‹åŒ–contextä¿¡æ¯ï¼Œä¼ å…¥ApplicationContext  
+        //æ³¨æ„è¯¥æ–¹æ³•è¦å†setContentViewæ–¹æ³•ä¹‹å‰å®ç°  
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.layout_map);
         Bundle bundle = this.getIntent().getExtras();
@@ -165,12 +165,12 @@ public class AnyCareMapActivity extends Activity{
 
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
-//				description.setText("¿ªÊ¼ÍÏ¶¯");
+//				description.setText("å¼€å§‹æ‹–åŠ¨");
 			}
 
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress,boolean fromUser) {
-//				description.setText("µ±Ç°½ø¶È£º" + progress + "%");
+//				description.setText("å½“å‰è¿›åº¦ï¼š" + progress + "%");
 				int iStrength = seekBar.getProgress();
 				switch (iStrength) {
 				case 0:
@@ -192,14 +192,14 @@ public class AnyCareMapActivity extends Activity{
 				seekBar.setMax(3);
 			}
 		});
-		//»ñÈ¡µØÍ¼¿Ø¼şÒıÓÃ 
+		//è·å–åœ°å›¾æ§ä»¶å¼•ç”¨ 
         bdA = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);	
         mMapView = (MapView) findViewById(R.id.bmapView);  
         mBaiduMap = mMapView.getMap();
-        //ÉèÖÃËõ·Å
+        //è®¾ç½®ç¼©æ”¾
         MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(14.0f);
         mBaiduMap.setMapStatus(msu);
-        //Ìí¼ÓÍ¼±ê
+        //æ·»åŠ å›¾æ ‡
         llA = new LatLng(39.963175, 116.400244);
         OverlayOptions ooA = new MarkerOptions().position(llA).icon(bdA).zIndex(9).draggable(true);
 		mMarkerA = (Marker) (mBaiduMap.addOverlay(ooA));
@@ -212,7 +212,7 @@ public class AnyCareMapActivity extends Activity{
 				button.setBackgroundResource(R.drawable.popup);
 				OnInfoWindowClickListener listener = null;
 				if (marker == mMarkerA ) {
-					button.setText("Î»ÖÃĞÅÏ¢:"+address+"\n¸üĞÂÊ±¼ä:"+serviceTime);
+					button.setText("ä½ç½®ä¿¡æ¯:"+address+"\næ›´æ–°æ—¶é—´:"+serviceTime);
 					listener = new OnInfoWindowClickListener() {
 						public void onInfoWindowClick() {
 							mBaiduMap.hideInfoWindow();
@@ -226,23 +226,23 @@ public class AnyCareMapActivity extends Activity{
 			}
 		});
 //      loveobject_button.setOnClickListener(new MyOnClickListener());
-		//³õÊ¼»¯dialog
-  		dialog=new LoadingProgressDialog(this,"ÕıÔÚ¼ÓÔØ...");
-  		//³õÊ¼»¯dialog end
+		//åˆå§‹åŒ–dialog
+  		dialog=new LoadingProgressDialog(this,"æ­£åœ¨åŠ è½½...");
+  		//åˆå§‹åŒ–dialog end
 		double lat = Double.parseDouble(latitude);
 		double lon = Double.parseDouble(longitude);
 		llA = new LatLng(lat,lon);
 		CoordinateConverter converter  = new CoordinateConverter();  
 		converter.from(CoordType.GPS);  
-		// sourceLatLng´ı×ª»»×ø±ê  
+		// sourceLatLngå¾…è½¬æ¢åæ ‡  
 		converter.coord(llA);  
 		LatLng desLatLng = converter.convert();
 		mMarkerA.setPosition(desLatLng);
 		u = MapStatusUpdateFactory.newLatLng(desLatLng);
 		mBaiduMap.setMapStatus(u);
 		new SeeCrutchAsyncTask().execute(archivesId);
-		//Èç¹ûÎ§À¸²»Îª0£¬ÔòÏÔÊ¾Î§À¸ĞÅÏ¢
-		// ¿ªÆô¶¨Î»Í¼²ã
+		//å¦‚æœå›´æ ä¸ä¸º0ï¼Œåˆ™æ˜¾ç¤ºå›´æ ä¿¡æ¯
+		// å¼€å¯å®šä½å›¾å±‚
 		mBaiduMap.setMyLocationEnabled(true);
 		if(yuanLat!=0&&yuanLon!=0){
 			LatLng weilan = new LatLng(yuanLat,yuanLon);
@@ -250,7 +250,7 @@ public class AnyCareMapActivity extends Activity{
 			weilan = converter.convert();
 			MyLocationData locData = new MyLocationData.Builder()
 			.accuracy(yuanBanJing)
-			// ´Ë´¦ÉèÖÃ¿ª·¢Õß»ñÈ¡µ½µÄ·½ÏòĞÅÏ¢£¬Ë³Ê±Õë0-360
+			// æ­¤å¤„è®¾ç½®å¼€å‘è€…è·å–åˆ°çš„æ–¹å‘ä¿¡æ¯ï¼Œé¡ºæ—¶é’ˆ0-360
 			.direction(100)
 			.latitude(weilan.latitude)
 			.longitude(weilan.longitude).build();
@@ -260,9 +260,9 @@ public class AnyCareMapActivity extends Activity{
 		if(!(crutchId!=null&&!"".equals(crutchId)||beltId!=null&&!"".equals(beltId))){
 			AlertDialog.Builder builder = new AlertDialog.Builder(AnyCareMapActivity.this);
     		builder
-    			.setTitle("ÎŞÊı¾İ")
-    			.setMessage("ÊÇ·ñÖ´ĞĞ·´Ïò²éÑ¯?")
-    			.setPositiveButton("ÊÇ", new DialogInterface.OnClickListener() {
+    			.setTitle("æ— æ•°æ®")
+    			.setMessage("æ˜¯å¦æ‰§è¡Œåå‘æŸ¥è¯¢?")
+    			.setPositiveButton("æ˜¯", new DialogInterface.OnClickListener() {
     				@Override
     				public void onClick(DialogInterface dialog, int which) {
     					// TODO Auto-generated method stub
@@ -270,7 +270,7 @@ public class AnyCareMapActivity extends Activity{
     					dialog.cancel();
     				}
     			})
-    			.setNegativeButton("·ñ", new DialogInterface.OnClickListener(){
+    			.setNegativeButton("å¦", new DialogInterface.OnClickListener(){
     	
     				@Override
     				public void onClick(DialogInterface dialog, int which) {
@@ -282,7 +282,7 @@ public class AnyCareMapActivity extends Activity{
 		}
 	}
 	/**
-	 * ÉèÖÃÊÇ·ñÏÔÊ¾½»Í¨Í¼
+	 * è®¾ç½®æ˜¯å¦æ˜¾ç¤ºäº¤é€šå›¾
 	 */
 	public void setTraffic(View view) {
 		mBaiduMap.setTrafficEnabled(true);
@@ -290,7 +290,7 @@ public class AnyCareMapActivity extends Activity{
 	
 	@Override  
     protected void onDestroy() {
-        //ÔÚactivityÖ´ĞĞonDestroyÊ±Ö´ĞĞmMapView.onDestroy()£¬ÊµÏÖµØÍ¼ÉúÃüÖÜÆÚ¹ÜÀí  
+        //åœ¨activityæ‰§è¡ŒonDestroyæ—¶æ‰§è¡ŒmMapView.onDestroy()ï¼Œå®ç°åœ°å›¾ç”Ÿå‘½å‘¨æœŸç®¡ç†  
         mMapView.onDestroy();  
         super.onDestroy(); 
         bdA.recycle();
@@ -300,14 +300,14 @@ public class AnyCareMapActivity extends Activity{
     @Override  
     protected void onResume() {
         super.onResume();  
-        //ÔÚactivityÖ´ĞĞonResumeÊ±Ö´ĞĞmMapView. onResume ()£¬ÊµÏÖµØÍ¼ÉúÃüÖÜÆÚ¹ÜÀí  
+        //åœ¨activityæ‰§è¡ŒonResumeæ—¶æ‰§è¡ŒmMapView. onResume ()ï¼Œå®ç°åœ°å›¾ç”Ÿå‘½å‘¨æœŸç®¡ç†  
         mMapView.onResume();  
     }
     
     @Override  
     protected void onPause() {  
         super.onPause();  
-        //ÔÚactivityÖ´ĞĞonPauseÊ±Ö´ĞĞmMapView. onPause ()£¬ÊµÏÖµØÍ¼ÉúÃüÖÜÆÚ¹ÜÀí  
+        //åœ¨activityæ‰§è¡ŒonPauseæ—¶æ‰§è¡ŒmMapView. onPause ()ï¼Œå®ç°åœ°å›¾ç”Ÿå‘½å‘¨æœŸç®¡ç†  
         mMapView.onPause();  
     } 
     
@@ -317,22 +317,22 @@ public class AnyCareMapActivity extends Activity{
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			switch (v.getId()) {
-				//Õ¹Ê¾×îĞÂµÄ5´Î¹ì¼£ĞÅÏ¢
+				//å±•ç¤ºæœ€æ–°çš„5æ¬¡è½¨è¿¹ä¿¡æ¯
 				case R.id.guiji:
 					if("OFF".equals(liShiSign)){
-						//´ò¿ª×îĞÂµÄÀúÊ·Êı¾İ¹ì¼£ĞÅÏ¢ÏÔÊ¾
+						//æ‰“å¼€æœ€æ–°çš„å†å²æ•°æ®è½¨è¿¹ä¿¡æ¯æ˜¾ç¤º
 						new ArchivesLiShiAsyncTask().execute(new String[]{archivesId});
 					}else if("ON".equals(liShiSign)){
-						//¹Ø±Õ×îĞÂµÄÀúÊ·Êı¾İ¹ì¼£ĞÅÏ¢ÏÔÊ¾
+						//å…³é—­æœ€æ–°çš„å†å²æ•°æ®è½¨è¿¹ä¿¡æ¯æ˜¾ç¤º
 //						liShiBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.orangecircle));
 					}
 					break;
-				//·´Ïò²éÑ¯ÇëÇó
+				//åå‘æŸ¥è¯¢è¯·æ±‚
 				case R.id.location:
 					if(!"".equals(crutchDeviceNumber)&&!"".equals(beltDeviceNumber)){
 						AlertDialog.Builder builder = new AlertDialog.Builder(AnyCareMapActivity.this);
-						builder.setTitle("Ñ¡Ôñ·´Ïò²éÑ¯µÄÉè±¸")
-							.setMultiChoiceItems(new String[] { "¹ÕÕÈ", "Ñü´ø" }, choice, new DialogInterface.OnMultiChoiceClickListener(){
+						builder.setTitle("é€‰æ‹©åå‘æŸ¥è¯¢çš„è®¾å¤‡")
+							.setMultiChoiceItems(new String[] { "æ‹æ–", "è…°å¸¦" }, choice, new DialogInterface.OnMultiChoiceClickListener(){
 
 								@Override
 								public void onClick(DialogInterface dialog,int which, boolean choicesign) {
@@ -340,14 +340,14 @@ public class AnyCareMapActivity extends Activity{
 									choice[which] = choicesign;
 								}
 							})
-							.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+							.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 								@Override
 								public void onClick(DialogInterface dialog, int which) {
 									// TODO Auto-generated method stub
 									boolean choice0 = choice[0];
 									boolean choice1 = choice[1];
 									if(choice1 == false && choice0==false){
-										Toast.makeText(getApplicationContext(), "ÎŞÑ¡ÔñµÄÉè±¸", Toast.LENGTH_SHORT).show();
+										Toast.makeText(getApplicationContext(), "æ— é€‰æ‹©çš„è®¾å¤‡", Toast.LENGTH_SHORT).show();
 									}else if(choice1 == false && choice0==true){
 										new FanXiangQueryAsyncTask().execute(new String[]{crutchDeviceNumber,""});
 									}else if(choice1 == true && choice0==false){
@@ -357,7 +357,7 @@ public class AnyCareMapActivity extends Activity{
 									}
 								}
 							})
-							.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+							.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 	
 								@Override
 								public void onClick(DialogInterface dialog,int which) {
@@ -366,14 +366,14 @@ public class AnyCareMapActivity extends Activity{
 								}
 							})
 							.show();
-					//ÓĞ¹ÕÕÈÉè±¸£¬ÎŞÑü´øÉè±¸
+					//æœ‰æ‹æ–è®¾å¤‡ï¼Œæ— è…°å¸¦è®¾å¤‡
 					}else if(!"".equals(crutchDeviceNumber)&&"".equals(beltDeviceNumber)){
 						new FanXiangQueryAsyncTask().execute(new String[]{crutchDeviceNumber,""});
-					//ÎŞ¹ÕÕÈÉè±¸£¬ÓĞÑü´øÉè±¸
+					//æ— æ‹æ–è®¾å¤‡ï¼Œæœ‰è…°å¸¦è®¾å¤‡
 					}else if("".equals(crutchDeviceNumber)&&!"".equals(beltDeviceNumber)){
 						new FanXiangQueryAsyncTask().execute(new String[]{"",beltDeviceNumber});
 					}else{
-						Toast.makeText(getApplicationContext(), "ÎŞÉè±¸,ÇëÖØÊÔ", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), "æ— è®¾å¤‡,è¯·é‡è¯•", Toast.LENGTH_SHORT).show();
 					}
 //					new FanXiangQueryAsyncTask().execute(new String[]{crutchDeviceNumber,beltDeviceNumber});
 					break;
@@ -383,7 +383,7 @@ public class AnyCareMapActivity extends Activity{
 					llA = new LatLng(lat,lon);
 					CoordinateConverter converter  = new CoordinateConverter();  
 					converter.from(CoordType.GPS);  
-					// sourceLatLng´ı×ª»»×ø±ê  
+					// sourceLatLngå¾…è½¬æ¢åæ ‡  
 					converter.coord(llA);  
 					LatLng desLatLng = converter.convert();
 					mMarkerA.setPosition(desLatLng);
@@ -395,32 +395,32 @@ public class AnyCareMapActivity extends Activity{
     }
 	private String readUserId(){
 		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
 		String userId=sp.getString("userId", "");
 		return userId;
 	}
 	
 	private String readUserPhone(){
 		SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-		//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+		//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
 		String phoneNumber=sp.getString("phoneNumber", "");
 		return phoneNumber;
 	}
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class FanXiangQueryAsyncTask extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+			dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -450,34 +450,34 @@ public class AnyCareMapActivity extends Activity{
 			super.onProgressUpdate(values);
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
 			if(result!=null&&!"".equals(result)){
 				if("paramempty".equals(result)){
-					Toast.makeText(getApplicationContext(), "ÇëÇó²ÎÊı²»ÍêÕû£¬ÇëÖØĞÂÇëÇó", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "è¯·æ±‚å‚æ•°ä¸å®Œæ•´ï¼Œè¯·é‡æ–°è¯·æ±‚", Toast.LENGTH_SHORT).show();
 				}else{
 					if("repeatcommit".equals(result)){
-						Toast.makeText(getApplicationContext(), "5·ÖÖÓÖ®ÄÚ²»¿ÉÖØ¸´Ìá½»£¡", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), "5åˆ†é’Ÿä¹‹å†…ä¸å¯é‡å¤æäº¤ï¼", Toast.LENGTH_SHORT).show();
 					}else{
 						locationBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.locating));
-						Toast.makeText(getApplicationContext(), "Êı¾İÌá½»³É¹¦£¬ÇëÉÔµÈ...", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), "æ•°æ®æäº¤æˆåŠŸï¼Œè¯·ç¨ç­‰...", Toast.LENGTH_SHORT).show();
 					}
 				}
 			}else {
 				AlertDialog.Builder builder = new AlertDialog.Builder(AnyCareMapActivity.this);
-				builder.setTitle("¾¯¸æ!")
-					.setMessage("Êı¾İÇëÇóÊ§°Ü£¬ÊÇ·ñÖØĞÂÇëÇó£¿")
-					.setPositiveButton("ÊÇ", new DialogInterface.OnClickListener() {
+				builder.setTitle("è­¦å‘Š!")
+					.setMessage("æ•°æ®è¯·æ±‚å¤±è´¥ï¼Œæ˜¯å¦é‡æ–°è¯·æ±‚ï¼Ÿ")
+					.setPositiveButton("æ˜¯", new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
 							// TODO Auto-generated method stub
 							new FanXiangQueryAsyncTask().execute(new String[]{crutchDeviceNumber,beltDeviceNumber});
 						}
 					})
-					.setNegativeButton("·ñ", new DialogInterface.OnClickListener(){
+					.setNegativeButton("å¦", new DialogInterface.OnClickListener(){
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
 							// TODO Auto-generated method stub
@@ -486,7 +486,7 @@ public class AnyCareMapActivity extends Activity{
 					});
 				builder.create().show();
 			}
-			dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+			dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 		}
 	}
 	
@@ -494,19 +494,19 @@ public class AnyCareMapActivity extends Activity{
 	
 	
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class SeeCrutchAsyncTask extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -527,7 +527,7 @@ public class AnyCareMapActivity extends Activity{
 			super.onProgressUpdate(values);
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
@@ -541,19 +541,19 @@ public class AnyCareMapActivity extends Activity{
 	}
     
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£ºÉèÖÃµç×ÓÎ§À¸¹¦ÄÜ
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼šè®¾ç½®ç”µå­å›´æ åŠŸèƒ½
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class SetArchivesWeilanAsyncTask extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -587,14 +587,14 @@ public class AnyCareMapActivity extends Activity{
 			super.onProgressUpdate(values);
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
 			if(!TextUtils.isEmpty(result)){
 				if("paramempty".equals(result)){
-					Toast.makeText(getApplicationContext(), "ÇëÇó²ÎÊı²»ÍêÕû£¬ÇëÖØĞÂÇëÇó", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "è¯·æ±‚å‚æ•°ä¸å®Œæ•´ï¼Œè¯·é‡æ–°è¯·æ±‚", Toast.LENGTH_SHORT).show();
 				}else{
 					yuanLat = Double.parseDouble(latitude);
 					yuanLon = Double.parseDouble(longitude);
@@ -605,33 +605,33 @@ public class AnyCareMapActivity extends Activity{
 					weilan = converter.convert();
 					MyLocationData locData = new MyLocationData.Builder()
 					.accuracy(yuanBanJing)
-					// ´Ë´¦ÉèÖÃ¿ª·¢Õß»ñÈ¡µ½µÄ·½ÏòĞÅÏ¢£¬Ë³Ê±Õë0-360
+					// æ­¤å¤„è®¾ç½®å¼€å‘è€…è·å–åˆ°çš„æ–¹å‘ä¿¡æ¯ï¼Œé¡ºæ—¶é’ˆ0-360
 					.direction(100)
 					.latitude(weilan.latitude)
 					.longitude(weilan.longitude).build();
 					mBaiduMap.setMyLocationData(locData);
-					Toast.makeText(getApplicationContext(), "Î§À¸ÉèÖÃ³É¹¦", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "å›´æ è®¾ç½®æˆåŠŸ", Toast.LENGTH_SHORT).show();
 				}
 			}else {
-				Toast.makeText(getApplicationContext(), "ÍøÂçÇëÇóÊ§°Ü£¬ÇëÖØĞÂÇëÇó", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "ç½‘ç»œè¯·æ±‚å¤±è´¥ï¼Œè¯·é‡æ–°è¯·æ±‚", Toast.LENGTH_SHORT).show();
 			}
 		}
 	}
 	
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º²é¿´5´ÎÀúÊ·ĞÅÏ¢
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼šæŸ¥çœ‹5æ¬¡å†å²ä¿¡æ¯
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class ArchivesLiShiAsyncTask extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -659,7 +659,7 @@ public class AnyCareMapActivity extends Activity{
 			super.onProgressUpdate(values);
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
@@ -667,9 +667,9 @@ public class AnyCareMapActivity extends Activity{
 			try{
 				if(!TextUtils.isEmpty(result)){
 					if("paramempty".equals(result)){
-						Toast.makeText(getApplicationContext(), "ÇëÇó²ÎÊı²»ÍêÕû£¬ÇëÖØĞÂÇëÇó", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), "è¯·æ±‚å‚æ•°ä¸å®Œæ•´ï¼Œè¯·é‡æ–°è¯·æ±‚", Toast.LENGTH_SHORT).show();
 					}else{
-						//´¦ÀíJSONOBJECT·µ»ØÊı¾İ
+						//å¤„ç†JSONOBJECTè¿”å›æ•°æ®
 						JSONObject jsonObject = new JSONObject(result);
 						int resultStatus = jsonObject.getInt("status");
 						if(resultStatus==200){
@@ -677,7 +677,7 @@ public class AnyCareMapActivity extends Activity{
 							BitmapDescriptor hisA = BitmapDescriptorFactory.fromResource(R.drawable.icon_hiscoding);	
 							CoordinateConverter converter  = new CoordinateConverter();  
 							converter.from(CoordType.GPS);  
-							// sourceLatLng´ı×ª»»×ø±ê  
+							// sourceLatLngå¾…è½¬æ¢åæ ‡  
 							if(resultArray.length()>2){
 								for(int i = 1 ;i<resultArray.length();i++){
 									JSONObject resultObject = resultArray.getJSONObject(i);
@@ -692,14 +692,14 @@ public class AnyCareMapActivity extends Activity{
 								liShiSign="ON";
 								liShiBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.display));
 							}else{
-								Toast.makeText(getApplicationContext(), "ÔİÎŞÀúÊ·Êı¾İ", Toast.LENGTH_SHORT).show();
+								Toast.makeText(getApplicationContext(), "æš‚æ— å†å²æ•°æ®", Toast.LENGTH_SHORT).show();
 							}
 						}else{
-							Toast.makeText(getApplicationContext(), "ÇëÇóÊ§°Ü£¬ÇëÖØĞÂÇëÇó", Toast.LENGTH_SHORT).show();
+							Toast.makeText(getApplicationContext(), "è¯·æ±‚å¤±è´¥ï¼Œè¯·é‡æ–°è¯·æ±‚", Toast.LENGTH_SHORT).show();
 						}
 					}
 				}else {
-					Toast.makeText(getApplicationContext(), "ÍøÂçÇëÇóÊ§°Ü£¬ÇëÖØĞÂÇëÇó", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "ç½‘ç»œè¯·æ±‚å¤±è´¥ï¼Œè¯·é‡æ–°è¯·æ±‚", Toast.LENGTH_SHORT).show();
 				}
 			}catch(Exception e){
 				e.printStackTrace();
@@ -708,3 +708,4 @@ public class AnyCareMapActivity extends Activity{
 	}
 	
 }
+

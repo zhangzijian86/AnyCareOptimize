@@ -19,21 +19,21 @@ public class MyJPushReceiver extends BroadcastReceiver{
 		Bundle bundle = intent.getExtras();
 		int notifactionId = 0;
 		try{
-			//SDK Ïò JPush Server ×¢²áËùµÃµ½µÄ×¢²á È«¾ÖÎ¨Ò»µÄ ID £¬¿ÉÒÔÍ¨¹ı´Ë ID Ïò¶ÔÓ¦µÄ¿Í»§¶Ë·¢ËÍÏûÏ¢ºÍÍ¨Öª¡£
+			//SDK å‘ JPush Server æ³¨å†Œæ‰€å¾—åˆ°çš„æ³¨å†Œ å…¨å±€å”¯ä¸€çš„ ID ï¼Œå¯ä»¥é€šè¿‡æ­¤ ID å‘å¯¹åº”çš„å®¢æˆ·ç«¯å‘é€æ¶ˆæ¯å’Œé€šçŸ¥ã€‚
 			if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {
 	            String regId = bundle.getString(JPushInterface.EXTRA_REGISTRATION_ID);
-	            //·¢ËÍÈ«¾ÖÎ¨Ò»µÄIDµ½·şÎñÆ÷£¬×ö·şÎñÆ÷µÄÈÏÖ¤£¨ÓĞÓÃ¹¦ÄÜÒÔºóÔÙÌí¼Ó£©
-	        } else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) {//½ÓÊÕµ½ÍÆËÍÏÂÀ´µÄ×Ô¶¨ÒåÏûÏ¢
-	        	Log.d("MyJPush", "[MyJPushReceiver] ½ÓÊÕµ½ÍÆËÍÏÂÀ´µÄ×Ô¶¨ÒåÏûÏ¢: " + bundle.getString(JPushInterface.EXTRA_MESSAGE));
+	            //å‘é€å…¨å±€å”¯ä¸€çš„IDåˆ°æœåŠ¡å™¨ï¼ŒåšæœåŠ¡å™¨çš„è®¤è¯ï¼ˆæœ‰ç”¨åŠŸèƒ½ä»¥åå†æ·»åŠ ï¼‰
+	        } else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) {//æ¥æ”¶åˆ°æ¨é€ä¸‹æ¥çš„è‡ªå®šä¹‰æ¶ˆæ¯
+	        	Log.d("MyJPush", "[MyJPushReceiver] æ¥æ”¶åˆ°æ¨é€ä¸‹æ¥çš„è‡ªå®šä¹‰æ¶ˆæ¯: " + bundle.getString(JPushInterface.EXTRA_MESSAGE));
 	        	//processCustomMessage(context, bundle);
-	        } else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {//½ÓÊÕµ½ÍÆËÍÏÂÀ´µÄÍ¨Öª
-	            Log.d("MyJPush", "[MyJPushReceiver] ½ÓÊÕµ½ÍÆËÍÏÂÀ´µÄÍ¨Öª");
+	        } else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {//æ¥æ”¶åˆ°æ¨é€ä¸‹æ¥çš„é€šçŸ¥
+	            Log.d("MyJPush", "[MyJPushReceiver] æ¥æ”¶åˆ°æ¨é€ä¸‹æ¥çš„é€šçŸ¥");
 	            notifactionId = bundle.getInt(JPushInterface.EXTRA_NOTIFICATION_ID);
-	            Log.d("MyJPush", "[MyJPushReceiver] ½ÓÊÕµ½ÍÆËÍÏÂÀ´µÄÍ¨ÖªµÄID: " + notifactionId);
-	        } else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {//ÓÃ»§µã»÷´ò¿ªÁËÍ¨Öª
-	        	//´ò¿ª×Ô¶¨ÒåµÄActivity
+	            Log.d("MyJPush", "[MyJPushReceiver] æ¥æ”¶åˆ°æ¨é€ä¸‹æ¥çš„é€šçŸ¥çš„ID: " + notifactionId);
+	        } else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {//ç”¨æˆ·ç‚¹å‡»æ‰“å¼€äº†é€šçŸ¥
+	        	//æ‰“å¼€è‡ªå®šä¹‰çš„Activity
 	        	String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
-	        	Log.d("MyJPush", "[MyJPushReceiver] ½ÓÊÕµ½ÍÆËÍÏÂÀ´µÄÍ¨ÖªµÄÄÚÈİ: " + extras);
+	        	Log.d("MyJPush", "[MyJPushReceiver] æ¥æ”¶åˆ°æ¨é€ä¸‹æ¥çš„é€šçŸ¥çš„å†…å®¹: " + extras);
 	        	JSONObject jsonObject = new JSONObject(extras);
 	        	String fuerSign = jsonObject.getString("fuerSign");
 	        	Intent i = null;
@@ -59,10 +59,11 @@ public class MyJPushReceiver extends BroadcastReceiver{
 	        } else if(JPushInterface.ACTION_CONNECTION_CHANGE.equals(intent.getAction())) {
 	        	boolean connected = intent.getBooleanExtra(JPushInterface.EXTRA_CONNECTION_CHANGE, false);
 	        } else {
-	        	Toast.makeText(context, "Î´ÖªĞÅÏ¢", Toast.LENGTH_SHORT).show();
+	        	Toast.makeText(context, "æœªçŸ¥ä¿¡æ¯", Toast.LENGTH_SHORT).show();
 	        }
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
 }
+
