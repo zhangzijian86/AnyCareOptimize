@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 /**
- * ToastÍ³Ò»¹ÜÀíÀà
+ * Toastç»Ÿä¸€ç®¡ç†ç±»
  * 
  */
 public class ToastUtils
@@ -19,7 +19,7 @@ public class ToastUtils
 	public static boolean isShow = true;
 
 	/**
-	 * ¶ÌÊ±¼äÏÔÊ¾Toast
+	 * çŸ­æ—¶é—´æ˜¾ç¤ºToast
 	 * 
 	 * @param context
 	 * @param message
@@ -31,7 +31,7 @@ public class ToastUtils
 	}
 
 	/**
-	 * ¶ÌÊ±¼äÏÔÊ¾Toast
+	 * çŸ­æ—¶é—´æ˜¾ç¤ºToast
 	 * 
 	 * @param context
 	 * @param message
@@ -43,7 +43,7 @@ public class ToastUtils
 	}
 
 	/**
-	 * ³¤Ê±¼äÏÔÊ¾Toast
+	 * é•¿æ—¶é—´æ˜¾ç¤ºToast
 	 * 
 	 * @param context
 	 * @param message
@@ -55,7 +55,7 @@ public class ToastUtils
 	}
 
 	/**
-	 * ³¤Ê±¼äÏÔÊ¾Toast
+	 * é•¿æ—¶é—´æ˜¾ç¤ºToast
 	 * 
 	 * @param context
 	 * @param message
@@ -67,7 +67,7 @@ public class ToastUtils
 	}
 
 	/**
-	 * ×Ô¶¨ÒåÏÔÊ¾ToastÊ±¼ä
+	 * è‡ªå®šä¹‰æ˜¾ç¤ºToastæ—¶é—´
 	 * 
 	 * @param context
 	 * @param message
@@ -80,7 +80,7 @@ public class ToastUtils
 	}
 
 	/**
-	 * ×Ô¶¨ÒåÏÔÊ¾ToastÊ±¼ä
+	 * è‡ªå®šä¹‰æ˜¾ç¤ºToastæ—¶é—´
 	 * 
 	 * @param context
 	 * @param message

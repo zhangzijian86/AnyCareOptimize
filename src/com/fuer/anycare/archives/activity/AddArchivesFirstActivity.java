@@ -45,7 +45,7 @@ public class AddArchivesFirstActivity extends Activity {
 	 private Button kaiqiBtn;
 	 private Button guanbiBtn;
 	 
-	 private String sex="ÄĞ";
+	 private String sex="ç”·";
 	 private String fanxiang="1";
 	 
 	 private String archivesId;
@@ -61,9 +61,9 @@ public class AddArchivesFirstActivity extends Activity {
 	 	setContentView(R.layout.layout_addarchfirst);
 	 	gerenxinxiitu  = (ImageView)findViewById(R.id.gerenxinxiitu);
 	 	gerenduigou  = (ImageView)findViewById(R.id.gerenduigou);
-	 	//³õÊ¼»¯dialog
-		dialog=new LoadingProgressDialog(this,"ÕıÔÚ¼ÓÔØ...");
-		//³õÊ¼»¯dialog end
+	 	//åˆå§‹åŒ–dialog
+		dialog=new LoadingProgressDialog(this,"æ­£åœ¨åŠ è½½...");
+		//åˆå§‹åŒ–dialog end
 		xingmingEdt = (EditText)findViewById(R.id.xingming);
 		nichengEdt = (EditText)findViewById(R.id.nicheng);
 		shengriEdt = (EditText)findViewById(R.id.shengri);
@@ -90,15 +90,15 @@ public class AddArchivesFirstActivity extends Activity {
 				String shengao = shengaoEdt.getText().toString().trim();
 				String tizhong = tizhongEdt.getText().toString().trim();
 				if(TextUtils.isEmpty(xingming)){
-					Toast.makeText(getApplicationContext(), "ĞÕÃû²»ÄÜÎª¿Õ£¡", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "å§“åä¸èƒ½ä¸ºç©ºï¼", Toast.LENGTH_SHORT).show();
 				}else if(TextUtils.isEmpty(nicheng)){
-					Toast.makeText(getApplicationContext(), "êÇ³Æ²»ÄÜÎª¿Õ£¡", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "æ˜µç§°ä¸èƒ½ä¸ºç©ºï¼", Toast.LENGTH_SHORT).show();
 				}else if(TextUtils.isEmpty(shengri)){
-					Toast.makeText(getApplicationContext(), "ÉúÈÕ²»ÄÜÎª¿Õ£¡", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "ç”Ÿæ—¥ä¸èƒ½ä¸ºç©ºï¼", Toast.LENGTH_SHORT).show();
 				}else if(TextUtils.isEmpty(shengao)){
-					Toast.makeText(getApplicationContext(), "Éí¸ß²»ÄÜÎª¿Õ£¡", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "èº«é«˜ä¸èƒ½ä¸ºç©ºï¼", Toast.LENGTH_SHORT).show();
 				}else if(TextUtils.isEmpty(tizhong)){
-					Toast.makeText(getApplicationContext(), "ÌåÖØ²»ÄÜÎª¿Õ£¡", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "ä½“é‡ä¸èƒ½ä¸ºç©ºï¼", Toast.LENGTH_SHORT).show();
 				}else{
 					new UserCreateArchivesAsyncTask().execute(new String[]{userId,xingming,nicheng,sex,shengao,tizhong,shengri,fanxiang});
 				}
@@ -119,41 +119,41 @@ public class AddArchivesFirstActivity extends Activity {
 		if(archivesId!=null&!"".equals(archivesId)){
 			new UserLoadArchivesAsyncTask().execute(new String[]{archivesId});
 		}
-		//³õÊ¼»¯ÈÕÆÚ start
+		//åˆå§‹åŒ–æ—¥æœŸ start
 		year=DateTool.getDateYear();
 		mouth=DateTool.getDateMonth();
 		day=DateTool.getDateDay();
-		//³õÊ¼»¯end
+		//åˆå§‹åŒ–end
 	 }
 	 
 		private String readUserId(){
 			SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-			//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+			//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
 			String userId=sp.getString("userId", "");
 			return userId;
 		}
 		
 		private String readUserPhone(){
 			SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-			//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+			//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
 			String phoneNumber=sp.getString("phoneNumber", "");
 			return phoneNumber;
 		}
 	 /**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class UserCreateArchivesAsyncTask extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+			dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -189,20 +189,20 @@ public class AddArchivesFirstActivity extends Activity {
 			
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
 			if(result!=null&&!"".equals(result)&&result.length()==32){
 				if(archivesId==null||"".equals(archivesId)){
-					Toast.makeText(getApplicationContext(), "¸öÈËĞÅÏ¢±£´æ³É¹¦", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "ä¸ªäººä¿¡æ¯ä¿å­˜æˆåŠŸ", Toast.LENGTH_SHORT).show();
 					Bundle bundle = new Bundle();
 					bundle.putString("archivesId",result);
 					bundle.putString("updateSign","0");
 					startActivity(new Intent(getApplication(), AddArchivesSecondActivity.class).putExtras(bundle));
 				}else{
-					Toast.makeText(getApplicationContext(), "¸öÈËĞÅÏ¢¸üĞÂ³É¹¦", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "ä¸ªäººä¿¡æ¯æ›´æ–°æˆåŠŸ", Toast.LENGTH_SHORT).show();
 					Bundle bundle = new Bundle();
 					bundle.putString("archivesId",result);
 					bundle.putString("updateSign","1");
@@ -210,9 +210,9 @@ public class AddArchivesFirstActivity extends Activity {
 				}
 				overridePendingTransition(R.anim.zoom_enter, R.anim.zoom_exit);
 			}else if("".equals(result)){
-				Toast.makeText(getApplicationContext(), "¸öÈËĞÅÏ¢±£´æÊ§°Ü£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "ä¸ªäººä¿¡æ¯ä¿å­˜å¤±è´¥ï¼", Toast.LENGTH_SHORT).show();
 			}
-			dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+			dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 		}
 	}
 	
@@ -223,18 +223,18 @@ public class AddArchivesFirstActivity extends Activity {
 			// TODO Auto-generated method stub
 			switch (v.getId()) {
 				case R.id.nan:
-					//Èç¹ûÒÑ¾­Ñ¡ÖĞ£¬µã»÷Ñ¡ÖĞ°´Å¥,È¡ÏûÑ¡ÖĞ²Ù×÷£¬±ä°×É«
-					sex = "ÄĞ";
+					//å¦‚æœå·²ç»é€‰ä¸­ï¼Œç‚¹å‡»é€‰ä¸­æŒ‰é’®,å–æ¶ˆé€‰ä¸­æ“ä½œï¼Œå˜ç™½è‰²
+					sex = "ç”·";
 					nanBtn.setBackgroundResource(R.drawable.zuoselectbutton);
 					nvBtn.setBackgroundResource(R.drawable.youunselectbutton);
 					break;
 				case R.id.nv:
-					sex = "Å®";
+					sex = "å¥³";
 					nanBtn.setBackgroundResource(R.drawable.zuounselectbutton);
 					nvBtn.setBackgroundResource(R.drawable.youselectbutton);
 					break;
 				case R.id.kaiqi:
-					//Èç¹ûÒÑ¾­Ñ¡ÖĞ£¬µã»÷Ñ¡ÖĞ°´Å¥,È¡ÏûÑ¡ÖĞ²Ù×÷£¬±ä°×É«
+					//å¦‚æœå·²ç»é€‰ä¸­ï¼Œç‚¹å‡»é€‰ä¸­æŒ‰é’®,å–æ¶ˆé€‰ä¸­æ“ä½œï¼Œå˜ç™½è‰²
 					fanxiang = "1";
 					kaiqiBtn.setBackgroundResource(R.drawable.zuoselectbutton);
 					guanbiBtn.setBackgroundResource(R.drawable.youunselectbutton);
@@ -250,20 +250,20 @@ public class AddArchivesFirstActivity extends Activity {
 	}
 	
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-	 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-	 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+	 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+	 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class UserLoadArchivesAsyncTask extends AsyncTask<String, String, String>{
-		//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+			dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 		}
-		//Íê³ÉºÄÊ±²Ù×÷
+		//å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -286,7 +286,7 @@ public class AddArchivesFirstActivity extends Activity {
 			
 		}
 		
-		//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
@@ -307,12 +307,12 @@ public class AddArchivesFirstActivity extends Activity {
 					shengriEdt.setText(shengri);
 					shengaoEdt.setText(shengao);
 					tizhongEdt.setText(tizhong);
-					if("ÄĞ".equals(xingbie)){
-						sex = "ÄĞ";
+					if("ç”·".equals(xingbie)){
+						sex = "ç”·";
 						nanBtn.setBackgroundResource(R.drawable.zuoselectbutton);
 						nvBtn.setBackgroundResource(R.drawable.youunselectbutton);
-					}else if("Å®".equals(xingbie)){
-						sex = "Å®";
+					}else if("å¥³".equals(xingbie)){
+						sex = "å¥³";
 						nanBtn.setBackgroundResource(R.drawable.zuounselectbutton);
 						nvBtn.setBackgroundResource(R.drawable.youselectbutton);
 					}
@@ -341,9 +341,9 @@ public class AddArchivesFirstActivity extends Activity {
 					e.printStackTrace();
 				}
 			}else if("".equals(result)){
-				Toast.makeText(getApplicationContext(), "¸öÈËĞÅÏ¢¼ÓÔØÊ§°Ü£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "ä¸ªäººä¿¡æ¯åŠ è½½å¤±è´¥ï¼", Toast.LENGTH_SHORT).show();
 			}
-			dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+			dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 		}
 	}
 	
@@ -358,7 +358,7 @@ public class AddArchivesFirstActivity extends Activity {
 	
 	/**
 	 * author:ma_yming
-	 * dis:ÏÔÊ¾ÈÕÆÚ¶Ô»°¿ò
+	 * dis:æ˜¾ç¤ºæ—¥æœŸå¯¹è¯æ¡†
 	 * */
 	private DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
 		  @Override
@@ -368,3 +368,4 @@ public class AddArchivesFirstActivity extends Activity {
 		  }
 	 };
 }
+

@@ -8,7 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 /**
- * ¸úÍøÂçÏà¹ØµÄ¹¤¾ßÀà
+ * è·Ÿç½‘ç»œç›¸å…³çš„å·¥å…·ç±»
  * 
  * @author zhy
  * 
@@ -21,7 +21,7 @@ public class NetUtils
 	}
 
 	/**
-	 * ÅĞ¶ÏÍøÂçÊÇ·ñÁ¬½Ó
+	 * åˆ¤æ–­ç½‘ç»œæ˜¯å¦è¿æ¥
 	 * 
 	 * @param context
 	 * @return
@@ -45,7 +45,7 @@ public class NetUtils
 	}
 
 	/**
-	 * ÅĞ¶ÏÊÇ·ñÊÇwifiÁ¬½Ó
+	 * åˆ¤æ–­æ˜¯å¦æ˜¯wifiè¿æ¥
 	 */
 	public static boolean isWifi(Context context)
 	{
@@ -59,7 +59,7 @@ public class NetUtils
 	}
 
 	/**
-	 * ´ò¿ªÍøÂçÉèÖÃ½çÃæ
+	 * æ‰“å¼€ç½‘ç»œè®¾ç½®ç•Œé¢
 	 */
 	public static void openSetting(Activity activity)
 	{
@@ -71,3 +71,4 @@ public class NetUtils
 	}
 
 }
+

@@ -16,12 +16,12 @@ public class SPUtils
 	}
 
 	/**
-	 * ±£´æÔÚÊÖ»úÀïÃæµÄÎÄ¼şÃû
+	 * ä¿å­˜åœ¨æ‰‹æœºé‡Œé¢çš„æ–‡ä»¶å
 	 */
 	public static final String FILE_NAME = "share_data";
 
 	/**
-	 * ±£´æÊı¾İµÄ·½·¨£¬ÎÒÃÇĞèÒªÄÃµ½±£´æÊı¾İµÄ¾ßÌåÀàĞÍ£¬È»ºó¸ù¾İÀàĞÍµ÷ÓÃ²»Í¬µÄ±£´æ·½·¨
+	 * ä¿å­˜æ•°æ®çš„æ–¹æ³•ï¼Œæˆ‘ä»¬éœ€è¦æ‹¿åˆ°ä¿å­˜æ•°æ®çš„å…·ä½“ç±»å‹ï¼Œç„¶åæ ¹æ®ç±»å‹è°ƒç”¨ä¸åŒçš„ä¿å­˜æ–¹æ³•
 	 * 
 	 * @param context
 	 * @param key
@@ -58,7 +58,7 @@ public class SPUtils
 	}
 
 	/**
-	 * µÃµ½±£´æÊı¾İµÄ·½·¨£¬ÎÒÃÇ¸ù¾İÄ¬ÈÏÖµµÃµ½±£´æµÄÊı¾İµÄ¾ßÌåÀàĞÍ£¬È»ºóµ÷ÓÃÏà¶ÔÓÚµÄ·½·¨»ñÈ¡Öµ
+	 * å¾—åˆ°ä¿å­˜æ•°æ®çš„æ–¹æ³•ï¼Œæˆ‘ä»¬æ ¹æ®é»˜è®¤å€¼å¾—åˆ°ä¿å­˜çš„æ•°æ®çš„å…·ä½“ç±»å‹ï¼Œç„¶åè°ƒç”¨ç›¸å¯¹äºçš„æ–¹æ³•è·å–å€¼
 	 * 
 	 * @param context
 	 * @param key
@@ -91,7 +91,7 @@ public class SPUtils
 	}
 
 	/**
-	 * ÒÆ³ıÄ³¸ökeyÖµÒÑ¾­¶ÔÓ¦µÄÖµ
+	 * ç§»é™¤æŸä¸ªkeyå€¼å·²ç»å¯¹åº”çš„å€¼
 	 * 
 	 * @param context
 	 * @param key
@@ -106,7 +106,7 @@ public class SPUtils
 	}
 
 	/**
-	 * Çå³ıËùÓĞÊı¾İ
+	 * æ¸…é™¤æ‰€æœ‰æ•°æ®
 	 * 
 	 * @param context
 	 */
@@ -120,7 +120,7 @@ public class SPUtils
 	}
 
 	/**
-	 * ²éÑ¯Ä³¸ökeyÊÇ·ñÒÑ¾­´æÔÚ
+	 * æŸ¥è¯¢æŸä¸ªkeyæ˜¯å¦å·²ç»å­˜åœ¨
 	 * 
 	 * @param context
 	 * @param key
@@ -134,7 +134,7 @@ public class SPUtils
 	}
 
 	/**
-	 * ·µ»ØËùÓĞµÄ¼üÖµ¶Ô
+	 * è¿”å›æ‰€æœ‰çš„é”®å€¼å¯¹
 	 * 
 	 * @param context
 	 * @return
@@ -147,7 +147,7 @@ public class SPUtils
 	}
 
 	/**
-	 * ´´½¨Ò»¸ö½â¾öSharedPreferencesCompat.apply·½·¨µÄÒ»¸ö¼æÈİÀà
+	 * åˆ›å»ºä¸€ä¸ªè§£å†³SharedPreferencesCompat.applyæ–¹æ³•çš„ä¸€ä¸ªå…¼å®¹ç±»
 	 * 
 	 * @author zhy
 	 * 
@@ -157,7 +157,7 @@ public class SPUtils
 		private static final Method sApplyMethod = findApplyMethod();
 
 		/**
-		 * ·´Éä²éÕÒapplyµÄ·½·¨
+		 * åå°„æŸ¥æ‰¾applyçš„æ–¹æ³•
 		 * 
 		 * @return
 		 */
@@ -176,7 +176,7 @@ public class SPUtils
 		}
 
 		/**
-		 * Èç¹ûÕÒµ½ÔòÊ¹ÓÃapplyÖ´ĞĞ£¬·ñÔòÊ¹ÓÃcommit
+		 * å¦‚æœæ‰¾åˆ°åˆ™ä½¿ç”¨applyæ‰§è¡Œï¼Œå¦åˆ™ä½¿ç”¨commit
 		 * 
 		 * @param editor
 		 */

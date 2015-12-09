@@ -13,39 +13,39 @@ import com.fuer.main.anycare.R;
 
 public class SlideSwitch extends View {
 	
-	private int mBmpWidth = 0;//¿Ø¼ş¸ß¶È
-	private int mBmpHeight = 0;//¿Ø¼ş¸ß¶È
-	private int mThumbWidth = 0;//Ô²ĞÄ¿í¶È
-	//¿ª¹Ø×´Ì¬Í¼  
+	private int mBmpWidth = 0;//æ§ä»¶é«˜åº¦
+	private int mBmpHeight = 0;//æ§ä»¶é«˜åº¦
+	private int mThumbWidth = 0;//åœ†å¿ƒå®½åº¦
+	//å¼€å…³çŠ¶æ€å›¾  
 	Bitmap mSwitch_Back, mSwitch_Slide;
 	
-	//¹¹Ôì·½·¨
+	//æ„é€ æ–¹æ³•
 	public SlideSwitch(Context context) {
 		super(context);
 		// TODO Auto-generated constructor stub
 		init();
 	}
-	//¹¹Ôì·½·¨
+	//æ„é€ æ–¹æ³•
 	public SlideSwitch(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
 		init();
 	}
-	//¹¹Ôì·½·¨
+	//æ„é€ æ–¹æ³•
 	public SlideSwitch(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		// TODO Auto-generated constructor stub
 		init();
 	}
 	
-	//³õÊ¼»¯Á½·ùÍ¼Æ¬  
+	//åˆå§‹åŒ–ä¸¤å¹…å›¾ç‰‡  
 	private void init(){
 		Resources res = getResources();  
 		mSwitch_Back = BitmapFactory.decodeResource(res, R.drawable.slide_back);  
 		mSwitch_Slide = BitmapFactory.decodeResource(res, R.drawable.circle);  
-		mBmpWidth = mSwitch_Back.getWidth();	//±³¾°µÄ¿í¶È
-		mBmpHeight = mSwitch_Back.getHeight();  //±³¾°µÄ¸ß¶È
-		mThumbWidth = mSwitch_Slide.getWidth();//Ô²È¦µÄ¿í¶È  
+		mBmpWidth = mSwitch_Back.getWidth();	//èƒŒæ™¯çš„å®½åº¦
+		mBmpHeight = mSwitch_Back.getHeight();  //èƒŒæ™¯çš„é«˜åº¦
+		mThumbWidth = mSwitch_Slide.getWidth();//åœ†åœˆçš„å®½åº¦  
 	}
 	
 	@Override
@@ -76,3 +76,4 @@ public class SlideSwitch extends View {
 		
 	}
 }
+

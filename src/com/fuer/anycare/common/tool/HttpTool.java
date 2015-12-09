@@ -22,41 +22,41 @@ import org.apache.http.util.EntityUtils;
  * */
 public class HttpTool {
 	/**
-	 * author:ma_yming dis:»ñÈ¡µ½ÏàÓ¦Êı¾İµÄ¹«¹²¹¤¾ß·½·¨
+	 * author:ma_yming dis:è·å–åˆ°ç›¸åº”æ•°æ®çš„å…¬å…±å·¥å…·æ–¹æ³•
 	 * */
 	public static DefaultHttpClient httpClient;
 	private static String serversAddress = "http://www.any-care.cn";
 	public static long totalLength;
 	/**
-	 * @param url ·¢ËÍÇëÇóµÄURL
-	 * @param params ÇëÇó²ÎÊı
-	 * @return ·şÎñÆ÷ÏìÓ¦×Ö·û´®
+	 * @param url å‘é€è¯·æ±‚çš„URL
+	 * @param params è¯·æ±‚å‚æ•°
+	 * @return æœåŠ¡å™¨å“åº”å­—ç¬¦ä¸²
 	 * @throws Exception
 	 */
 	public static String postRequest(String data, Map<String, String> rawParams) throws Exception{
-		// ÉèÖÃÁ¬½Ó³¬Ê±Ê±¼äºÍÊı¾İ¶ÁÈ¡³¬Ê±Ê±¼ä   
+		// è®¾ç½®è¿æ¥è¶…æ—¶æ—¶é—´å’Œæ•°æ®è¯»å–è¶…æ—¶æ—¶é—´   
 		HttpParams httpParams = new BasicHttpParams();
-		HttpConnectionParams.setConnectionTimeout(httpParams,20000);//ÉèÖÃÁ¬½Ó³¬Ê±Ê±¼ä
-		HttpConnectionParams.setSoTimeout(httpParams,5000);//ÉèÖÃÊı¾İ¶ÁÈ¡³¬Ê±Ê±¼ä
+		HttpConnectionParams.setConnectionTimeout(httpParams,20000);//è®¾ç½®è¿æ¥è¶…æ—¶æ—¶é—´
+		HttpConnectionParams.setSoTimeout(httpParams,5000);//è®¾ç½®æ•°æ®è¯»å–è¶…æ—¶æ—¶é—´
 		httpClient = new DefaultHttpClient(httpParams);
 		String result = "";
 		try {
 			String url = serversAddress + data;
-			// ´´½¨HttpPost¶ÔÏó¡£
+			// åˆ›å»ºHttpPostå¯¹è±¡ã€‚
 			HttpPost post = new HttpPost(url);
-			// Èç¹û´«µİ²ÎÊı¸öÊı±È½Ï¶àµÄ»°¿ÉÒÔ¶Ô´«µİµÄ²ÎÊı½øĞĞ·â×°
+			// å¦‚æœä¼ é€’å‚æ•°ä¸ªæ•°æ¯”è¾ƒå¤šçš„è¯å¯ä»¥å¯¹ä¼ é€’çš„å‚æ•°è¿›è¡Œå°è£…
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 			for (Map.Entry<String, String> entry : rawParams.entrySet()) {
-				// ·â×°ÇëÇó²ÎÊı
+				// å°è£…è¯·æ±‚å‚æ•°
 				params.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
 			}
-			// ÉèÖÃÇëÇó²ÎÊı(ÉèÖÃpostÌá½»µÄÊı¾İÊµÌå)
+			// è®¾ç½®è¯·æ±‚å‚æ•°(è®¾ç½®postæäº¤çš„æ•°æ®å®ä½“)
 			post.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
-			// ·¢ËÍPOSTÇëÇó
+			// å‘é€POSTè¯·æ±‚
 			HttpResponse httpResponse = httpClient.execute(post);
-			// Èç¹û·şÎñÆ÷³É¹¦µØ·µ»ØÏìÓ¦
+			// å¦‚æœæœåŠ¡å™¨æˆåŠŸåœ°è¿”å›å“åº”
 			if (httpResponse.getStatusLine().getStatusCode() == 200) {
-				// »ñÈ¡·şÎñÆ÷ÏìÓ¦×Ö·û´®
+				// è·å–æœåŠ¡å™¨å“åº”å­—ç¬¦ä¸²
 				result = EntityUtils.toString(httpResponse.getEntity());
 			}
 		} catch (Exception e) {
@@ -67,3 +67,4 @@ public class HttpTool {
 		return result;
 	}
 }
+

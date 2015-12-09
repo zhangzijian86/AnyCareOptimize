@@ -37,7 +37,7 @@ public class AnyCareBindActivity extends Activity {
 	 
 	 private ImageView bangdingshebeitu;
 	 private ImageView tianjiatubiao;
-	 private List<Map<String,String>> dataList = new ArrayList<Map<String,String>>();//´æ·ÅÊı¾İµÄList
+	 private List<Map<String,String>> dataList = new ArrayList<Map<String,String>>();//å­˜æ”¾æ•°æ®çš„List
 	 private String archivesId;
 	 private String createSign;
 	 private LoadingProgressDialog dialog;
@@ -67,33 +67,33 @@ public class AnyCareBindActivity extends Activity {
 					startActivity(intent); 
 					AnyCareBindActivity.this.finish();
 				}else if("0".equals(createSign)){
-					Toast.makeText(getApplicationContext(), "ÎŞÈ¨ÏŞÔö¼ÓÉè±¸", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "æ— æƒé™å¢åŠ è®¾å¤‡", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
 	 	Bundle bundle = this.getIntent().getExtras();
 		archivesId = bundle.getString("archivesId");
 		createSign = bundle.getString("createSign");
-		//³õÊ¼»¯dialog
-		dialog=new LoadingProgressDialog(this,"ÕıÔÚ¼ÓÔØ...");
-		//³õÊ¼»¯dialog end
+		//åˆå§‹åŒ–dialog
+		dialog=new LoadingProgressDialog(this,"æ­£åœ¨åŠ è½½...");
+		//åˆå§‹åŒ–dialog end
 		bind_listview =  (ListView) findViewById(R.id.bind_listview);
 		if(!"".equals(archivesId)){
 			new UserLoadDeviceByArchIdAsyncTask().execute(new String[]{archivesId});
 		}else{
-			Toast.makeText(getApplicationContext(), "¼ÓÔØ´íÎó£¡", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "åŠ è½½é”™è¯¯ï¼", Toast.LENGTH_SHORT).show();
 		}
 	 }
 	 
 	 /**
-	 * dis:×Ô¶¨Òåadapter£¬ÊµÏÖlistView °´Å¥ÊÂ¼ş
+	 * dis:è‡ªå®šä¹‰adapterï¼Œå®ç°listView æŒ‰é’®äº‹ä»¶
 	 * */
 	private class MyAdapter extends BaseAdapter {
 		
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			// ÕâÀïÎÒ¾Í·µ»Ø10ÁË£¬Ò²¾ÍÊÇÒ»¹²ÓĞ10ÏîÊı¾İÏî
+			// è¿™é‡Œæˆ‘å°±è¿”å›10äº†ï¼Œä¹Ÿå°±æ˜¯ä¸€å…±æœ‰10é¡¹æ•°æ®é¡¹
 			return dataList.size();
 		}
 
@@ -135,11 +135,11 @@ public class AnyCareBindActivity extends Activity {
 			final String deviceId = map.get("deviceId");
 			if("1".equals(deviceType)){
 				shebeitupian.setImageDrawable(getResources().getDrawable(R.drawable.shouzhang));
-				binddevicename.setText("ÖÇÄÜÊÖÕÈ");
+				binddevicename.setText("æ™ºèƒ½æ‰‹æ–");
 				devicenumber_textview.setText(map.get("deviceCode"));
 			}else if("2".equals(deviceType)){
 				shebeitupian.setImageDrawable(getResources().getDrawable(R.drawable.belt));
-				binddevicename.setText("ÖÇÄÜÑü´ø");
+				binddevicename.setText("æ™ºèƒ½è…°å¸¦");
 				devicenumber_textview.setText(map.get("deviceCode"));
 			}
 			delete_button.setOnClickListener(new OnClickListener() {
@@ -149,9 +149,9 @@ public class AnyCareBindActivity extends Activity {
 					if("1".equals(createSign)){
 						AlertDialog.Builder builder = new AlertDialog.Builder(AnyCareBindActivity.this);
 			    		builder
-			    			.setTitle("È·ÈÏ")
-			    			.setMessage("È·ÈÏ½â°ó¸ÃÉè±¸?")
-			    			.setPositiveButton("ÊÇ", new DialogInterface.OnClickListener() {
+			    			.setTitle("ç¡®è®¤")
+			    			.setMessage("ç¡®è®¤è§£ç»‘è¯¥è®¾å¤‡?")
+			    			.setPositiveButton("æ˜¯", new DialogInterface.OnClickListener() {
 			    				@Override
 			    				public void onClick(DialogInterface d, int which) {
 			    					// TODO Auto-generated method stub
@@ -159,7 +159,7 @@ public class AnyCareBindActivity extends Activity {
 			    					new UserDeleteDeviceAsyncTask().execute(new String[]{archivesId,deviceId});
 			    				}
 			    			})
-			    			.setNegativeButton("·ñ", new DialogInterface.OnClickListener(){
+			    			.setNegativeButton("å¦", new DialogInterface.OnClickListener(){
 			    				@Override
 			    				public void onClick(DialogInterface d, int which) {
 			    					// TODO Auto-generated method stub
@@ -168,7 +168,7 @@ public class AnyCareBindActivity extends Activity {
 			    			});
 			    		builder.create().show();
 					}else if("0".equals(createSign)){
-						Toast.makeText(getApplicationContext(), "ÎŞÈ¨ÏŞÉ¾³ıÉè±¸", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), "æ— æƒé™åˆ é™¤è®¾å¤‡", Toast.LENGTH_SHORT).show();
 					}
 				}
 			});
@@ -177,20 +177,20 @@ public class AnyCareBindActivity extends Activity {
 	}
 	 
 		/**
-		 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-		 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-		 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-		 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+		 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+		 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+		 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+		 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 		 * */
 		private class UserLoadDeviceByArchIdAsyncTask extends AsyncTask<String, String, String>{
-			//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+			//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 			@Override
 			protected void onPreExecute() {
 				// TODO Auto-generated method stub
 				super.onPreExecute();
-				dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+				dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 			}
-			//Íê³ÉºÄÊ±²Ù×÷
+			//å®Œæˆè€—æ—¶æ“ä½œ
 			@Override
 			protected String doInBackground(String... params) {
 				// TODO Auto-generated method stub
@@ -212,7 +212,7 @@ public class AnyCareBindActivity extends Activity {
 				
 			}
 			
-			//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+			//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 			@Override
 			protected void onPostExecute(String result) {
 				// TODO Auto-generated method stub
@@ -234,10 +234,10 @@ public class AnyCareBindActivity extends Activity {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+					dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 				}else if("".equals(result)){
-					Toast.makeText(getApplicationContext(), "ÎŞ°ó¶¨Éè±¸ĞÅÏ¢£¡", Toast.LENGTH_SHORT).show();
-					dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+					Toast.makeText(getApplicationContext(), "æ— ç»‘å®šè®¾å¤‡ä¿¡æ¯ï¼", Toast.LENGTH_SHORT).show();
+					dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 				}
 				if(myAdapter==null){
 					myAdapter=new MyAdapter();
@@ -248,20 +248,20 @@ public class AnyCareBindActivity extends Activity {
 			}
 		}
 		/**
-		 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-		 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-		 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-		 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+		 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+		 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+		 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+		 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 		 * */
 		private class UserDeleteDeviceAsyncTask extends AsyncTask<String, String, String>{
-			//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+			//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 			@Override
 			protected void onPreExecute() {
 				// TODO Auto-generated method stub
 				super.onPreExecute();
-				dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+				dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 			}
-			//Íê³ÉºÄÊ±²Ù×÷
+			//å®Œæˆè€—æ—¶æ“ä½œ
 			@Override
 			protected String doInBackground(String... params) {
 				// TODO Auto-generated method stub
@@ -283,22 +283,23 @@ public class AnyCareBindActivity extends Activity {
 				super.onProgressUpdate(values);
 			}
 			
-			//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+			//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 			@Override
 			protected void onPostExecute(String result) {
 				// TODO Auto-generated method stub
 				super.onPostExecute(result);
 				dataList.clear();
 				if(result!=null&&!"".equals(result)&&"true".equals(result)){
-					Toast.makeText(getApplicationContext(), "½â°óÉè±¸³É¹¦£¡", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "è§£ç»‘è®¾å¤‡æˆåŠŸï¼", Toast.LENGTH_SHORT).show();
 					new UserLoadDeviceByArchIdAsyncTask().execute(new String[]{archivesId});
 				}else if(result!=null&&!"".equals(result)&&"false".equals(result)){
-					Toast.makeText(getApplicationContext(), "½â°óÉè±¸Ê§°Ü,ÇëÖØÊÔ£¡", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "è§£ç»‘è®¾å¤‡å¤±è´¥,è¯·é‡è¯•ï¼", Toast.LENGTH_SHORT).show();
 				}else if("".equals(result)){
-					Toast.makeText(getApplicationContext(), "²Ù×÷Ê§°Ü£¬ÇëÖØÊÔ£¡", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "æ“ä½œå¤±è´¥ï¼Œè¯·é‡è¯•ï¼", Toast.LENGTH_SHORT).show();
 				}
-				dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+				dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 			}
 		}
 	 
 }
+

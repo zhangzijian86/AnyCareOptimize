@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 
 /**
- * ¸úAppÏà¹ØµÄ¸¨ÖúÀà
+ * è·ŸAppç›¸å…³çš„è¾…åŠ©ç±»
  * 
  * @author zhy
  * 
@@ -22,7 +22,7 @@ public class AppUtils
 	}
 
 	/**
-	 * »ñÈ¡Ó¦ÓÃ³ÌĞòÃû³Æ
+	 * è·å–åº”ç”¨ç¨‹åºåç§°
 	 */
 	public static String getAppName(Context context)
 	{
@@ -41,10 +41,10 @@ public class AppUtils
 	}
 
 	/**
-	 * [»ñÈ¡Ó¦ÓÃ³ÌĞò°æ±¾Ãû³ÆĞÅÏ¢]
+	 * [è·å–åº”ç”¨ç¨‹åºç‰ˆæœ¬åç§°ä¿¡æ¯]
 	 * 
 	 * @param context
-	 * @return µ±Ç°Ó¦ÓÃµÄ°æ±¾Ãû³Æ
+	 * @return å½“å‰åº”ç”¨çš„ç‰ˆæœ¬åç§°
 	 */
 	public static String getVersionName(Context context)
 	{
@@ -63,3 +63,4 @@ public class AppUtils
 	}
 
 }
+

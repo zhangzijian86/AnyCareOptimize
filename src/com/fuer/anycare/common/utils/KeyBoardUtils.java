@@ -5,7 +5,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 /**
- * ´ò¿ª»ò¹Ø±ÕÈí¼üÅÌ
+ * æ‰“å¼€æˆ–å…³é—­è½¯é”®ç›˜
  * 
  * @author zhy
  * 
@@ -13,12 +13,12 @@ import android.widget.EditText;
 public class KeyBoardUtils
 {
 	/**
-	 * ´ò¿¨Èí¼üÅÌ
+	 * æ‰“å¡è½¯é”®ç›˜
 	 * 
 	 * @param mEditText
-	 *            ÊäÈë¿ò
+	 *            è¾“å…¥æ¡†
 	 * @param mContext
-	 *            ÉÏÏÂÎÄ
+	 *            ä¸Šä¸‹æ–‡
 	 */
 	public static void openKeybord(EditText mEditText, Context mContext)
 	{
@@ -30,12 +30,12 @@ public class KeyBoardUtils
 	}
 
 	/**
-	 * ¹Ø±ÕÈí¼üÅÌ
+	 * å…³é—­è½¯é”®ç›˜
 	 * 
 	 * @param mEditText
-	 *            ÊäÈë¿ò
+	 *            è¾“å…¥æ¡†
 	 * @param mContext
-	 *            ÉÏÏÂÎÄ
+	 *            ä¸Šä¸‹æ–‡
 	 */
 	public static void closeKeybord(EditText mEditText, Context mContext)
 	{
@@ -45,3 +45,4 @@ public class KeyBoardUtils
 		imm.hideSoftInputFromWindow(mEditText.getWindowToken(), 0);
 	}
 }
+

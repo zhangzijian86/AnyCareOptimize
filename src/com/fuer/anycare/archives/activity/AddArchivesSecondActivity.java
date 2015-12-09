@@ -91,111 +91,111 @@ public class AddArchivesSecondActivity extends Activity {
 //				startActivity(intent);
 				StringBuffer medicalHistory = new StringBuffer();
 				if(xinnaoxueguanbingSign==true){
-					medicalHistory.append("ĞÄÄÔÑª¹Ü²¡");
+					medicalHistory.append("å¿ƒè„‘è¡€ç®¡ç—…");
 				}
 				if(jingzhuibingSign==true){
 					if(medicalHistory.length()==0){
-						medicalHistory.append("¾±×µ²¡");
+						medicalHistory.append("é¢ˆæ¤ç—…");
 					}else{
-						medicalHistory.append(",¾±×µ²¡");
+						medicalHistory.append(",é¢ˆæ¤ç—…");
 					}
 				}
 				if(feiyanSign==true){
 					if(medicalHistory.length()==0){
-						medicalHistory.append("·ÎÑ×");
+						medicalHistory.append("è‚ºç‚");
 					}else{
-						medicalHistory.append(",·ÎÑ×");
+						medicalHistory.append(",è‚ºç‚");
 					}
 				}
 				if(ganbingSign==true){
 					if(medicalHistory.length()==0){
-						medicalHistory.append("¸Î²¡");
+						medicalHistory.append("è‚ç—…");
 					}else{
-						medicalHistory.append(",¸Î²¡");
+						medicalHistory.append(",è‚ç—…");
 					}
 				}
 				if(yaozhuibingSign==true){
 					if(medicalHistory.length()==0){
-						medicalHistory.append("Ñü×µ²¡");
+						medicalHistory.append("è…°æ¤ç—…");
 					}else{
-						medicalHistory.append(",Ñü×µ²¡");
+						medicalHistory.append(",è…°æ¤ç—…");
 					}
 				}
 				if(tangniaobingSign==true){
 					if(medicalHistory.length()==0){
-						medicalHistory.append("ÌÇÄò²¡");
+						medicalHistory.append("ç³–å°¿ç—…");
 					}else{
-						medicalHistory.append(",ÌÇÄò²¡");
+						medicalHistory.append(",ç³–å°¿ç—…");
 					}
 				}
 				if(guzhishusongSign==true){
 					if(medicalHistory.length()==0){
-						medicalHistory.append("¹ÇÖÊÊèËÉ");
+						medicalHistory.append("éª¨è´¨ç–æ¾");
 					}else{
-						medicalHistory.append(",¹ÇÖÊÊèËÉ");
+						medicalHistory.append(",éª¨è´¨ç–æ¾");
 					}
 				}
 				if(jingmaiquzhangSign==true){
 					if(medicalHistory.length()==0){
-						medicalHistory.append("¾²ÂöÇúÕÅ");
+						medicalHistory.append("é™è„‰æ›²å¼ ");
 					}else{
-						medicalHistory.append(",¾²ÂöÇúÕÅ");
+						medicalHistory.append(",é™è„‰æ›²å¼ ");
 					}
 				}
 				if(laonianchidaiSign==true){
 					if(medicalHistory.length()==0){
-						medicalHistory.append("ÀÏÄê³Õ´ô");
+						medicalHistory.append("è€å¹´ç—´å‘†");
 					}else{
-						medicalHistory.append(",ÀÏÄê³Õ´ô");
+						medicalHistory.append(",è€å¹´ç—´å‘†");
 					}
 				}
 				if(jianzhouyanSign==true){
 					if(medicalHistory.length()==0){
-						medicalHistory.append("¼çÖÜÑ×");
+						medicalHistory.append("è‚©å‘¨ç‚");
 					}else{
-						medicalHistory.append(",¼çÖÜÑ×");
+						medicalHistory.append(",è‚©å‘¨ç‚");
 					}
 				}
 				if(gaoxueyaSign==true){
 					if(medicalHistory.length()==0){
-						medicalHistory.append("¸ßÑªÑ¹");
+						medicalHistory.append("é«˜è¡€å‹");
 					}else{
-						medicalHistory.append(",¸ßÑªÑ¹");
+						medicalHistory.append(",é«˜è¡€å‹");
 					}
 				}
 				if(manxingwenyanSign==true){
 					if(medicalHistory.length()==0){
-						medicalHistory.append("ÂıĞÔÎ¸Ñ×");
+						medicalHistory.append("æ…¢æ€§èƒƒç‚");
 					}else{
-						medicalHistory.append(",ÂıĞÔÎ¸Ñ×");
+						medicalHistory.append(",æ…¢æ€§èƒƒç‚");
 					}
 				}
 				if(shenbingSign==true){
 					if(medicalHistory.length()==0){
-						medicalHistory.append("Éö²¡");
+						medicalHistory.append("è‚¾ç—…");
 					}else{
-						medicalHistory.append(",Éö²¡");
+						medicalHistory.append(",è‚¾ç—…");
 					}
 				}
 				if(gaoxuezhiSign==true){
 					if(medicalHistory.length()==0){
-						medicalHistory.append("¸ßÑªÖ¬");
+						medicalHistory.append("é«˜è¡€è„‚");
 					}else{
-						medicalHistory.append(",¸ßÑªÖ¬");
+						medicalHistory.append(",é«˜è¡€è„‚");
 					}
 				}
 				if(tongfengbingSign==true){
 					if(medicalHistory.length()==0){
-						medicalHistory.append("Í´·ç²¡");
+						medicalHistory.append("ç—›é£ç—…");
 					}else{
-						medicalHistory.append(",Í´·ç²¡");
+						medicalHistory.append(",ç—›é£ç—…");
 					}
 				}
 				if(guanjieyaSign==true){
 					if(medicalHistory.length()==0){
-						medicalHistory.append("¹Ø½ÚÑ×");
+						medicalHistory.append("å…³èŠ‚ç‚");
 					}else{
-						medicalHistory.append(",¹Ø½ÚÑ×");
+						medicalHistory.append(",å…³èŠ‚ç‚");
 					}
 				}
 				new ArchivesUpdateMedicalHistoryAsyncTask().execute(new String[]{archivesId,medicalHistory.toString()});
@@ -219,9 +219,9 @@ public class AddArchivesSecondActivity extends Activity {
 	 	tongfengbingBtn = (Button)findViewById(R.id.tongfengbing);
 	 	guanjieyaBtn = (Button)findViewById(R.id.guanjieya);
 	 	
-	 	//³õÊ¼»¯dialog
-		dialog=new LoadingProgressDialog(this,"ÕıÔÚ¼ÓÔØ...");
-		//³õÊ¼»¯dialog end
+	 	//åˆå§‹åŒ–dialog
+		dialog=new LoadingProgressDialog(this,"æ­£åœ¨åŠ è½½...");
+		//åˆå§‹åŒ–dialog end
 		
 		 xinnaoxueguanbingBtn.setOnClickListener(new MyOnClickListener());
 		 jingzhuibingBtn.setOnClickListener(new MyOnClickListener());
@@ -245,20 +245,20 @@ public class AddArchivesSecondActivity extends Activity {
 		new UserLoadArchivesAsyncTask().execute(new String[]{archivesId});
 	 }
 	 /**
-		 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-		 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-		 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-		 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+		 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+		 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+		 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+		 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 		 * */
 		private class ArchivesUpdateMedicalHistoryAsyncTask extends AsyncTask<String, String, String>{
-			//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+			//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 			@Override
 			protected void onPreExecute() {
 				// TODO Auto-generated method stub
 				super.onPreExecute();
-				dialog.show();//ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+				dialog.show();//æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 			}
-			//Íê³ÉºÄÊ±²Ù×÷
+			//å®Œæˆè€—æ—¶æ“ä½œ
 			@Override
 			protected String doInBackground(String... params) {
 				// TODO Auto-generated method stub
@@ -287,21 +287,21 @@ public class AddArchivesSecondActivity extends Activity {
 				
 			}
 			
-			//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+			//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 			@Override
 			protected void onPostExecute(String result) {
 				// TODO Auto-generated method stub
 				super.onPostExecute(result);
 				if(result!=null&&!"".equals(result)&&result.length()==32){
-					Toast.makeText(getApplicationContext(), "¸öÈËĞÅÏ¢¸üĞÂ³É¹¦", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "ä¸ªäººä¿¡æ¯æ›´æ–°æˆåŠŸ", Toast.LENGTH_SHORT).show();
 					Bundle bundle = new Bundle();
 					bundle.putString("archivesId",result);
 					startActivity(new Intent(getApplication(), ArchivesShowActivity.class).putExtras(bundle));
 					overridePendingTransition(R.anim.zoom_enter, R.anim.zoom_exit);
 				}else{
-					Toast.makeText(getApplicationContext(), "¸öÈËĞÅÏ¢¸üĞÂÊ§°Ü£¡", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "ä¸ªäººä¿¡æ¯æ›´æ–°å¤±è´¥ï¼", Toast.LENGTH_SHORT).show();
 				}
-				dialog.dismiss();//dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+				dialog.dismiss();//dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 			}
 		}
 		
@@ -315,7 +315,7 @@ public class AddArchivesSecondActivity extends Activity {
 				
 				switch (v.getId()) {
 					case R.id.xinnaoxueguanbing:
-						//Èç¹ûÒÑ¾­Ñ¡ÖĞ£¬µã»÷Ñ¡ÖĞ°´Å¥,È¡ÏûÑ¡ÖĞ²Ù×÷£¬±ä°×É«
+						//å¦‚æœå·²ç»é€‰ä¸­ï¼Œç‚¹å‡»é€‰ä¸­æŒ‰é’®,å–æ¶ˆé€‰ä¸­æ“ä½œï¼Œå˜ç™½è‰²
 						if(xinnaoxueguanbingSign==true){
 							xinnaoxueguanbingSign =false;
 							xinnaoxueguanbingBtn.setBackgroundResource(R.drawable.zuobai);
@@ -465,19 +465,19 @@ public class AddArchivesSecondActivity extends Activity {
 		}
 		
 		/**
-		 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º
-		 * µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶
-		 * µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-		 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+		 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š
+		 * ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„
+		 * ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+		 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 		 * */
 		private class UserLoadArchivesAsyncTask extends AsyncTask<String, String, String>{
-			//ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+			//ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 			@Override
 			protected void onPreExecute() {
 				// TODO Auto-generated method stub
 				super.onPreExecute();
 			}
-			//Íê³ÉºÄÊ±²Ù×÷
+			//å®Œæˆè€—æ—¶æ“ä½œ
 			@Override
 			protected String doInBackground(String... params) {
 				// TODO Auto-generated method stub
@@ -500,7 +500,7 @@ public class AddArchivesSecondActivity extends Activity {
 				
 			}
 			
-			//Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+			//æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 			@Override
 			protected void onPostExecute(String result) {
 				// TODO Auto-generated method stub
@@ -513,52 +513,52 @@ public class AddArchivesSecondActivity extends Activity {
 						if(medicalHistory!=null&&!"".equals(medicalHistory)){
 							String sicks[] = medicalHistory.split(",");
 							for(int i = 0;i<sicks.length;i++){
-								if("ĞÄÄÔÑª¹Ü²¡".equals(sicks[i])){
+								if("å¿ƒè„‘è¡€ç®¡ç—…".equals(sicks[i])){
 									xinnaoxueguanbingSign =true;
 									xinnaoxueguanbingBtn.setBackgroundResource(R.drawable.zuohong);
-								}else if("¾±×µ²¡".equals(sicks[i])){
+								}else if("é¢ˆæ¤ç—…".equals(sicks[i])){
 									jingzhuibingSign=true;
 									jingzhuibingBtn.setBackgroundResource(R.drawable.zuohong);
-								}else if("·ÎÑ×".equals(sicks[i])){
+								}else if("è‚ºç‚".equals(sicks[i])){
 									feiyanSign=true;
 									feiyanBtn.setBackgroundResource(R.drawable.zuohong);
-								}else if("¸Î²¡".equals(sicks[i])){
+								}else if("è‚ç—…".equals(sicks[i])){
 									ganbingSign=true;
 									ganbingBtn.setBackgroundResource(R.drawable.zuohong);
-								}else if("Ñü×µ²¡".equals(sicks[i])){
+								}else if("è…°æ¤ç—…".equals(sicks[i])){
 									yaozhuibingSign=true;
 									yaozhuibingBtn.setBackgroundResource(R.drawable.zuohong);
-								}else if("ÌÇÄò²¡".equals(sicks[i])){
+								}else if("ç³–å°¿ç—…".equals(sicks[i])){
 									tangniaobingSign=true;
 									tangniaobingBtn.setBackgroundResource(R.drawable.zuohong);
-								}else if("¹ÇÖÊÊèËÉ".equals(sicks[i])){
+								}else if("éª¨è´¨ç–æ¾".equals(sicks[i])){
 									guzhishusongSign=true;
 									guzhishusongBtn.setBackgroundResource(R.drawable.zuohong);
-								}else if("¾²ÂöÇúÕÅ".equals(sicks[i])){
+								}else if("é™è„‰æ›²å¼ ".equals(sicks[i])){
 									jingmaiquzhangSign=true;
 									jingmaiquzhangBtn.setBackgroundResource(R.drawable.youhong);
-								}else if("ÀÏÄê³Õ´ô".equals(sicks[i])){
+								}else if("è€å¹´ç—´å‘†".equals(sicks[i])){
 									laonianchidaiSign=true;
 									laonianchidaiBtn.setBackgroundResource(R.drawable.youhong);
-								}else if("ÂıĞÔÎ¸Ñ×".equals(sicks[i])){
+								}else if("æ…¢æ€§èƒƒç‚".equals(sicks[i])){
 									manxingwenyanSign=true;
 									manxingwenyanBtn.setBackgroundResource(R.drawable.youhong);
-								}else if("¼çÖÜÑ×".equals(sicks[i])){
+								}else if("è‚©å‘¨ç‚".equals(sicks[i])){
 									jianzhouyanSign=true;
 									jianzhouyanBtn.setBackgroundResource(R.drawable.youhong);
-								}else if("¸ßÑªÑ¹".equals(sicks[i])){
+								}else if("é«˜è¡€å‹".equals(sicks[i])){
 									gaoxueyaSign=true;
 									gaoxueyaBtn.setBackgroundResource(R.drawable.youhong);
-								}else if("Éö²¡".equals(sicks[i])){
+								}else if("è‚¾ç—…".equals(sicks[i])){
 									shenbingSign=true;
 									shenbingBtn.setBackgroundResource(R.drawable.youhong);
-								}else if("¸ßÑªÖ¬".equals(sicks[i])){
+								}else if("é«˜è¡€è„‚".equals(sicks[i])){
 									gaoxuezhiSign=true;
 									gaoxuezhiBtn.setBackgroundResource(R.drawable.youhong);
-								}else if("Í´·ç²¡".equals(sicks[i])){
+								}else if("ç—›é£ç—…".equals(sicks[i])){
 									tongfengbingSign=true;
 									tongfengbingBtn.setBackgroundResource(R.drawable.youhong);
-								}else if("¹Ø½ÚÑ×".equals(sicks[i])){
+								}else if("å…³èŠ‚ç‚".equals(sicks[i])){
 									guanjieyaSign=true;
 									guanjieyaBtn.setBackgroundResource(R.drawable.youhong);
 								}
@@ -587,15 +587,16 @@ public class AddArchivesSecondActivity extends Activity {
 						e.printStackTrace();
 					}
 				}else if("".equals(result)){
-					Toast.makeText(getApplicationContext(), "¸öÈËĞÅÏ¢¼ÓÔØÊ§°Ü£¡", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "ä¸ªäººä¿¡æ¯åŠ è½½å¤±è´¥ï¼", Toast.LENGTH_SHORT).show();
 				}
 			}
 		}
 		
 		private String readUserId(){
 			SharedPreferences sp=getSharedPreferences("paramater", Context.MODE_PRIVATE);
-			//ÈôÃ»ÓĞÊı¾İ£¬·µ»ØÄ¬ÈÏÖµ""
+			//è‹¥æ²¡æœ‰æ•°æ®ï¼Œè¿”å›é»˜è®¤å€¼""
 			String userId=sp.getString("userId", "");
 			return userId;
 		}
 }
+

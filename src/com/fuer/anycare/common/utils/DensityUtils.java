@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.TypedValue;
 
 /**
- * 常用单位转换的辅助类
+ * 甯哥敤鍗曚綅杞崲鐨勮緟鍔╃被
  * 
  * @author zhy
  * 
@@ -18,7 +18,7 @@ public class DensityUtils
 	}
 
 	/**
-	 * dp转px
+	 * dp杞琾x
 	 * 
 	 * @param context
 	 * @param val
@@ -31,7 +31,7 @@ public class DensityUtils
 	}
 
 	/**
-	 * sp转px
+	 * sp杞琾x
 	 * 
 	 * @param context
 	 * @param val
@@ -44,7 +44,7 @@ public class DensityUtils
 	}
 
 	/**
-	 * px转dp
+	 * px杞琩p
 	 * 
 	 * @param context
 	 * @param pxVal
@@ -57,7 +57,7 @@ public class DensityUtils
 	}
 
 	/**
-	 * px转sp
+	 * px杞瑂p
 	 * 
 	 * @param fontScale
 	 * @param pxVal
@@ -69,3 +69,4 @@ public class DensityUtils
 	}
 
 }
+

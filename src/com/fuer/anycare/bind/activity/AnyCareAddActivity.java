@@ -72,34 +72,34 @@ public class AnyCareAddActivity extends Activity {
 					if (!TextUtils.isEmpty(shebeihao)&& !TextUtils.isEmpty(fanweima)) {
 						new ArchivesBindDevicesAsyncTask().execute(new String[] { archivesId, shebeihao,fanweima });
 					} else {
-						Toast.makeText(getApplicationContext(),"Éè±¸ºÅ¡¢·ÀÎ±Âë¶¼²»ÄÜÎª¿Õ£¡", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(),"è®¾å¤‡å·ã€é˜²ä¼ªç éƒ½ä¸èƒ½ä¸ºç©ºï¼", Toast.LENGTH_SHORT).show();
 					}
 				}
 			}
 		});
-		// ³õÊ¼»¯dialog
-		dialog = new LoadingProgressDialog(this, "ÕıÔÚ¼ÓÔØ...");
-		// ³õÊ¼»¯dialog end
+		// åˆå§‹åŒ–dialog
+		dialog = new LoadingProgressDialog(this, "æ­£åœ¨åŠ è½½...");
+		// åˆå§‹åŒ–dialog end
 		
 		
 		
 	}
 
 	/**
-	 * dis£ºAsyncTask²ÎÊıÀàĞÍ£º µÚÒ»¸ö²ÎÊı±êÊé´«Èëµ½Òì²½ÈÎÎñÖĞ²¢½øĞĞ²Ù×÷£¬Í¨³£ÊÇÍøÂçµÄÂ·¾¶ µÚ¶ş¸ö²ÎÊı±íÊ¾½ø¶ÈµÄ¿Ì¶È
-	 * µÚÈı¸ö²ÎÊı±íÊ¾·µ»ØµÄ½á¹ûÀàĞÍ
+	 * disï¼šAsyncTaskå‚æ•°ç±»å‹ï¼š ç¬¬ä¸€ä¸ªå‚æ•°æ ‡ä¹¦ä¼ å…¥åˆ°å¼‚æ­¥ä»»åŠ¡ä¸­å¹¶è¿›è¡Œæ“ä½œï¼Œé€šå¸¸æ˜¯ç½‘ç»œçš„è·¯å¾„ ç¬¬äºŒä¸ªå‚æ•°è¡¨ç¤ºè¿›åº¦çš„åˆ»åº¦
+	 * ç¬¬ä¸‰ä¸ªå‚æ•°è¡¨ç¤ºè¿”å›çš„ç»“æœç±»å‹
 	 * */
 	private class ArchivesBindDevicesAsyncTask extends
 			AsyncTask<String, String, String> {
-		// ÈÎÎñÖ´ĞĞÖ®Ç°µÄ²Ù×÷
+		// ä»»åŠ¡æ‰§è¡Œä¹‹å‰çš„æ“ä½œ
 		@Override
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.show();// ÏÔÊ¾dialog£¬Êı¾İÕıÔÚ´¦Àí....
+			dialog.show();// æ˜¾ç¤ºdialogï¼Œæ•°æ®æ­£åœ¨å¤„ç†....
 		}
 
-		// Íê³ÉºÄÊ±²Ù×÷
+		// å®Œæˆè€—æ—¶æ“ä½œ
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -124,13 +124,13 @@ public class AnyCareAddActivity extends Activity {
 
 		}
 
-		// Êı¾İ´¦ÀíÍê±Ïºó¸üĞÂUI²Ù×÷
+		// æ•°æ®å¤„ç†å®Œæ¯•åæ›´æ–°UIæ“ä½œ
 		@Override
 		protected void onPostExecute(String result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
 			if (result != null && !"".equals(result) && "true".equals(result)) {
-				Toast.makeText(getApplicationContext(), "Éè±¸°ó¶¨³É¹¦£¡",
+				Toast.makeText(getApplicationContext(), "è®¾å¤‡ç»‘å®šæˆåŠŸï¼",
 						Toast.LENGTH_SHORT).show();
 				Bundle bundle = new Bundle();
 				bundle.putString("archivesId", archivesId);
@@ -139,22 +139,23 @@ public class AnyCareAddActivity extends Activity {
 				AnyCareAddActivity.this.finish();
 			} else if (result != null && !"".equals(result)
 					&& "nodevice".equals(result)) {
-				Toast.makeText(getApplicationContext(), "ÎŞ¸ÃÉè±¸£¡",
+				Toast.makeText(getApplicationContext(), "æ— è¯¥è®¾å¤‡ï¼",
 						Toast.LENGTH_SHORT).show();
 			} else if (result != null && !"".equals(result)
 					&& "bindDeviceLocked".equals(result)) {
-				Toast.makeText(getApplicationContext(), "Éè±¸ÒÑ±»°ó¶¨£¬ÇëÏÈ½â°ó£¡",
+				Toast.makeText(getApplicationContext(), "è®¾å¤‡å·²è¢«ç»‘å®šï¼Œè¯·å…ˆè§£ç»‘ï¼",
 						Toast.LENGTH_SHORT).show();
 			} else if (result != null && !"".equals(result)
 					&& "bindSameDevice".equals(result)) {
-				Toast.makeText(getApplicationContext(), "Ò»¸öÈËÔ±²»¿É°ó¶¨ÁíÒ»¸öÏàÍ¬Éè±¸",
+				Toast.makeText(getApplicationContext(), "ä¸€ä¸ªäººå‘˜ä¸å¯ç»‘å®šå¦ä¸€ä¸ªç›¸åŒè®¾å¤‡",
 						Toast.LENGTH_SHORT).show();
 			} else {
-				Toast.makeText(getApplicationContext(), "°ó¶¨Ê§°Ü£¡",
+				Toast.makeText(getApplicationContext(), "ç»‘å®šå¤±è´¥ï¼",
 						Toast.LENGTH_SHORT).show();
 			}
-			dialog.dismiss();// dialog¹Ø±Õ£¬Êı¾İ´¦ÀíÍê±Ï
+			dialog.dismiss();// dialogå…³é—­ï¼Œæ•°æ®å¤„ç†å®Œæ¯•
 		}
 	}
 
 }
+

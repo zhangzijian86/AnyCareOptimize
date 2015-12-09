@@ -37,8 +37,8 @@ public class DateTool {
 	}
 	
 	/**
-	 * ´«ÈëÈÕÆÚ£¬month ÎªÕı£¬ÔòÎªµ±Ç°ÔÂ·İ¼ÓÉÏÏÖÔÚµÄÔÂ·İ
-	 * 			month Îª¸º£¬ÔòÎªµ±Ç°ÔÂ·İ¼õµôÏÖÔÚµÄÔÂ·İ
+	 * ä¼ å…¥æ—¥æœŸï¼Œmonth ä¸ºæ­£ï¼Œåˆ™ä¸ºå½“å‰æœˆä»½åŠ ä¸Šç°åœ¨çš„æœˆä»½
+	 * 			month ä¸ºè´Ÿï¼Œåˆ™ä¸ºå½“å‰æœˆä»½å‡æ‰ç°åœ¨çš„æœˆä»½
 	 * */
 	public static String calYearOfMonth(String yearOfMonth,int month){
 		String reStr = "";
@@ -47,7 +47,7 @@ public class DateTool {
 			Date date = df.parse(yearOfMonth);
 			Calendar rightNow = Calendar.getInstance();
 		    rightNow.setTime(date);
-		    rightNow.add(Calendar.MONTH,month);//ÈÕÆÚ¼Ó3¸öÔÂ
+		    rightNow.add(Calendar.MONTH,month);//æ—¥æœŸåŠ 3ä¸ªæœˆ
 		    Date dt=rightNow.getTime();
 		    reStr = df.format(dt);
 		}catch(Exception e){
@@ -72,3 +72,4 @@ public class DateTool {
 		System.out.println(yearMonth(2015, 1));
 	}
 }
+

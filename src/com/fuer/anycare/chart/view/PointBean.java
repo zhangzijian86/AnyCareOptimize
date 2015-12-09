@@ -8,7 +8,7 @@ public class PointBean {
     public float x;
     public String dushu;
     
-    public String bushu;//ÏÔÊ¾µÄ²½Êı
+    public String bushu;//æ˜¾ç¤ºçš„æ­¥æ•°
     
     public PointBean() {
         super();

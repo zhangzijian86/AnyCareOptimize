@@ -15,32 +15,32 @@ public class MyApplication extends Application{
 		super.onConfigurationChanged(newConfig);
 	}
 
-	//ÖĞÎÄ£ºÕû¸öÓ¦ÓÃ³ÌĞòµÄ¿ªÊ¼Èë¿ÚµØÖ·
-	//English£ºThe entire application start entrance.
+	//ä¸­æ–‡ï¼šæ•´ä¸ªåº”ç”¨ç¨‹åºçš„å¼€å§‹å…¥å£åœ°å€
+	//Englishï¼šThe entire application start entrance.
 	@Override
 	public void onCreate() {
 		// TODO Auto-generated method stub
 		super.onCreate();
 		
 		SDKInitializer.initialize(this);
-		// ÔÚÊ¹ÓÃ SDK ¸÷×é¼äÖ®Ç°³õÊ¼»¯ context ĞÅÏ¢£¬´«Èë ApplicationContext
+		// åœ¨ä½¿ç”¨ SDK å„ç»„é—´ä¹‹å‰åˆå§‹åŒ– context ä¿¡æ¯ï¼Œä¼ å…¥ ApplicationContext
 		JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
 	}
 	
-	//µ±Ó¦ÓÃ³ÌĞòÄÚ´æ²»¹»Ê±£¬»áÔÚÕâÀïÉ±ËÀÓ¦ÓÃ³ÌĞò
+	//å½“åº”ç”¨ç¨‹åºå†…å­˜ä¸å¤Ÿæ—¶ï¼Œä¼šåœ¨è¿™é‡Œæ€æ­»åº”ç”¨ç¨‹åº
 	//When not enough memory for applications, 
 	//will kill the application here
 	@Override
 	public void onLowMemory() {
 		// TODO Auto-generated method stub
 		super.onLowMemory();
-		// ÔÚÊ¹ÓÃ SDK ¸÷×é¼äÖ®Ç°³õÊ¼»¯ context ĞÅÏ¢£¬´«Èë ApplicationContext
+		// åœ¨ä½¿ç”¨ SDK å„ç»„é—´ä¹‹å‰åˆå§‹åŒ– context ä¿¡æ¯ï¼Œä¼ å…¥ ApplicationContext
 		JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
 	}
 
-	// Õâ¸öº¯ÊıÊÇÄ£ÄâÒ»¸ö¹ı³Ì»·¾³£¬ÔÚÕæ»úÖĞÓÀÔ¶Ò²²»»á±»µ÷ÓÃ¡£
+	// è¿™ä¸ªå‡½æ•°æ˜¯æ¨¡æ‹Ÿä¸€ä¸ªè¿‡ç¨‹ç¯å¢ƒï¼Œåœ¨çœŸæœºä¸­æ°¸è¿œä¹Ÿä¸ä¼šè¢«è°ƒç”¨ã€‚
 	//This function is a process simulation environment, 
 	//in the real machine would never be called.
 	@Override
@@ -50,3 +50,4 @@ public class MyApplication extends Application{
 	}
 
 }
+

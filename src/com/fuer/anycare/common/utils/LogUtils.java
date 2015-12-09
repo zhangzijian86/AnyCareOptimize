@@ -5,7 +5,7 @@ package com.fuer.anycare.common.utils;
 import android.util.Log;
 
 /**
- * LogÍ³Ò»¹ÜÀíÀà
+ * Logç»Ÿä¸€ç®¡ç†ç±»
  * 
  * @author way
  * 
@@ -19,10 +19,10 @@ public class LogUtils
 		throw new UnsupportedOperationException("cannot be instantiated");
 	}
 
-	public static boolean isDebug = true;// ÊÇ·ñĞèÒª´òÓ¡bug£¬¿ÉÒÔÔÚapplicationµÄonCreateº¯ÊıÀïÃæ³õÊ¼»¯
+	public static boolean isDebug = true;// æ˜¯å¦éœ€è¦æ‰“å°bugï¼Œå¯ä»¥åœ¨applicationçš„onCreateå‡½æ•°é‡Œé¢åˆå§‹åŒ–
 	private static final String TAG = "way";
 
-	// ÏÂÃæËÄ¸öÊÇÄ¬ÈÏtagµÄº¯Êı
+	// ä¸‹é¢å››ä¸ªæ˜¯é»˜è®¤tagçš„å‡½æ•°
 	public static void i(String msg)
 	{
 		if (isDebug)
@@ -47,7 +47,7 @@ public class LogUtils
 			Log.v(TAG, msg);
 	}
 
-	// ÏÂÃæÊÇ´«Èë×Ô¶¨ÒåtagµÄº¯Êı
+	// ä¸‹é¢æ˜¯ä¼ å…¥è‡ªå®šä¹‰tagçš„å‡½æ•°
 	public static void i(String tag, String msg)
 	{
 		if (isDebug)

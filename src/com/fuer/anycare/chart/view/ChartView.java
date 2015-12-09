@@ -16,34 +16,34 @@ import android.widget.TextView;
 
 public class ChartView extends View {
 
-    // ´«µİ¹ıÀ´µÄÊı¾İ
+    // ä¼ é€’è¿‡æ¥çš„æ•°æ®
 	public String[] XLabel;
     public String[] Data;
     public String XString;
     public String YString;
-    public String XYString;//µã»÷ºóµÄXYµ¥Î»
+    public String XYString;//ç‚¹å‡»åçš„XYå•ä½
 
-    public float xPoint = 30; // (ÒÔ320¿í¶ÈµÄ·Ö±æÂÊÎª×¼,ÆäËû·Ö±æÂÊ*ÏµÊı)
-    public float YPoint = 220; // (ÒÔ320¿í¶ÈµÄ·Ö±æÂÊÎª×¼,ÆäËû·Ö±æÂÊ*ÏµÊı)
-    public float YLength = 200;// (ÒÔ320¿í¶ÈµÄ·Ö±æÂÊÎª×¼,ÆäËû·Ö±æÂÊ*ÏµÊı)
-    public float xLength;// XÖáµÄ¿Ì¶È(ÆÁÄ»µÄ¿í¶È-×óÓÒÁ½±ßµÄ¼ä¸ô)
+    public float xPoint = 30; // (ä»¥320å®½åº¦çš„åˆ†è¾¨ç‡ä¸ºå‡†,å…¶ä»–åˆ†è¾¨ç‡*ç³»æ•°)
+    public float YPoint = 220; // (ä»¥320å®½åº¦çš„åˆ†è¾¨ç‡ä¸ºå‡†,å…¶ä»–åˆ†è¾¨ç‡*ç³»æ•°)
+    public float YLength = 200;// (ä»¥320å®½åº¦çš„åˆ†è¾¨ç‡ä¸ºå‡†,å…¶ä»–åˆ†è¾¨ç‡*ç³»æ•°)
+    public float xLength;// Xè½´çš„åˆ»åº¦(å±å¹•çš„å®½åº¦-å·¦å³ä¸¤è¾¹çš„é—´éš”)
 
-    public float xScale;// XÖáµÄ¿Ì¶È³¤¶È
-    public float YScale;// yÖáµÄ¿Ì¶È³¤¶È
+    public float xScale;// Xè½´çš„åˆ»åº¦é•¿åº¦
+    public float YScale;// yè½´çš„åˆ»åº¦é•¿åº¦
     
 
-    public float eachYLabel;// YÖáÓ¦¸ÃÏÔÊ¾µÄÖµ
-    public float halfXLabel;// XÖáµÄ¿Ì¶È³¤¶ÈµÄ2/3 ÓÃÒÔÏÔÊ¾XÖáµÄ×ø±êÖµ
+    public float eachYLabel;// Yè½´åº”è¯¥æ˜¾ç¤ºçš„å€¼
+    public float halfXLabel;// Xè½´çš„åˆ»åº¦é•¿åº¦çš„2/3 ç”¨ä»¥æ˜¾ç¤ºXè½´çš„åæ ‡å€¼
 
-    private float selectX;// Ñ¡ÖĞÇøÓòÒªÏÔÊ¾µÄÔ²µãµÄ x×ø±ê
-    private float xyExtra = 20;// XYÖá¿ÕÓàµÄ¾àÀë
+    private float selectX;// é€‰ä¸­åŒºåŸŸè¦æ˜¾ç¤ºçš„åœ†ç‚¹çš„ xåæ ‡
+    private float xyExtra = 20;// XYè½´ç©ºä½™çš„è·ç¦»
     private float displacement = 5;
     private float textSize = 12;
-    private float circleSize = 5;// Ô²µãµÄ´óĞ¡
-    private float radio;// ²»Í¬·Ö±æÂÊµÄ ±ÈÂÊ(ÒÔ320Îª»ùÊı)
+    private float circleSize = 5;// åœ†ç‚¹çš„å¤§å°
+    private float radio;// ä¸åŒåˆ†è¾¨ç‡çš„ æ¯”ç‡(ä»¥320ä¸ºåŸºæ•°)
 
-    private String selectData = "";// Ñ¡ÖĞÖ®ºóĞèÒªÏÔÊ¾µÄÊı¾İ
-    private String selectBushu = "";//Ñ¡ÖĞÖ®ºóĞèÒªÏÔÊ¾µÄ²½Êı
+    private String selectData = "";// é€‰ä¸­ä¹‹åéœ€è¦æ˜¾ç¤ºçš„æ•°æ®
+    private String selectBushu = "";//é€‰ä¸­ä¹‹åéœ€è¦æ˜¾ç¤ºçš„æ­¥æ•°
 
     private int screenWidth;
     private int screenHeight;
@@ -70,29 +70,29 @@ public class ChartView extends View {
     public void SetInfo(String[] AllData,Display display,String []AllXLabel,String XSign,String YSign,String XYUnit,String[] buShuArr,String signstr,TextView xingzou,TextView tixing) {
 //        XLabel = new String[] {
 //                "1", "", "3", "", "5", "", "7", "", "9", "", "11", "","13","","15","","17","","19","","21","","23",""
-//        };//xÖá¿Ì¶È±êÊ¶
+//        };//xè½´åˆ»åº¦æ ‡è¯†
         Data = AllData;
         XLabel = AllXLabel;
         XString = XSign;
         YString = YSign;
         XYString = XYUnit;
-        this.screenWidth = display.getWidth();//µÃµ½ÆÁÄ»µÄ¿í¶È
-        this.screenHeight = display.getHeight();//µÃµ½ÆÁÄ»µÄ¸ß¶È
-        radio = screenWidth / 320;// (ÒÔ320µÄ·Ö±æÂÊÎª»ù×¼)
-        xPoint = xPoint * radio;// XÖá×óÓÒÁ½±ßµÄ¼ä¸ô
-        xLength = screenWidth - xPoint * 2;// XÖáµÄ³¤¶È £¨ÆÁÄ»¿í¶È¼õÈ¥×óÓÒÁ½±ß¿ÕÓàxPointµÄ¿Ì¶È£©
-        xyExtra = xyExtra * radio;//xyÖá¿ÕÓàµÄ¾àÀë
-        xScale = (xLength - xyExtra) / XLabel.length; // XÖáµÄ¿Ì¶È¼ä¸ô    Îª³¤¶È-×îÓÒ±ß¿ÕÓàµÄ¾àÀë³ıÒÔ¸öÊı
-        halfXLabel = xScale * 2 / 3;// XÖá¿Ì¶ÈµÄÒ»°ëÖµ(XÖá¿Ì¶ÈÖµÔÚÖĞ¼äÏÔÊ¾)
+        this.screenWidth = display.getWidth();//å¾—åˆ°å±å¹•çš„å®½åº¦
+        this.screenHeight = display.getHeight();//å¾—åˆ°å±å¹•çš„é«˜åº¦
+        radio = screenWidth / 320;// (ä»¥320çš„åˆ†è¾¨ç‡ä¸ºåŸºå‡†)
+        xPoint = xPoint * radio;// Xè½´å·¦å³ä¸¤è¾¹çš„é—´éš”
+        xLength = screenWidth - xPoint * 2;// Xè½´çš„é•¿åº¦ ï¼ˆå±å¹•å®½åº¦å‡å»å·¦å³ä¸¤è¾¹ç©ºä½™xPointçš„åˆ»åº¦ï¼‰
+        xyExtra = xyExtra * radio;//xyè½´ç©ºä½™çš„è·ç¦»
+        xScale = (xLength - xyExtra) / XLabel.length; // Xè½´çš„åˆ»åº¦é—´éš”    ä¸ºé•¿åº¦-æœ€å³è¾¹ç©ºä½™çš„è·ç¦»é™¤ä»¥ä¸ªæ•°
+        halfXLabel = xScale * 2 / 3;// Xè½´åˆ»åº¦çš„ä¸€åŠå€¼(Xè½´åˆ»åº¦å€¼åœ¨ä¸­é—´æ˜¾ç¤º)
 
-        YPoint = YPoint * radio;// yÖáÉÏÏÂÁ½±ßµÄ¼ä¸ô
-        YLength = YLength * radio;//yÖáµÄ³¤¶È
-        displacement = displacement * radio;// YÖáÏÔÊ¾µÄÎÄ×Ö(½ğ¶î)
-        YScale = (YLength - xyExtra) / 5;// YÖáµÄ¿Ì¶ÈÎª³¤¶È-×îÉÏ±ßµÄ¾àÀë ³ıÒÔ¸öÊı
-        eachYLabel = max(Data) / 5;// YÖáµÄ¿Ì¶ÈÖµ Îª(×î´óÊı/5)
+        YPoint = YPoint * radio;// yè½´ä¸Šä¸‹ä¸¤è¾¹çš„é—´éš”
+        YLength = YLength * radio;//yè½´çš„é•¿åº¦
+        displacement = displacement * radio;// Yè½´æ˜¾ç¤ºçš„æ–‡å­—(é‡‘é¢)
+        YScale = (YLength - xyExtra) / 5;// Yè½´çš„åˆ»åº¦ä¸ºé•¿åº¦-æœ€ä¸Šè¾¹çš„è·ç¦» é™¤ä»¥ä¸ªæ•°
+        eachYLabel = max(Data) / 5;// Yè½´çš„åˆ»åº¦å€¼ ä¸º(æœ€å¤§æ•°/5)
 
-        textSize = textSize * radio;//ÎÄ±¾µÄ´óĞ¡
-        circleSize = circleSize * radio;//Ô²È¦µÄ´óĞ¡
+        textSize = textSize * radio;//æ–‡æœ¬çš„å¤§å°
+        circleSize = circleSize * radio;//åœ†åœˆçš„å¤§å°
         
         BData = buShuArr;
         sign = signstr;
@@ -102,91 +102,91 @@ public class ChartView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);// ÖØĞ´onDraw·½·¨
-        // ÎÄ±¾µÄ»­±Ê
+        super.onDraw(canvas);// é‡å†™onDrawæ–¹æ³•
+        // æ–‡æœ¬çš„ç”»ç¬”
         textPaint = new Paint();
         textPaint.setStyle(Paint.Style.STROKE);
-        textPaint.setAntiAlias(true);// È¥¾â³İ
-        textPaint.setColor(Color.WHITE);// ÑÕÉ«
-        textPaint.setTextSize(textSize); // ÉèÖÃÖáÎÄ×Ö´óĞ¡
-        // ÏßµÄ»­±Ê
+        textPaint.setAntiAlias(true);// å»é”¯é½¿
+        textPaint.setColor(Color.WHITE);// é¢œè‰²
+        textPaint.setTextSize(textSize); // è®¾ç½®è½´æ–‡å­—å¤§å°
+        // çº¿çš„ç”»ç¬”
         linePaint = new Paint();
         linePaint.setStyle(Paint.Style.STROKE);
-        linePaint.setAntiAlias(true);// È¥¾â³İ
+        linePaint.setAntiAlias(true);// å»é”¯é½¿
         linePaint.setStyle(Paint.Style.STROKE);
-        linePaint.setAntiAlias(true);// È¥¾â³İ
-        linePaint.setColor(Color.parseColor("#808b98"));// ÑÕÉ«
-        // ÇúÏßºÍÎ´Ñ¡ÖĞÔ²µãµÄ»­±Ê
+        linePaint.setAntiAlias(true);// å»é”¯é½¿
+        linePaint.setColor(Color.parseColor("#808b98"));// é¢œè‰²
+        // æ›²çº¿å’Œæœªé€‰ä¸­åœ†ç‚¹çš„ç”»ç¬”
         dataPaint = new Paint();
         dataPaint.setStyle(Paint.Style.FILL);
-        dataPaint.setAntiAlias(true);// È¥¾â³İ
-        dataPaint.setColor(Color.parseColor("#FFFFFF"));// ÑÕÉ«
-        dataPaint.setTextSize(textSize); // ÉèÖÃÖáÎÄ×Ö´óĞ¡
+        dataPaint.setAntiAlias(true);// å»é”¯é½¿
+        dataPaint.setColor(Color.parseColor("#FFFFFF"));// é¢œè‰²
+        dataPaint.setTextSize(textSize); // è®¾ç½®è½´æ–‡å­—å¤§å°
         dataPaint.setStrokeWidth(4);
-        // Ñ¡ÖĞÖ®ºó ×ÖÌåµÄ»­±Ê
+        // é€‰ä¸­ä¹‹å å­—ä½“çš„ç”»ç¬”
         selectTextPaint = new Paint();
         selectTextPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        selectTextPaint.setAntiAlias(true);// È¥¾â³İ
-        selectTextPaint.setColor(Color.WHITE);// ÑÕÉ«
-        selectTextPaint.setTextSize(textSize); // ÉèÖÃÖáÎÄ×Ö´óĞ¡
-        // Ñ¡ÖĞÖ®ºóÔÂ·İ±³¾°µÄ»­±Ê
+        selectTextPaint.setAntiAlias(true);// å»é”¯é½¿
+        selectTextPaint.setColor(Color.WHITE);// é¢œè‰²
+        selectTextPaint.setTextSize(textSize); // è®¾ç½®è½´æ–‡å­—å¤§å°
+        // é€‰ä¸­ä¹‹åæœˆä»½èƒŒæ™¯çš„ç”»ç¬”
         selectBkgPaint = new Paint();
         selectBkgPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        selectBkgPaint.setAntiAlias(true);// È¥¾â³İ
-        selectBkgPaint.setColor(Color.TRANSPARENT);// ÑÕÉ«
-        selectBkgPaint.setTextSize(textSize); // ÉèÖÃÖáÎÄ×Ö´óĞ¡
-        // Ñ¡ÖĞÖ®ºó ÏÔÊ¾Êı¾İµÄ»­±Ê
+        selectBkgPaint.setAntiAlias(true);// å»é”¯é½¿
+        selectBkgPaint.setColor(Color.TRANSPARENT);// é¢œè‰²
+        selectBkgPaint.setTextSize(textSize); // è®¾ç½®è½´æ–‡å­—å¤§å°
+        // é€‰ä¸­ä¹‹å æ˜¾ç¤ºæ•°æ®çš„ç”»ç¬”
         selectCirclePaint = new Paint();
         selectCirclePaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        selectCirclePaint.setAntiAlias(true);// È¥¾â³İ
-        selectCirclePaint.setColor(Color.RED);// ÑÕÉ«
+        selectCirclePaint.setAntiAlias(true);// å»é”¯é½¿
+        selectCirclePaint.setColor(Color.RED);// é¢œè‰²
         selectCirclePaint.setTextSize(textSize);
-//        // ÌîĞ´Ñ¡ÖĞÖ®ºóÏêÏ¸ĞÅÏ¢
+//        // å¡«å†™é€‰ä¸­ä¹‹åè¯¦ç»†ä¿¡æ¯
 //        selectInforPaint = new Paint();
 //        selectInforPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-//        selectInforPaint.setAntiAlias(true);// È¥¾â³İ
-//        selectInforPaint.setColor(Color.WHITE);// ÑÕÉ«
+//        selectInforPaint.setAntiAlias(true);// å»é”¯é½¿
+//        selectInforPaint.setColor(Color.WHITE);// é¢œè‰²
 //        selectInforPaint.setTextSize(textSize*5/3);
         
         
-        if (!selectData.equals("")) {// µã»÷Ä³¸ö¿Ì¶ÈµÄÊ±ºò ¾ØĞÎÇøÓòÑÕÉ«Öµ¸Ä±ä(×î¸ßµÄÒ»ÌõÏßÎªtop)
+        if (!selectData.equals("")) {// ç‚¹å‡»æŸä¸ªåˆ»åº¦çš„æ—¶å€™ çŸ©å½¢åŒºåŸŸé¢œè‰²å€¼æ”¹å˜(æœ€é«˜çš„ä¸€æ¡çº¿ä¸ºtop)
             canvas.drawRect(rectF.left, YPoint - YLength + xyExtra, rectF.right, rectF.bottom,selectBkgPaint);
         }
 
-        // ÉèÖÃYÖá
+        // è®¾ç½®Yè½´
         canvas.drawLine(xPoint, YPoint - YLength, xPoint, YPoint, linePaint);
-        // YÖáµÄ¼ıÍ·
+        // Yè½´çš„ç®­å¤´
         canvas.drawLine(xPoint, YPoint - YLength, xPoint - 3, YPoint - YLength + 6, linePaint);
         canvas.drawLine(xPoint, YPoint - YLength, xPoint + 3, YPoint - YLength + 6, linePaint);
-        // ÉèÖÃXÖá
+        // è®¾ç½®Xè½´
         canvas.drawLine(xPoint, YPoint, xPoint + xLength, YPoint, linePaint);
-        // XÖáµÄ¼ıÍ·
+        // Xè½´çš„ç®­å¤´
         canvas.drawLine(xPoint + xLength, YPoint, xPoint + xLength - 6, YPoint - 3, linePaint);
         canvas.drawLine(xPoint + xLength, YPoint, xPoint + xLength - 6, YPoint + 3, linePaint);
-        canvas.drawText(XString, xPoint + xLength, YPoint + displacement * 3, textPaint); // ÔÂ·İ
-        canvas.drawText(YString, xPoint + displacement, YPoint - YLength, textPaint); // ½ğ¶î
+        canvas.drawText(XString, xPoint + xLength, YPoint + displacement * 3, textPaint); // æœˆä»½
+        canvas.drawText(YString, xPoint + displacement, YPoint - YLength, textPaint); // é‡‘é¢
 
-        // YÖáÏß
+        // Yè½´çº¿
         for (int i = 0; i < 5; i++) {
-            // YÖáµÄÃ¿ÌõÏß,XÖáÎªxPoint-xPoint + xLength YÖá¹Ì¶¨¸ß¶È YPoint - (i + 1) *
-            // YScale(¸ù¾İÔ²µã¼ÆËã³öµÄÖµ)
-            canvas.drawLine(xPoint, YPoint - (i + 1) * YScale, xPoint + xLength, YPoint - (i + 1)* YScale, linePaint); // ¿Ì¶È
+            // Yè½´çš„æ¯æ¡çº¿,Xè½´ä¸ºxPoint-xPoint + xLength Yè½´å›ºå®šé«˜åº¦ YPoint - (i + 1) *
+            // YScale(æ ¹æ®åœ†ç‚¹è®¡ç®—å‡ºçš„å€¼)
+            canvas.drawLine(xPoint, YPoint - (i + 1) * YScale, xPoint + xLength, YPoint - (i + 1)* YScale, linePaint); // åˆ»åº¦
             try {
-                // YÖáµÄ¿Ì¶ÈÖµ,ÖµÎªÆ½¾ù·ÖÅäÖ®ºóËã³öÀ´µÄ
-                canvas.drawText(String.valueOf(eachYLabel * (i + 1)), 5, YPoint - (i + 1) * YScale+ 5, textPaint); // ÎÄ×Ö
+                // Yè½´çš„åˆ»åº¦å€¼,å€¼ä¸ºå¹³å‡åˆ†é…ä¹‹åç®—å‡ºæ¥çš„
+                canvas.drawText(String.valueOf(eachYLabel * (i + 1)), 5, YPoint - (i + 1) * YScale+ 5, textPaint); // æ–‡å­—
             } catch (Exception e) {
             	e.printStackTrace();
             }
         }
-        canvas.drawText("0", 10, YPoint + displacement * 3, textPaint); // ÎÄ×Ö
+        canvas.drawText("0", 10, YPoint + displacement * 3, textPaint); // æ–‡å­—
         for (int i = 0; i < XLabel.length; i++) {
             try {
-                // XÖáµÄÃ¿Ìõ¿Ì¶ÈÏß
+                // Xè½´çš„æ¯æ¡åˆ»åº¦çº¿
                 canvas.drawLine(xPoint + (i + 1) * xScale, YPoint, xPoint + (i + 1) * xScale,YPoint - displacement, linePaint);
-                // XÖáÏÔÊ¾µÄ¿Ì¶ÈÖµ
-                canvas.drawText(XLabel[i], xPoint + (i + 1) * xScale - halfXLabel, YPoint+ displacement* 3, textPaint); // ÎÄ×Ö
+                // Xè½´æ˜¾ç¤ºçš„åˆ»åº¦å€¼
+                canvas.drawText(XLabel[i], xPoint + (i + 1) * xScale - halfXLabel, YPoint+ displacement* 3, textPaint); // æ–‡å­—
                 PointBean bean = new PointBean();
-                // µã»÷Ö®ºóµÄ¾ØĞÎÈ¡ÔÃ
+                // ç‚¹å‡»ä¹‹åçš„çŸ©å½¢å–æ‚¦
                 bean.rectF = new RectF(xPoint + i * xScale, 0, xPoint + (i + 1) * xScale, YPoint);
                 bean.dushu = Data[i];
                 bean.bushu = BData[i];
@@ -207,14 +207,14 @@ public class ChartView extends View {
         }
 
         if (!selectData.equals("")) {
-            // µã»÷µÄÊ±ºò,»­³öºìµã ºÍÏÔÊ¾Êı¾İ
+            // ç‚¹å‡»çš„æ—¶å€™,ç”»å‡ºçº¢ç‚¹ å’Œæ˜¾ç¤ºæ•°æ®
             canvas.drawCircle(selectX, YCoord(selectData), circleSize, selectCirclePaint);
             canvas.drawText( selectData+XYString, selectX + displacement, YCoord(selectData)- displacement, selectCirclePaint);
-//            canvas.drawText("Ê±¼ä£º12:27 ĞÄÂÊ£º80´Î/·ÖÖÓ", xPoint, YPoint+80, selectInforPaint);
-            //»î¶¯Á¿¸üĞÂ²½Êı
+//            canvas.drawText("æ—¶é—´ï¼š12:27 å¿ƒç‡ï¼š80æ¬¡/åˆ†é’Ÿ", xPoint, YPoint+80, selectInforPaint);
+            //æ´»åŠ¨é‡æ›´æ–°æ­¥æ•°
             if("H".equals(sign)){
             	xingzouvalue.setText(selectBushu);
-            //¾²Ö¹¸üĞÂÌáĞÑ´ÎÊı
+            //é™æ­¢æ›´æ–°æé†’æ¬¡æ•°
             }else if("J".equals(sign)){
             	tixingvalue.setText(selectData);
             }
@@ -222,21 +222,21 @@ public class ChartView extends View {
     }
 
     /**
-     * ¼ÆËãY×ø±ê
+     * è®¡ç®—Yåæ ‡
      * 
      * @param y0
      * @return
      */
-    private float YCoord(String y0) // ¼ÆËã»æÖÆÊ±µÄY×ø±ê£¬ÎŞÊı¾İÊ±·µ»Ø-999
+    private float YCoord(String y0) // è®¡ç®—ç»˜åˆ¶æ—¶çš„Yåæ ‡ï¼Œæ— æ•°æ®æ—¶è¿”å›-999
     {
         float y;
         try {
             y = Float.parseFloat(y0);
         } catch (Exception e) {
-            return -999; // ³ö´íÔò·µ»Ø-999
+            return -999; // å‡ºé”™åˆ™è¿”å›-999
         }
         try {
-            // YScale/eachYLabelÎª±ÈÂÊ ³ËÒÔyµÃµ½¾àÀëÔ²µãµÄ¾àÀë
+            // YScale/eachYLabelä¸ºæ¯”ç‡ ä¹˜ä»¥yå¾—åˆ°è·ç¦»åœ†ç‚¹çš„è·ç¦»
             return (float) (YPoint - YScale * y / eachYLabel);
         } catch (Exception e) {
         	e.printStackTrace();
@@ -287,7 +287,7 @@ public class ChartView extends View {
     }
 
     /**
-     * ¼ÆËãYÖá×ø±êµÄ×î´óÖµ
+     * è®¡ç®—Yè½´åæ ‡çš„æœ€å¤§å€¼
      * 
      * @param p
      * @return
@@ -299,8 +299,9 @@ public class ChartView extends View {
                 max = Float.parseFloat(p[i]);
             }
         }
-        int length = (int) (max) / 20 + 1;// ÎªÁËÈ¡ÕûÊı ±ÈÈç×î´óÖµÎª39µÄÊ±ºò ·µ»Ø40
+        int length = (int) (max) / 20 + 1;// ä¸ºäº†å–æ•´æ•° æ¯”å¦‚æœ€å¤§å€¼ä¸º39çš„æ—¶å€™ è¿”å›40
         return length * 20;
     }
 
 }
+
